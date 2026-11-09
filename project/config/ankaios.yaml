@@ -1,0 +1,33 @@
+# Linux lab only, Ankaios v1.1.0. Run agent and Podman in the SAME user context.
+# The broker config MUST exist at /opt/sdv-eclipse-lab/config/vss.json.
+# Build app image as localhost/sdv-eclipse-lab:0.1.0 in that Podman storage.
+apiVersion: v1
+workloads:
+  kuksa:
+    agent: agent_A
+    runtime: podman
+    restartPolicy: ALWAYS
+    runtimeConfig: |
+      image: ghcr.io/eclipse-kuksa/kuksa-databroker@sha256:529d8c6d3cc223362667672978bcb8f92c4d356b25aedd336e7a2e004d7279bd
+      commandOptions: ["--network", "host", "--volume", "/opt/sdv-eclipse-lab/config/vss.json:/config/vss.json:ro"]
+      commandArgs: ["--address", "127.0.0.1", "--port", "55555", "--insecure", "--disable-authorization", "--vss", "/config/vss.json"]
+  provider:
+    agent: agent_A
+    runtime: podman
+    restartPolicy: ALWAYS
+    dependencies:
+      kuksa: ADD_COND_RUNNING
+    runtimeConfig: |
+      image: localhost/sdv-eclipse-lab:0.1.0
+      commandOptions: ["--network", "host"]
+      commandArgs: ["provider", "--broker", "127.0.0.1:55555", "--scenario", "cycle"]
+  advisor:
+    agent: agent_A
+    runtime: podman
+    restartPolicy: ALWAYS
+    dependencies:
+      kuksa: ADD_COND_RUNNING
+    runtimeConfig: |
+      image: localhost/sdv-eclipse-lab:0.1.0
+      commandOptions: ["--network", "host"]
+      commandArgs: ["advisor", "--broker", "127.0.0.1:55555"]

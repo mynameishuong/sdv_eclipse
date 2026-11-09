@@ -1,0 +1,8 @@
+apiVersion: v1
+workloads:
+  sleepy_from_manifest1:
+    runtime: podman
+    restartPolicy: NEVER
+    agent: agent_A
+    runtimeConfig: |
+      image: ghcr.io/eclipse-ankaios/tests/sleepy:latest

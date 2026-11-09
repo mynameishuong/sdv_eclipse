@@ -1,0 +1,5 @@
+{"ts": 1794239710.074379, "transport": "in-process", "scenario": "normal", "age": 0, "mode": "NORMAL", "reason": "inputs fresh and within lab thresholds"}
+{"ts": 1794239710.074379, "transport": "in-process", "scenario": "warn", "age": 0, "mode": "WARN", "reason": "battery temperature elevated (lab threshold)"}
+{"ts": 1794239710.074379, "transport": "in-process", "scenario": "critical", "age": 0, "mode": "CRITICAL", "reason": "battery temperature high (lab threshold)"}
+{"ts": 1794239710.074379, "transport": "in-process", "scenario": "normal", "age": 0, "mode": "NORMAL", "reason": "inputs fresh and within lab thresholds"}
+{"ts": 1794239710.074379, "transport": "in-process", "scenario": "normal", "age": 10, "mode": "UNKNOWN", "reason": "stale: Vehicle.Speed"}

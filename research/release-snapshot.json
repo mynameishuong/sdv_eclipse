@@ -1,0 +1,40 @@
+{
+  "checked_date": "2026-11-09",
+  "releases": [
+    {
+      "repository": "eclipse-kuksa/kuksa-databroker",
+      "tag_name": "0.7.1",
+      "published_at": "2026-08-26T10:22:25Z",
+      "html_url": "https://github.com/eclipse-kuksa/kuksa-databroker/releases/tag/0.7.1",
+      "target_commitish": "main"
+    },
+    {
+      "repository": "eclipse-ankaios/ankaios",
+      "tag_name": "v1.1.0",
+      "published_at": "2026-10-22T12:13:04Z",
+      "html_url": "https://github.com/eclipse-ankaios/ankaios/releases/tag/v1.1.0",
+      "target_commitish": "release-1.1"
+    },
+    {
+      "repository": "eclipse-score/score",
+      "tag_name": "v0.7.4",
+      "published_at": "2026-10-27T21:22:43Z",
+      "html_url": "https://github.com/eclipse-score/score/releases/tag/v0.7.4",
+      "target_commitish": "main"
+    },
+    {
+      "repository": "eclipse-velocitas/vehicle-app-python-sdk",
+      "tag_name": "v0.15.7",
+      "published_at": "2025-07-03T11:56:27Z",
+      "html_url": "https://github.com/eclipse-velocitas/vehicle-app-python-sdk/releases/tag/v0.15.7",
+      "target_commitish": "main"
+    },
+    {
+      "repository": "COVESA/vehicle_signal_specification",
+      "tag_name": "v6.1",
+      "published_at": "2026-09-17T07:00:34Z",
+      "html_url": "https://github.com/COVESA/vehicle_signal_specification/releases/tag/v6.1",
+      "target_commitish": "master"
+    }
+  ]
+}

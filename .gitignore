@@ -1,0 +1,5 @@
+project/.venv/
+**/__pycache__/
+project/kuksa/
+project/.env
+site/

@@ -1,0 +1,14 @@
+test_foreign_rtr_and_invalid_frames (test_can_frame.FrameTests.test_foreign_rtr_and_invalid_frames) ... ok
+test_private_wire_format_scaling_and_signed_temperature (test_can_frame.FrameTests.test_private_wire_format_scaling_and_signed_temperature) ... ok
+test_low_soc_and_plausibility (test_policy.PolicyTests.test_low_soc_and_plausibility) ... ok
+test_missing_bad_values_and_bad_time (test_policy.PolicyTests.test_missing_bad_values_and_bad_time) ... ok
+test_stale_even_if_get_succeeds (test_policy.PolicyTests.test_stale_even_if_get_succeeds) ... ok
+test_timestamp_coherence (test_policy.PolicyTests.test_timestamp_coherence) ... ok
+test_transitions_and_hysteresis (test_policy.PolicyTests.test_transitions_and_hysteresis) ... ok
+test_timestamp_and_missing_value (test_transport.TransportTests.test_timestamp_and_missing_value) ... ok
+test_v2_wire_calls (test_transport.TransportTests.test_v2_wire_calls) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.020s
+
+OK

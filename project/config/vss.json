@@ -1,0 +1,65 @@
+{
+  "Vehicle": {
+    "type": "branch",
+    "description": "Vehicle signals for the SDV learning lab.",
+    "children": {
+      "Speed": {
+        "datatype": "float",
+        "description": "Vehicle speed.",
+        "type": "sensor",
+        "unit": "km/h"
+      },
+      "Powertrain": {
+        "type": "branch",
+        "description": "Powertrain.",
+        "children": {
+          "TractionBattery": {
+            "type": "branch",
+            "description": "Traction battery.",
+            "children": {
+              "StateOfCharge": {
+                "type": "branch",
+                "description": "State of charge.",
+                "children": {
+                  "Current": {
+                    "datatype": "float",
+                    "description": "Physical state of charge of the high voltage battery, relative to net capacity. This is not necessarily the state of charge being displayed to the customer.",
+                    "max": 100.0,
+                    "min": 0,
+                    "type": "sensor",
+                    "unit": "percent"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "Lab": {
+        "type": "branch",
+        "description": "PROJECT EXTENSIONS: not standard COVESA catalog signals.",
+        "children": {
+          "BatteryTemperature": {
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "celsius",
+            "min": -40,
+            "max": 120,
+            "description": "Simulated representative battery temperature; project extension."
+          },
+          "AdvisoryMode": {
+            "type": "sensor",
+            "datatype": "string",
+            "allowed": [
+              "NORMAL",
+              "WARN",
+              "CRITICAL",
+              "UNKNOWN"
+            ],
+            "description": "Advisory only. No actuator command. Project extension."
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "prepared_date": "2026-11-09",
+  "executed_at_utc": "2026-11-09T15:55:09.409278+00:00",
+  "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+    "grpcio": "1.85.1",
+    "grpcio-tools": "1.85.1",
+    "protobuf": "7.36.2",
+    "PyYAML": "6.0.3",
+    "Markdown": "3.9"
+  },
+  "checks": [
+    {
+      "name": "generate-proto",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\huynh\\OneDrive\\Máy tính\\Project_22_11_2026\\SDV_Eclipse\\project\\.venv\\Scripts\\python.exe",
+        "scripts/generate_proto.py"
+      ],
+      "log": "artifacts/generate-proto.log"
+    },
+    {
+      "name": "unit-tests",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\huynh\\OneDrive\\Máy tính\\Project_22_11_2026\\SDV_Eclipse\\project\\.venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "log": "artifacts/unit-tests.log"
+    },
+    {
+      "name": "offline-demo",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\huynh\\OneDrive\\Máy tính\\Project_22_11_2026\\SDV_Eclipse\\project\\.venv\\Scripts\\python.exe",
+        "-m",
+        "sdv_lab",
+        "offline"
+      ],
+      "log": "artifacts/offline-demo.log"
+    },
+    {
+      "name": "pip-check",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\huynh\\OneDrive\\Máy tính\\Project_22_11_2026\\SDV_Eclipse\\project\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "log": "artifacts/pip-check.log"
+    },
+    {
+      "name": "static-schema-and-yaml",
+      "status": "PASS",
+      "note": "YAML parsed, nested runtimeConfig parsed, signal CSV matches JSON; proto hashes match. Does not replace docker compose config or runtime validation."
+    },
+    {
+      "name": "document-links",
+      "status": "PASS",
+      "markdown_files": 24,
+      "html_links": 204,
+      "html_ids": 200
+    },
+    {
+      "name": "real-broker-compose-ankaios-vcan-target",
+      "status": "NOT RUN",
+      "docker_in_path": null,
+      "note": "Local Windows validation only. No working Linux/container environment was available for this preparation. Run documented real-broker smoke and Linux labs separately."
+    }
+  ]
+}

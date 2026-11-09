@@ -1,0 +1,46 @@
+# Copy to .github/workflows/lab.yml when SDV_Eclipse is the repository root.
+# For a monorepo, adjust working-directory and checkout paths explicitly.
+name: SDV lab verification
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: project
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python scripts/generate_proto.py
+      - run: python -m unittest discover -s tests -v
+      - run: python -m pip check
+      - run: docker compose config
+      - run: docker compose up -d broker
+      - name: Wait for real broker RPC
+        run: |
+          python - <<'PY'
+          import time
+          import grpc
+          from sdv_lab.transport import Broker
+          for attempt in range(30):
+              try:
+                  with Broker('127.0.0.1:55555') as broker:
+                      print(broker.info())
+                  break
+              except grpc.RpcError:
+                  time.sleep(1)
+          else:
+              raise RuntimeError('broker did not become ready')
+          PY
+      - run: python -m tests.smoke_live
+      - run: docker compose build
+      - name: Collect broker logs and clean up
+        if: always()
+        run: |
+          docker compose logs broker
+          docker compose down

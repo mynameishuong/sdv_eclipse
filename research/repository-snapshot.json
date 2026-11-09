@@ -1,0 +1,383 @@
+{
+  "checked_date": "2026-11-09",
+  "repositories": [
+    {
+      "full_name": "eclipse-kuksa/kuksa-databroker",
+      "html_url": "https://github.com/eclipse-kuksa/kuksa-databroker",
+      "description": "A modern in-vehicle VSS (Vehicle Signal Specification) server written in RUST",
+      "archived": false,
+      "pushed_at": "2026-11-03T07:30:15Z",
+      "default_branch": "main",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    },
+    {
+      "full_name": "eclipse-kuksa/kuksa-proto",
+      "html_url": "https://github.com/eclipse-kuksa/kuksa-proto",
+      "description": "Protobuf definitions for Eclipse KUKSA",
+      "archived": false,
+      "pushed_at": "2026-08-25T09:55:05Z",
+      "default_branch": "main",
+      "license": null
+    },
+    {
+      "full_name": "eclipse-ankaios/ankaios",
+      "html_url": "https://github.com/eclipse-ankaios/ankaios",
+      "description": "Eclipse Ankaios provides workload and container orchestration for embedded devices like automotive HPCs.",
+      "archived": false,
+      "pushed_at": "2026-11-09T11:23:40Z",
+      "default_branch": "main",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    },
+    {
+      "full_name": "eclipse-score/score",
+      "html_url": "https://github.com/eclipse-score/score",
+      "description": "Score project main repository",
+      "archived": false,
+      "pushed_at": "2026-11-09T13:28:00Z",
+      "default_branch": "main",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    },
+    {
+      "full_name": "eclipse-score/reference_integration",
+      "html_url": "https://github.com/eclipse-score/reference_integration",
+      "description": "Score project integration repository",
+      "archived": false,
+      "pushed_at": "2026-11-09T14:55:09Z",
+      "default_branch": "main",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    },
+    {
+      "full_name": "eclipse-leda/meta-leda",
+      "html_url": "https://github.com/eclipse-leda/meta-leda",
+      "description": "Yocto / OpenEmbedded Meta-Layers for Eclipse SDV components",
+      "archived": false,
+      "pushed_at": "2026-10-23T23:22:09Z",
+      "default_branch": "main",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    },
+    {
+      "full_name": "eclipse-velocitas/vehicle-app-python-sdk",
+      "html_url": "https://github.com/eclipse-velocitas/vehicle-app-python-sdk",
+      "description": "vehicle-app-python-sdk",
+      "archived": false,
+      "pushed_at": "2025-07-03T11:56:27Z",
+      "default_branch": "main",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    },
+    {
+      "full_name": "eclipse-iceoryx/iceoryx2",
+      "html_url": "https://github.com/eclipse-iceoryx/iceoryx2",
+      "description": "Eclipse iceoryx2™ - the true zero-copy data plane",
+      "archived": false,
+      "pushed_at": "2026-11-06T19:41:07Z",
+      "default_branch": "main",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    },
+    {
+      "full_name": "eclipse-zenoh/zenoh",
+      "html_url": "https://github.com/eclipse-zenoh/zenoh",
+      "description": "zenoh unifies data in motion, data in-use, data at rest and computations. It carefully blends traditional pub/sub with geo-distributed storages, queries and computations, while retaining a level of time and space efficiency that is well beyond any of the mainstream stacks.",
+      "archived": false,
+      "pushed_at": "2026-11-09T11:59:27Z",
+      "default_branch": "main",
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      }
+    },
+    {
+      "full_name": "eclipse-uprotocol/up-spec",
+      "html_url": "https://github.com/eclipse-uprotocol/up-spec",
+      "description": "uProtocol Specifications",
+      "archived": false,
+      "pushed_at": "2026-11-04T12:25:09Z",
+      "default_branch": "main",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    },
+    {
+      "full_name": "eclipse-chariott/chariott",
+      "html_url": "https://github.com/eclipse-chariott/chariott",
+      "description": "chariott",
+      "archived": false,
+      "pushed_at": "2025-04-13T00:49:05Z",
+      "default_branch": "main",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    },
+    {
+      "full_name": "eclipse-ibeji/ibeji",
+      "html_url": "https://github.com/eclipse-ibeji/ibeji",
+      "description": "ibeji project",
+      "archived": false,
+      "pushed_at": "2024-07-15T04:36:16Z",
+      "default_branch": "main",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    },
+    {
+      "full_name": "eclipse-sdv-blueprints/blueprints",
+      "html_url": "https://github.com/eclipse-sdv-blueprints/blueprints",
+      "description": "Blueprints project management",
+      "archived": false,
+      "pushed_at": "2026-10-19T15:13:44Z",
+      "default_branch": "main",
+      "license": null
+    },
+    {
+      "full_name": "eclipse-sumo/sumo",
+      "html_url": "https://github.com/eclipse-sumo/sumo",
+      "description": "Eclipse SUMO is an open source, highly portable, microscopic and continuous traffic simulation package designed to handle large networks. It allows for intermodal simulation including pedestrians and comes with a large set of tools for scenario creation.",
+      "archived": false,
+      "pushed_at": "2026-11-09T11:24:29Z",
+      "default_branch": "main",
+      "license": {
+        "key": "epl-2.0",
+        "name": "Eclipse Public License 2.0",
+        "spdx_id": "EPL-2.0",
+        "url": "https://api.github.com/licenses/epl-2.0",
+        "node_id": "MDc6TGljZW5zZTMy"
+      }
+    },
+    {
+      "full_name": "eclipse-threadx/threadx",
+      "html_url": "https://github.com/eclipse-threadx/threadx",
+      "description": "Eclipse ThreadX is an advanced real-time operating system (RTOS) designed specifically for deeply embedded applications.",
+      "archived": false,
+      "pushed_at": "2026-11-09T06:34:30Z",
+      "default_branch": "master",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    },
+    {
+      "full_name": "eclipse-openbsw/openbsw",
+      "html_url": "https://github.com/eclipse-openbsw/openbsw",
+      "description": "OpenBSW: A Code-first Software Platform for Automotive Microcontrollers",
+      "archived": false,
+      "pushed_at": "2026-11-09T13:52:14Z",
+      "default_branch": "main",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    },
+    {
+      "full_name": "COVESA/vsomeip",
+      "html_url": "https://github.com/COVESA/vsomeip",
+      "description": "An implementation of Scalable service-Oriented MiddlewarE over IP",
+      "archived": false,
+      "pushed_at": "2026-11-03T15:55:42Z",
+      "default_branch": "master",
+      "license": {
+        "key": "mpl-2.0",
+        "name": "Mozilla Public License 2.0",
+        "spdx_id": "MPL-2.0",
+        "url": "https://api.github.com/licenses/mpl-2.0",
+        "node_id": "MDc6TGljZW5zZTE0"
+      }
+    },
+    {
+      "full_name": "COVESA/capicxx-core-runtime",
+      "html_url": "https://github.com/COVESA/capicxx-core-runtime",
+      "description": "Common API C++ core runtime",
+      "archived": false,
+      "pushed_at": "2024-10-09T09:21:55Z",
+      "default_branch": "master",
+      "license": {
+        "key": "mpl-2.0",
+        "name": "Mozilla Public License 2.0",
+        "spdx_id": "MPL-2.0",
+        "url": "https://api.github.com/licenses/mpl-2.0",
+        "node_id": "MDc6TGljZW5zZTE0"
+      }
+    },
+    {
+      "full_name": "eclipse-ditto/ditto",
+      "html_url": "https://github.com/eclipse-ditto/ditto",
+      "description": "Eclipse Ditto™: Digital Twin framework of Eclipse IoT - main repository",
+      "archived": false,
+      "pushed_at": "2026-11-09T10:35:12Z",
+      "default_branch": "master",
+      "license": {
+        "key": "epl-2.0",
+        "name": "Eclipse Public License 2.0",
+        "spdx_id": "EPL-2.0",
+        "url": "https://api.github.com/licenses/epl-2.0",
+        "node_id": "MDc6TGljZW5zZTMy"
+      }
+    },
+    {
+      "full_name": "eclipse-hono/hono",
+      "html_url": "https://github.com/eclipse-hono/hono",
+      "description": "Eclipse Hono™ Project",
+      "archived": false,
+      "pushed_at": "2026-11-03T09:47:03Z",
+      "default_branch": "master",
+      "license": {
+        "key": "epl-2.0",
+        "name": "Eclipse Public License 2.0",
+        "spdx_id": "EPL-2.0",
+        "url": "https://api.github.com/licenses/epl-2.0",
+        "node_id": "MDc6TGljZW5zZTMy"
+      }
+    },
+    {
+      "full_name": "eclipse-mosquitto/mosquitto",
+      "html_url": "https://github.com/eclipse-mosquitto/mosquitto",
+      "description": "Eclipse Mosquitto - An open source MQTT broker",
+      "archived": false,
+      "pushed_at": "2026-11-06T13:43:51Z",
+      "default_branch": "master",
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      }
+    },
+    {
+      "full_name": "eclipse-kanto/kanto",
+      "html_url": "https://github.com/eclipse-kanto/kanto",
+      "description": "Kanto",
+      "archived": false,
+      "pushed_at": "2026-04-07T17:12:01Z",
+      "default_branch": "main",
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      }
+    },
+    {
+      "full_name": "eclipse-cyclonedds/cyclonedds",
+      "html_url": "https://github.com/eclipse-cyclonedds/cyclonedds",
+      "description": "Eclipse Cyclone DDS project",
+      "archived": false,
+      "pushed_at": "2026-11-09T13:55:46Z",
+      "default_branch": "master",
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      }
+    },
+    {
+      "full_name": "eclipse-ecal/ecal",
+      "html_url": "https://github.com/eclipse-ecal/ecal",
+      "description": "📦 eCAL - enhanced Communication Abstraction Layer. A high performance publish-subscribe, client-server cross-plattform middleware. ",
+      "archived": false,
+      "pushed_at": "2026-11-09T15:21:05Z",
+      "default_branch": "master",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    },
+    {
+      "full_name": "eclipse-opensovd/opensovd",
+      "html_url": "https://github.com/eclipse-opensovd/opensovd",
+      "description": "OpenSOVD main repository",
+      "archived": false,
+      "pushed_at": "2026-11-04T10:40:32Z",
+      "default_branch": "main",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    },
+    {
+      "full_name": "eclipse-leda/leda",
+      "html_url": "https://github.com/eclipse-leda/leda",
+      "description": "Documentation - Eclipse Leda provides a Yocto-based build setup for SDV.EDGE components ",
+      "archived": false,
+      "pushed_at": "2026-10-12T21:36:58Z",
+      "default_branch": "main",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    }
+  ]
+}

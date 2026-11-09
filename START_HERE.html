@@ -1,0 +1,2330 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Giáo trình Eclipse SDV tiếng Việt: architecture, toolchain, KUKSA project, core platform và deployment.">
+<title>Eclipse SDV — Beginner to Expert</title>
+<style>
+:root{color-scheme:light;--bg:#f3f5f9;--paper:#fff;--ink:#1e293b;--muted:#52617a;--line:#dbe2ee;--link:#165cb6;--code:#101c30}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.8 system-ui,"Segoe UI",sans-serif}a{color:var(--link);text-underline-offset:3px}a:hover{color:#0d3b78}aside{position:fixed;inset:0 auto 0 0;width:300px;overflow:auto;padding:25px 18px;background:#101c30;color:#dbe6f6}aside .eyebrow{font-size:12px;letter-spacing:2px;color:#64ddc4}aside h2{font-size:25px;line-height:1.35;margin:10px 0}aside p{font-size:13px;color:#aebed6}nav a{display:block;padding:8px 10px;margin:3px 0;border-radius:7px;font-size:13px;line-height:1.5;color:#d8e5f8;text-decoration:none}nav a:hover,nav a:focus{background:#233a58;color:#fff}input{width:100%;padding:11px 12px;margin:12px 0;border:1px solid #536581;border-radius:7px;font:14px system-ui;background:#fff;color:#172035}button{cursor:pointer;background:#254367;color:#fff;border:1px solid #547396;border-radius:6px;padding:8px 12px}main{margin-left:300px;padding:36px clamp(18px,4vw,70px);max-width:1500px}section{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:clamp(20px,4vw,50px);margin:0 0 30px;box-shadow:0 5px 16px #24395407;scroll-margin-top:24px}h1{font-size:clamp(26px,3vw,37px);line-height:1.35;letter-spacing:-.6px;margin:22px 0}h2{font-size:23px;line-height:1.45;margin-top:34px}h3{font-size:20px}p{margin:15px 0}li{margin:7px 0}table{display:block;width:100%;overflow:auto;border-collapse:collapse;font-size:14px;line-height:1.65;margin:22px 0}th,td{padding:12px 14px;border:1px solid var(--line);text-align:left;vertical-align:top;min-width:100px}th{background:#eaf0f8}tr:nth-child(even){background:#f7f9fc}pre{background:var(--code);color:#e4edf9;padding:20px;border-radius:9px;overflow:auto;font-size:13px;line-height:1.65;tab-size:4}code{font-family:Consolas,"Cascadia Code",monospace;font-size:.86em;overflow-wrap:anywhere}p code,li code,td code{background:#eaf0f7;padding:2px 5px;border-radius:4px}pre code{font-size:inherit;overflow-wrap:normal}blockquote{border-left:4px solid #2b8a78;padding-left:18px;color:var(--muted)}.source{font-size:12px;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:10px}.source a{color:var(--muted)}svg{width:100%;height:auto;display:block;margin:26px 0}.status{font-size:12px;color:#8ce7d0;min-height:20px}.empty{display:none}section[hidden],nav a[hidden]{display:none}.top{position:fixed;bottom:18px;right:18px;background:#1d5f9d;color:white;padding:8px 13px;border-radius:9px;text-decoration:none;font-size:13px}.notice{font-size:13px;background:#e5f2ef;padding:12px 18px;border-radius:7px;margin-bottom:25px}
+@media(max-width:980px){aside{position:relative;width:100%;max-height:none}nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}main{margin-left:0;padding:18px}aside h2{font-size:24px}section{padding:22px}nav a{font-size:12px}}
+@media(max-width:540px){nav{grid-template-columns:1fr}body{font-size:16px}h1{font-size:27px}section{border-radius:8px;padding:18px}th,td{padding:9px}main{padding:10px}}
+@media print{aside,.top,.notice,.source{display:none}main{margin:0;padding:0;max-width:none}body{background:white;font-size:11pt;line-height:1.6}section{box-shadow:none;border:0;padding:0;page-break-before:always}section:first-child{page-break-before:auto}section[hidden]{display:block}pre{white-space:pre-wrap;border:1px solid #999;background:#f4f4f4;color:#111}a{color:#111}table{display:table;font-size:9pt}h1,h2,h3{break-after:avoid}tr,svg{break-inside:avoid}}
+</style>
+</head>
+<body id="top">
+<aside aria-label="Mục lục giáo trình">
+<div class="eyebrow">ECLIPSE · SDV · LEARNING LAB</div>
+<h2>Từ kiến trúc<br>đến triển khai</h2>
+<p>Giáo trình tiếng Việt · Beginner → Expert<br>Đối chiếu nguồn: 09/11/2026</p>
+<label for="search">Tìm nội dung</label>
+<input id="search" type="search" placeholder="Ví dụ: timestamp, Ankaios, CAN…" autocomplete="off">
+<div id="status" class="status" aria-live="polite"></div>
+<button type="button" id="clear">Hiện tất cả chương</button>
+<nav aria-label="Các chương"><a href="#chapter-00">Eclipse SDV — từ beginner đến triển khai project</a>
+<a href="#chapter-01">00 — SDV từ số 0</a>
+<a href="#chapter-02">01 — Thiết kế kiến trúc SDV trước khi chọn tool</a>
+<a href="#chapter-03">02 — Bản đồ Eclipse và toàn bộ toolchain liên quan</a>
+<a href="#chapter-04">03 — VSS và Eclipse KUKSA: từ bit đến dữ liệu có nghĩa</a>
+<a href="#chapter-05">04 — Middleware và communication: dùng cái nào ở đâu?</a>
+<a href="#chapter-06">05 — Chuẩn bị môi trường trên Windows và Linux</a>
+<a href="#chapter-07">06 — Đọc và chạy project từ đầu đến cuối</a>
+<a href="#chapter-08">07 — CAN/DBC → provider → VSS → ứng dụng</a>
+<a href="#chapter-09">08 — Velocitas: phát triển Vehicle App theo quy trình</a>
+<a href="#chapter-10">09 — Ankaios: lifecycle và orchestration trên xe</a>
+<a href="#chapter-11">10 — Leda, Yocto và triển khai lên thiết bị</a>
+<a href="#chapter-12">11 — S-CORE: đi vào core software platform</a>
+<a href="#chapter-13">12 — Cloud, digital twin, fleet và diagnostics</a>
+<a href="#chapter-14">13 — Security, isolation và safety trong kiến trúc</a>
+<a href="#chapter-15">14 — CI/CD, supply chain và OTA</a>
+<a href="#chapter-16">15 — Test, đo đạc và debug có bằng chứng</a>
+<a href="#chapter-17">16 — Lộ trình từ beginner đến expert</a>
+<a href="#chapter-18">17 — Đặc tả capstone: từ lab đến prototype thực tế</a>
+<a href="#chapter-19">18 — Thuật ngữ và câu hỏi thường gặp</a>
+<a href="#chapter-20">19 — Nguồn chính thức, phiên bản và cách cập nhật</a>
+<a href="#chapter-21">Trạng thái kiểm chứng</a></nav>
+<p>Đọc cục bộ, không cần internet. Ctrl+F tìm trong các chương đang hiện. Dùng Print để lưu PDF.</p>
+</aside>
+<main>
+<div class="notice">Bắt đầu ở chương 00 và 01. Kiến trúc trong sách là lựa chọn phục vụ học tập; mỗi phần triển khai có trạng thái kiểm chứng riêng.</div>
+<section id="chapter-00" data-title="Eclipse SDV — từ beginner đến triển khai project"><div class="source">Nguồn Markdown: <a href="README.md">README.md</a></div><h1 id="chapter-00-eclipse-sdv-tu-beginner-en-trien-khai-project">Eclipse SDV — từ beginner đến triển khai project</h1>
+<p><strong>Bắt đầu từ kiến trúc SDV, hiểu vai trò từng lớp, rồi tự chạy và mở rộng một hệ thống.</strong> Tài liệu tiếng Việt; giữ tên kỹ thuật tiếng Anh để bạn đọc được source và tài liệu upstream. Ngày đối chiếu nguồn: <strong>09/11/2026</strong>.</p>
+<p>Mở <strong><a href="START_HERE.html">SÁCH ĐỌC TRÊN TRÌNH DUYỆT</a></strong> để đọc liền mạch, tìm kiếm nội dung và chuyển chương. Các file Markdown dưới đây là bản gốc để sửa và ghi chú.</p>
+<h2 id="chapter-00-hieu-ung-eclipse-platform">Hiểu đúng “Eclipse platform”</h2>
+<p>Trong bộ này, “platform” nghĩa là <strong>hệ sinh thái Eclipse Software Defined Vehicle</strong>. Eclipse SDV tập hợp nhiều building block và dự án tích hợp; bạn phải chọn và tích hợp thành platform cho sản phẩm của mình. Eclipse IDE/CDT là công cụ viết code, không phải runtime SDV. Nguồn định nghĩa: <a href="https://eclipsesdv.org/">Eclipse SDV</a>.</p>
+<p>Hai hướng học bổ sung nhau:</p>
+<ul>
+<li><strong>Vehicle application:</strong> VSS → KUKSA → app → OCI container → Ankaios → embedded Linux. Có code mẫu trong thư mục này.</li>
+<li><strong>Vehicle core/platform engineering:</strong> E/E architecture → OS và isolation → middleware → S-CORE → integration, timing và quality evidence. Có hướng dẫn build/đọc source và bài tập nâng cao; không tuyên bố đã tích hợp S-CORE vào demo KUKSA.</li>
+</ul>
+<h2 id="chapter-00-thu-tu-oc">Thứ tự đọc</h2>
+<table>
+<thead>
+<tr>
+<th>Chương</th>
+<th>Nội dung</th>
+<th>Kết quả bạn cần đạt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#chapter-01">00</a></td>
+<td>SDV từ số 0</td>
+<td>Giải thích ECU, signal, service, deployment</td>
+</tr>
+<tr>
+<td><a href="#chapter-02">01</a></td>
+<td>Kiến trúc SDV từ xe đến cloud</td>
+<td>Vẽ được physical/logical/deployment architecture</td>
+</tr>
+<tr>
+<td><a href="#chapter-03">02</a></td>
+<td>Bản đồ Eclipse và toolchain</td>
+<td>Chọn đúng dự án cho đúng lớp</td>
+</tr>
+<tr>
+<td><a href="#chapter-04">03</a></td>
+<td>VSS và KUKSA VAL v2</td>
+<td>Hiểu schema, timestamp, read/publish/actuate</td>
+</tr>
+<tr>
+<td><a href="#chapter-05">04</a></td>
+<td>CAN, SOME/IP, DDS, Zenoh, iceoryx, uProtocol</td>
+<td>Phân biệt semantics, transport và IPC</td>
+</tr>
+<tr>
+<td><a href="#chapter-06">05</a></td>
+<td>Chuẩn bị Windows/Linux</td>
+<td>Tạo môi trường và generate protobuf</td>
+</tr>
+<tr>
+<td><a href="#chapter-07">06</a></td>
+<td>Project mẫu từ đầu đến cuối</td>
+<td>Chạy provider → broker → advisor</td>
+</tr>
+<tr>
+<td><a href="#chapter-08">07</a></td>
+<td>Thay simulator bằng SocketCAN</td>
+<td>Hiểu mapping CAN/DBC → signal</td>
+</tr>
+<tr>
+<td><a href="#chapter-09">08</a></td>
+<td>Velocitas và app engineering</td>
+<td>Đọc template, SDK, vehicle model và workflow</td>
+</tr>
+<tr>
+<td><a href="#chapter-10">09</a></td>
+<td>Orchestration bằng Ankaios</td>
+<td>Hiểu desired state, agent và restart</td>
+</tr>
+<tr>
+<td><a href="#chapter-11">10</a></td>
+<td>Leda, Yocto, deploy target</td>
+<td>Phân biệt OS image và app container</td>
+</tr>
+<tr>
+<td><a href="#chapter-12">11</a></td>
+<td>S-CORE và core platform</td>
+<td>Đọc feature/module/integration và build evidence</td>
+</tr>
+<tr>
+<td><a href="#chapter-13">12</a></td>
+<td>Fleet, digital twin, diagnostics</td>
+<td>Thiết kế connector, store-and-forward, DTC</td>
+</tr>
+<tr>
+<td><a href="#chapter-14">13</a></td>
+<td>Security, isolation, safety</td>
+<td>Xác định trust boundary và giới hạn demo</td>
+</tr>
+<tr>
+<td><a href="#chapter-15">14</a></td>
+<td>CI/CD, supply chain, OTA</td>
+<td>Thiết kế release, rollout, rollback</td>
+</tr>
+<tr>
+<td><a href="#chapter-16">15</a></td>
+<td>Testing, observability, debug</td>
+<td>Phân biệt test fixture với broker thật</td>
+</tr>
+<tr>
+<td><a href="#chapter-17">16</a></td>
+<td>Lộ trình beginner → expert</td>
+<td>Hoàn thành theo năng lực và bằng chứng</td>
+</tr>
+<tr>
+<td><a href="#chapter-18">17</a></td>
+<td>Đặc tả project thực tế</td>
+<td>Từ demo đến prototype trên board/HIL</td>
+</tr>
+<tr>
+<td><a href="#chapter-19">18</a></td>
+<td>Thuật ngữ và câu hỏi hay nhầm</td>
+<td>Đọc được tài liệu upstream</td>
+</tr>
+<tr>
+<td><a href="#chapter-20">19</a></td>
+<td>Nguồn và baseline phiên bản</td>
+<td>Kiểm chứng, nâng cấp có kiểm soát</td>
+</tr>
+</tbody>
+</table>
+<h2 id="chapter-00-project-xuyen-suot-battery-thermal-advisory">Project xuyên suốt: Battery Thermal Advisory</h2>
+<pre><code class="language-text">Simulated ECU / SocketCAN provider
+          │ Vehicle.Speed, SOC, battery temperature + source timestamp
+          ▼
+   Eclipse KUKSA Databroker 0.7.1  ◄── schema VSS + project extensions
+          │ kuksa.val.v2 / gRPC
+          ▼
+   Thermal advisory app ──► Vehicle.Lab.AdvisoryMode
+          │                NORMAL / WARN / CRITICAL / UNKNOWN
+          └── JSON logs → người quan sát / cloud connector tương lai
+</code></pre>
+<p>Ứng dụng đưa ra <strong>khuyến nghị mô phỏng</strong>, không điều khiển BMS hay actuator thật. Các ngưỡng nhiệt độ là tham số giảng dạy. Project này giúp học kiến trúc và integration; qualification cho sản phẩm là công việc riêng.</p>
+<h2 id="chapter-00-chay-ngay-chua-can-docker">Chạy ngay, chưa cần Docker</h2>
+<p>Trong PowerShell, tại thư mục <code>SDV_Eclipse</code>:</p>
+<pre><code class="language-powershell">Set-Location .\project
+python -m sdv_lab offline
+</code></pre>
+<p>Thấy chuỗi <code>NORMAL → WARN → CRITICAL → NORMAL → UNKNOWN</code>. Đây là policy chạy trong process; để chạy <strong>Eclipse KUKSA thật</strong>, làm theo <a href="project/README.md">hướng dẫn project</a>.</p>
+<h2 id="chapter-00-nhung-gi-a-chuan-bi">Những gì đã chuẩn bị</h2>
+<ul>
+<li>Code policy, simulator, KUKSA VAL v2 adapter, subscriber và SocketCAN lab.</li>
+<li>Compose dùng image KUKSA đã khóa digest; upstream proto khóa đúng commit của broker.</li>
+<li>Manifest Ankaios 1.1.0, signal contract, bài tập, project spec và mẫu nhật ký.</li>
+<li>Unit tests, test gRPC qua loopback và smoke test dành cho broker thật.</li>
+<li><a href="#chapter-21">Báo cáo kiểm chứng</a> ghi rõ kết quả đã chạy và những bước còn cần môi trường Linux/container.</li>
+</ul>
+<p>Không cần học hết các dự án trước khi bắt đầu. Hoàn thành chương 00–07 trước; sau đó chọn nhánh app, platform hoặc integration ở chương 16.</p></section>
+<section id="chapter-01" data-title="00 — SDV từ số 0"><div class="source">Nguồn Markdown: <a href="docs/00-foundations.md">docs/00-foundations.md</a></div><h1 id="chapter-01-00-sdv-tu-so-0">00 — SDV từ số 0</h1>
+<h2 id="chapter-01-1-xe-uoc-inh-nghia-bang-phan-mem-nghia-la-gi">1. Xe được “định nghĩa bằng phần mềm” nghĩa là gì?</h2>
+<p>Hãy bắt đầu với một chức năng: hiển thị cảnh báo khi nhiệt độ pin tăng. Bạn cần đo nhiệt độ, đưa dữ liệu đến chương trình, quyết định cảnh báo và hiển thị. Khi thay đổi hành vi, bạn muốn thay phần mềm mà không phải thiết kế lại toàn bộ ECU và dây điện.</p>
+<p>SDV là cách tổ chức kiến trúc và vòng đời phát triển để làm được điều đó: chức năng được hiện thực bằng phần mềm, có interface rõ ràng, có thể kiểm thử và cập nhật theo những ràng buộc của xe. Việc có màn hình lớn, cài Linux hoặc dùng container chỉ là những lựa chọn kỹ thuật; từng lựa chọn chưa đủ tạo thành một kiến trúc SDV.</p>
+<p>Ví dụ trong giáo trình: phiên bản app đầu cảnh báo ở 45°C; phiên bản sau bổ sung kiểm tra dữ liệu quá hạn. Provider lấy dữ liệu và broker không cần biết thuật toán cảnh báo thay đổi thế nào. Sự tách rời này có ý nghĩa khi interface giữa các bên được giữ ổn định.</p>
+<h2 id="chapter-01-2-cac-khoi-co-ban">2. Các khối cơ bản</h2>
+<table>
+<thead>
+<tr>
+<th>Khái niệm</th>
+<th>Hiểu bằng một ví dụ</th>
+<th>Câu hỏi kỹ sư phải trả lời</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sensor</td>
+<td>Cảm biến nhiệt đo 47°C</td>
+<td>Ai đo? Lúc nào? Độ chính xác bao nhiêu?</td>
+</tr>
+<tr>
+<td>Actuator</td>
+<td>Quạt/pump thực hiện lệnh</td>
+<td>Ai được ra lệnh? Có feedback không?</td>
+</tr>
+<tr>
+<td>ECU</td>
+<td>Máy tính chuyên dụng trong xe</td>
+<td>CPU, RAM, OS, interface, deadline?</td>
+</tr>
+<tr>
+<td>MCU</td>
+<td>Vi điều khiển gần cảm biến/actuator</td>
+<td>Tài nguyên và timing có phù hợp?</td>
+</tr>
+<tr>
+<td>HPC/SoC</td>
+<td>Máy tính mạnh chạy nhiều ứng dụng</td>
+<td>Các workload được cách ly ra sao?</td>
+</tr>
+<tr>
+<td>Signal</td>
+<td><code>BatteryTemperature = 47</code></td>
+<td>Đơn vị, timestamp, quality?</td>
+</tr>
+<tr>
+<td>Service</td>
+<td><code>StartCooling(mode)</code></td>
+<td>Request/response, lỗi và quyền truy cập?</td>
+</tr>
+<tr>
+<td>Application</td>
+<td>Logic tính cảnh báo</td>
+<td>Input/output contract là gì?</td>
+</tr>
+<tr>
+<td>Platform</td>
+<td>OS, middleware và dịch vụ nền</td>
+<td>App dựa vào những bảo đảm nào?</td>
+</tr>
+<tr>
+<td>Cloud backend</td>
+<td>Thu thập trạng thái của đội xe</td>
+<td>Xe mất mạng thì xử lý thế nào?</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Signal là một giá trị có nghĩa; CAN frame là một cách mang các bit.</strong> Bạn không thể suy ra “byte thứ 2 nghĩa là tốc độ” nếu chưa có mapping. <strong>Service là một hành vi có contract; cổng TCP chỉ là endpoint vận chuyển.</strong></p>
+<h2 id="chapter-01-3-tach-bon-cau-chuyen">3. Tách bốn câu chuyện</h2>
+<ol>
+<li><strong>Chức năng:</strong> cần cảnh báo cái gì? Khi nào chuyển trạng thái?</li>
+<li><strong>Dữ liệu:</strong> lấy giá trị nào, kiểu gì, đơn vị gì, có mới không?</li>
+<li><strong>Thực thi:</strong> process nào chạy trên ECU nào, có đủ CPU/RAM không?</li>
+<li><strong>Vòng đời:</strong> build, deploy, quan sát, cập nhật và phục hồi thế nào?</li>
+</ol>
+<p>Nếu nói “dùng KUKSA” mà chưa trả lời câu 1 thì chưa có thiết kế chức năng. Nếu nói “dùng Docker” mà chưa trả lời câu 2 thì chưa có data contract. Một architecture tốt nối được cả bốn câu chuyện.</p>
+<h2 id="chapter-01-4-cac-nen-tang-can-hoc-truoc">4. Các nền tảng cần học trước</h2>
+<ul>
+<li><strong>Linux:</strong> process/thread, file permission, systemd, signal SIGTERM, journal.</li>
+<li><strong>Networking:</strong> IP, port, DNS, TCP/UDP, localhost, namespace và TLS.</li>
+<li><strong>Programming:</strong> Python để thử app; C/C++/Rust để hiểu embedded và middleware.</li>
+<li><strong>Git/build:</strong> commit, branch, dependency pin, compiler và cross compilation.</li>
+<li><strong>Automotive:</strong> CAN/CAN FD, DBC, E/E architecture, sensor/actuator feedback.</li>
+</ul>
+<p>Bạn đã có thư mục <code>linux_networking</code> ở workspace: có thể nối kiến thức socket/network namespace ở đó với chương 04 và 07 của bộ này. Không cần hoàn thành mọi chủ đề trước khi chạy offline policy.</p>
+<h2 id="chapter-01-5-the-nao-la-hieu-the-nao-la-chay-uoc">5. Thế nào là hiểu, thế nào là chạy được?</h2>
+<p>Chạy được là thấy một process in <code>WARN</code>. Hiểu được là giải thích tại sao nó in <code>WARN</code>, dữ liệu từ đâu đến, chuyện gì xảy ra khi nguồn ngừng gửi và chương trình khôi phục như thế nào. Triển khai được là đóng gói, cấu hình, đo tài nguyên và chứng minh hành vi trên môi trường đích.</p>
+<p>Expert không có nghĩa nhớ tên tất cả Eclipse project. Bạn phải đặt được yêu cầu, chọn đúng công cụ, chứng minh tính phù hợp và vận hành được hệ thống khi có lỗi.</p>
+<h2 id="chapter-01-bai-tap-va-tieu-chi-hoan-thanh">Bài tập và tiêu chí hoàn thành</h2>
+<p>Vẽ một luồng “đo nhiệt độ → cảnh báo”. Đánh dấu đâu là sensor, ECU, network, signal, application và output. Sau đó thêm trường hợp sensor ngừng gửi trong 10 giây.</p>
+<p>Hoàn thành khi bạn giải thích được vì sao nhận lại giá trị <code>47</code> từ broker chưa chứng minh rằng cảm biến vừa đo <code>47</code>.</p>
+<p>Đọc tiếp: <a href="#chapter-02">01 — Kiến trúc SDV</a>. Nguồn định hướng hệ sinh thái: <a href="https://eclipsesdv.org/">Eclipse SDV</a>.</p></section>
+<section id="chapter-02" data-title="01 — Thiết kế kiến trúc SDV trước khi chọn tool"><div class="source">Nguồn Markdown: <a href="docs/01-sdv-architecture.md">docs/01-sdv-architecture.md</a></div><h1 id="chapter-02-01-thiet-ke-kien-truc-sdv-truoc-khi-chon-tool">01 — Thiết kế kiến trúc SDV trước khi chọn tool</h1><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-labelledby="at ad"><title id="at">SDV architecture study map</title><desc id="ad">Six architectural layers plus lifecycle, identity, observability, diagnostics and updates across the layers.</desc><rect width="900" height="600" rx="18" fill="#0c1526"/><style>text{font-family:Segoe UI,Arial,sans-serif;fill:#e8eef9}.label{font-size:17px;font-weight:700}.sub{font-size:15px;fill:#b9c8e0}</style><text x="30" y="36" class="label">SDV — ARCHITECTURE STUDY MAP</text><rect x="28" y="58" width="650" height="66" rx="10" fill="#164e63" stroke="#6783ae"/><text x="48" y="84" class="label">CLOUD / FLEET</text><text x="48" y="107" class="sub">Telemetry, digital twin, release decisions</text><path d="M350 124 v14" stroke="#81c9e8" stroke-width="3"/><rect x="28" y="138" width="650" height="66" rx="10" fill="#1e3a5f" stroke="#6783ae"/><text x="48" y="164" class="label">VEHICLE APPLICATIONS</text><text x="48" y="187" class="sub">Advisory, HMI, domain-specific logic</text><path d="M350 204 v14" stroke="#81c9e8" stroke-width="3"/><rect x="28" y="218" width="650" height="66" rx="10" fill="#293c67" stroke="#6783ae"/><text x="48" y="244" class="label">DATA / SERVICE ABSTRACTION</text><text x="48" y="267" class="sub">VSS + KUKSA; services via explicit APIs</text><path d="M350 284 v14" stroke="#81c9e8" stroke-width="3"/><rect x="28" y="298" width="650" height="66" rx="10" fill="#35365e" stroke="#6783ae"/><text x="48" y="324" class="label">MIDDLEWARE / VEHICLE I-O</text><text x="48" y="347" class="sub">gRPC, SOME-IP, IPC; CAN providers</text><path d="M350 364 v14" stroke="#81c9e8" stroke-width="3"/><rect x="28" y="378" width="650" height="66" rx="10" fill="#3b3153" stroke="#6783ae"/><text x="48" y="404" class="label">EXECUTION / OS</text><text x="48" y="427" class="sub">Linux or RTOS; process, container, VM</text><path d="M350 444 v14" stroke="#81c9e8" stroke-width="3"/><rect x="28" y="458" width="650" height="66" rx="10" fill="#3b3445" stroke="#6783ae"/><text x="48" y="484" class="label">HARDWARE</text><text x="48" y="507" class="sub">HPC, zones, MCUs, sensors, actuators</text><rect x="704" y="58" width="168" height="466" rx="10" fill="#173c38" stroke="#63c5ac"/><text x="720" y="98" class="label">LIFECYCLE</text><text x="720" y="151" class="sub">Identity / ACL</text><text x="720" y="204" class="sub">Logging</text><text x="720" y="257" class="sub">Metrics / health</text><text x="720" y="310" class="sub">Diagnostics</text><text x="720" y="363" class="sub">Updates</text><text x="720" y="416" class="sub">Resource limits</text><text x="30" y="565" class="sub">Teaching architecture. Components and boundaries must be selected for each project.</text></svg>
+<h2 id="chapter-02-1-ba-goc-nhin-phai-co">1. Ba góc nhìn phải có</h2>
+<p><strong>Physical architecture</strong> mô tả phần cứng và dây nối: MCU, HPC, CAN, Ethernet, cảm biến, nguồn điện. <strong>Logical architecture</strong> mô tả trách nhiệm phần mềm: provider, signal broker, application, diagnostic service, update manager. <strong>Deployment architecture</strong> gán phần mềm lên node/process/container/VM cụ thể.</p>
+<p>Một logical service có thể chạy ở nhiều vị trí. Chuyển từ laptop sang board chỉ giữ nguyên chức năng nếu các giả định về CPU, clock, network, dependency và OS vẫn đúng.</p>
+<h2 id="chapter-02-2-ee-architecture-phat-trien-ra-sao">2. E/E architecture phát triển ra sao?</h2>
+<pre><code class="language-text">Distributed: sensor → ECU chức năng → bus → ECU chức năng khác
+Domain:     ECU nhỏ → domain controller (body/powertrain/ADAS...) → backbone
+Zonal:      sensor/ECU gần nhau → zone controller → Ethernet → central compute
+</code></pre>
+<p>Domain gom theo chức năng. Zone gom theo vị trí vật lý để thu gọn kết nối và đưa một phần xử lý về compute mạnh hơn. Xe thực tế có thể kết hợp nhiều kiểu. Không phải mọi vòng điều khiển đều chuyển lên Linux HPC: một MCU cục bộ vẫn có thể giữ vòng điều khiển nhanh và trạng thái dự phòng.</p>
+<h2 id="chapter-02-3-stack-tham-chieu-cho-giao-trinh">3. Stack tham chiếu cho giáo trình</h2>
+<pre><code class="language-mermaid">flowchart TB
+    Cloud[Cloud: fleet / telemetry / release management]
+    Gateway[Vehicle connectivity gateway]
+    Apps[Vehicle apps: advisory / HMI / comfort]
+    Data[Data abstraction: KUKSA + VSS model]
+    Services[Services and middleware: IPC / SOME-IP / DDS / Zenoh]
+    OS[OS and execution: Linux / RTOS / VM / container runtime]
+    HW[Hardware: HPC / zones / MCUs / sensors / actuators]
+    Cloud &lt;--&gt; Gateway
+    Gateway &lt;--&gt; Apps
+    Apps &lt;--&gt; Data
+    Data &lt;--&gt; Services
+    Services &lt;--&gt; OS
+    OS &lt;--&gt; HW
+    Lifecycle[Cross-cutting: identity / logging / diagnostics / update / supervision]
+    Lifecycle --- Apps
+    Lifecycle --- OS
+</code></pre>
+<p>Đây là <strong>kiến trúc sư phạm do bộ tài liệu lựa chọn</strong>, không phải một “Eclipse reference stack” bắt buộc. Một SOME/IP service có thể được app truy cập trực tiếp; không phải mọi dữ liệu đều đi qua KUKSA. S-CORE là nhánh core platform riêng cần integration design, không được mặc định nằm trong đường chạy demo.</p>
+<h2 id="chapter-02-4-giai-thich-tung-lop-bang-project-mau">4. Giải thích từng lớp bằng project mẫu</h2>
+<table>
+<thead>
+<tr>
+<th>Lớp</th>
+<th>Có trong demo</th>
+<th>Khi lên hệ thống thực</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hardware</td>
+<td>Laptop, dữ liệu giả</td>
+<td>Board Linux + ECU/sensor</td>
+</tr>
+<tr>
+<td>OS</td>
+<td>Windows cho bài offline; Linux cho container/CAN</td>
+<td>BSP, kernel, boot chain, watchdog</td>
+</tr>
+<tr>
+<td>Vehicle I/O</td>
+<td>Simulator, sau đó <code>vcan0</code></td>
+<td>CAN transceiver/driver, Ethernet, DBC hợp lệ</td>
+</tr>
+<tr>
+<td>Provider</td>
+<td>Chuyển nguồn thành signal có timestamp</td>
+<td>Decode, quality, timeout, mapping version</td>
+</tr>
+<tr>
+<td>Data abstraction</td>
+<td>KUKSA, schema 4 signal</td>
+<td>ACL, schema evolution, ownership</td>
+</tr>
+<tr>
+<td>App</td>
+<td>Rule và hysteresis</td>
+<td>Requirements, calibration, fail behavior</td>
+</tr>
+<tr>
+<td>Presentation</td>
+<td>JSON logs và subscriber</td>
+<td>HMI/API, output freshness</td>
+</tr>
+<tr>
+<td>Lifecycle</td>
+<td>Compose, manifest Ankaios nâng cao</td>
+<td>Boot, restart, rollout, rollback</td>
+</tr>
+<tr>
+<td>Cloud</td>
+<td>Chưa implement</td>
+<td>Connector, identity, offline queue</td>
+</tr>
+</tbody>
+</table>
+<h2 id="chapter-02-5-data-plane-va-control-plane">5. Data plane và control plane</h2>
+<p>Data plane là đường chạy dữ liệu chức năng: provider → broker → advisor. Control plane quản lý workload: ai chạy advisor, image nào, cấu hình nào, restart ra sao. Ankaios thuộc câu chuyện control plane; nó không decode CAN hay tự chuyển signal giữa app.</p>
+<p>OTA còn có release metadata, chữ ký, điều kiện cho phép cập nhật, tương thích phiên bản và phục hồi. Khởi động container mới chỉ là một bước của chuỗi này.</p>
+<h2 id="chapter-02-6-mot-luong-du-lieu-cu-the">6. Một luồng dữ liệu cụ thể</h2>
+<pre><code class="language-text">t0 sensor/ECU tạo giá trị
+t1 gateway nhận frame
+t2 provider decode và publish
+t3 broker lưu/phát thông báo
+t4 advisor đọc và tính
+t5 HMI/observer nhận kết quả
+</code></pre>
+<p>Tuổi dữ liệu tại app là <code>t4 - t0</code> nếu timestamp thực sự là thời điểm đo. Trong SocketCAN lab, timestamp được gán tại lúc provider nhận frame: số đo tuổi chỉ bao phủ từ gateway trở đi. Phải nói rõ điều đó trong thiết kế.</p>
+<p>Ví dụ ngân sách tự đặt cho prototype: provider 1 Hz, RPC deadline 2 giây, input quá 3 giây thành UNKNOWN. Những con số này phù hợp bài học giám sát chậm; không chứng minh deadline cho braking/steering hay control loop.</p>
+<h2 id="chapter-02-7-cac-quyet-inh-kien-truc-cua-demo">7. Các quyết định kiến trúc của demo</h2>
+<ul>
+<li><strong>ADR-001:</strong> chọn advisory để học luồng dữ liệu; output là derived sensor, không phải actuator.</li>
+<li><strong>ADR-002:</strong> dùng VAL v2 và proto đúng commit broker để tránh ghép SDK v1 với actuation v2.</li>
+<li><strong>ADR-003:</strong> tách pure policy khỏi transport để test lỗi dữ liệu không cần khởi động cả stack.</li>
+<li><strong>ADR-004:</strong> polling 1 Hz cho advisor dễ quan sát; subscriber riêng để học streaming. Không tuyên bố các lần publish riêng lẻ là atomic transaction.</li>
+<li><strong>ADR-005:</strong> chỉ bind cổng broker ra loopback host trong Compose; TLS/ACL là mốc nâng cấp có test riêng.</li>
+</ul>
+<h2 id="chapter-02-bai-tap-va-au-ra">Bài tập và đầu ra</h2>
+<p>Vẽ ba sơ đồ cho cùng chức năng: physical, logical, deployment. Trên mỗi mũi tên ghi protocol, data owner và ý nghĩa timestamp. Ghi một yêu cầu CPU/RAM, một deadline và một behavior khi mất provider.</p>
+<p>Hoàn thành khi bạn chỉ ra được trên sơ đồ: Eclipse KUKSA, Ankaios, Leda và S-CORE giải quyết những lớp khác nhau. Nguồn để so sánh vai trò: <a href="https://github.com/eclipse-kuksa/kuksa-databroker/blob/0.7.1/doc/system-architecture.md">KUKSA system architecture</a>, <a href="https://github.com/eclipse-ankaios/ankaios/blob/v1.1.0/doc/docs/architecture.md">Ankaios architecture</a>.</p></section>
+<section id="chapter-03" data-title="02 — Bản đồ Eclipse và toàn bộ toolchain liên quan"><div class="source">Nguồn Markdown: <a href="docs/02-eclipse-landscape.md">docs/02-eclipse-landscape.md</a></div><h1 id="chapter-03-02-ban-o-eclipse-va-toan-bo-toolchain-lien-quan">02 — Bản đồ Eclipse và toàn bộ toolchain liên quan</h1>
+<h2 id="chapter-03-1-chon-theo-bai-toan">1. Chọn theo bài toán</h2>
+<p>Đọc bảng này từ yêu cầu sang công cụ. “Thuộc Eclipse Foundation” không tự động có nghĩa “là thành phần bắt buộc của Eclipse SDV”, cũng không bảo đảm mọi dự án đã tương thích với nhau. Đây là danh mục có chọn lọc phục vụ kiến trúc trong giáo trình, không phải liệt kê mọi dự án đang tồn tại.</p>
+<table>
+<thead>
+<tr>
+<th>Dự án</th>
+<th>Làm gì?</th>
+<th>Khi dùng</th>
+<th>Có chạy trong demo?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/eclipse-kuksa/kuksa-databroker">KUKSA</a></td>
+<td>Vehicle signal abstraction/broker</td>
+<td>App cần truy cập signal có schema</td>
+<td>Có, bằng Compose</td>
+</tr>
+<tr>
+<td><a href="https://eclipse.dev/velocitas/">Velocitas</a></td>
+<td>SDK/template/workflow cho Vehicle App</td>
+<td>Chuẩn hóa cách nhóm phát triển app</td>
+<td>Nhánh migration</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-ankaios/ankaios">Ankaios</a></td>
+<td>Orchestrate workload trên embedded nodes</td>
+<td>Lifecycle và desired state nhiều workload</td>
+<td>Có manifest, cần Linux</td>
+</tr>
+<tr>
+<td><a href="https://eclipse-leda.github.io/leda/">Leda</a></td>
+<td>Recipes/reference distribution cho SDV</td>
+<td>Học tích hợp OS và component</td>
+<td>Nhánh target image</td>
+</tr>
+<tr>
+<td><a href="https://projects.eclipse.org/projects/automotive.score">S-CORE</a></td>
+<td>Core stack hướng HPC automotive</td>
+<td>Core services, quality/process và integration</td>
+<td>Nhánh core riêng</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-sdv-blueprints/blueprints">SDV Blueprints</a></td>
+<td>Các ví dụ tích hợp theo use case</td>
+<td>Tham khảo cách ghép thành hệ thống</td>
+<td>Tài liệu tham khảo</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-iceoryx/iceoryx2">iceoryx2</a></td>
+<td>IPC bằng shared memory/zero copy</td>
+<td>Truyền dữ liệu lớn giữa process cùng máy</td>
+<td>Bài nâng cao</td>
+</tr>
+<tr>
+<td><a href="https://zenoh.io/docs/overview/what-is-zenoh/">Zenoh</a></td>
+<td>Pub/sub/query trên hệ phân tán</td>
+<td>Luồng dữ liệu edge/robotics/vehicle</td>
+<td>Bài nâng cao</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-uprotocol/up-spec">uProtocol</a></td>
+<td>Contract giao tiếp và abstraction transport</td>
+<td>Thiết kế service giao tiếp xuyên môi trường</td>
+<td>Bài nâng cao</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-cyclonedds/cyclonedds">Cyclone DDS</a></td>
+<td>DDS implementation</td>
+<td>Hệ thống data-centric với QoS DDS</td>
+<td>Tùy use case</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-ecal/ecal">eCAL</a></td>
+<td>Middleware/giao tiếp và tooling đo dữ liệu</td>
+<td>Prototype, replay, integration</td>
+<td>Tùy use case</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-openbsw/openbsw">OpenBSW</a></td>
+<td>Software platform cho automotive MCU</td>
+<td>Node MCU và basic software</td>
+<td>Nhánh ECU</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-threadx/threadx">ThreadX</a></td>
+<td>RTOS cho deeply embedded</td>
+<td>Scheduler/timing trên MCU</td>
+<td>Nhánh ECU</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-opensovd/opensovd">OpenSOVD</a></td>
+<td>Service-oriented vehicle diagnostics</td>
+<td>Chẩn đoán compute và dịch vụ mới</td>
+<td>Thiết kế mở rộng</td>
+</tr>
+<tr>
+<td><a href="https://eclipse.dev/sumo/">SUMO</a></td>
+<td>Mô phỏng giao thông</td>
+<td>Scenario fleet/traffic cấp hệ thống</td>
+<td>Không thay HIL điện tử</td>
+</tr>
+<tr>
+<td><a href="https://eclipse.dev/kanto/">Kanto</a></td>
+<td>Edge connectivity, container/update services</td>
+<td>Chọn stack edge/IoT tích hợp</td>
+<td>Phương án khác để đánh giá</td>
+</tr>
+<tr>
+<td><a href="https://mosquitto.org/documentation/">Mosquitto</a></td>
+<td>MQTT broker</td>
+<td>Telemetry pub/sub qua MQTT</td>
+<td>Nhánh cloud</td>
+</tr>
+<tr>
+<td><a href="https://eclipse.dev/hono/docs/concepts/">Hono</a></td>
+<td>Device connectivity/identity/multitenancy</td>
+<td>Backend tiếp nhận nhiều thiết bị</td>
+<td>Nhánh cloud</td>
+</tr>
+<tr>
+<td><a href="https://eclipse.dev/ditto/intro-overview.html">Ditto</a></td>
+<td>Digital twin framework</td>
+<td>Mô hình trạng thái xe phía backend</td>
+<td>Nhánh cloud</td>
+</tr>
+</tbody>
+</table>
+<h2 id="chapter-03-2-cong-cu-ngoai-eclipse-nhung-can-trong-toolchain">2. Công cụ ngoài Eclipse nhưng cần trong toolchain</h2>
+<table>
+<thead>
+<tr>
+<th>Nhóm</th>
+<th>Công cụ</th>
+<th>Artifact tạo ra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Signal model</td>
+<td>COVESA VSS, vss-tools</td>
+<td><code>.vspec</code>, overlay, <code>vss.json</code></td>
+</tr>
+<tr>
+<td>Vehicle network</td>
+<td>SocketCAN, can-utils, DBC tooling</td>
+<td>Frame log, DBC, mapping</td>
+</tr>
+<tr>
+<td>SOME/IP</td>
+<td>COVESA vsomeip, CommonAPI C++</td>
+<td>Service interface, proxy/stub, config</td>
+</tr>
+<tr>
+<td>Build</td>
+<td>CMake/Ninja, Cargo, Bazel/Bazelisk</td>
+<td>Binary, test results</td>
+</tr>
+<tr>
+<td>OS image</td>
+<td>Yocto/OpenEmbedded, BitBake, BSP</td>
+<td>Kernel, rootfs, SDK, image manifest</td>
+</tr>
+<tr>
+<td>Packaging</td>
+<td>OCI image, Docker/Podman/containerd</td>
+<td>Image digest, runtime specification</td>
+</tr>
+<tr>
+<td>CI</td>
+<td>GitHub Actions hoặc CI nội bộ</td>
+<td>Build/test/release evidence</td>
+</tr>
+<tr>
+<td>Quality</td>
+<td>Compiler warnings, sanitizers, static analysis</td>
+<td>Findings và xử lý findings</td>
+</tr>
+<tr>
+<td>Supply chain</td>
+<td>SPDX/CycloneDX, Syft, Trivy, Cosign</td>
+<td>SBOM, vulnerability report, signature</td>
+</tr>
+<tr>
+<td>Debug</td>
+<td>gdb, Wireshark, tcpdump, journalctl</td>
+<td>Trace và bằng chứng root cause</td>
+</tr>
+<tr>
+<td>Measurement</td>
+<td>perf, tracing, cgroups metrics</td>
+<td>CPU/RAM/latency distributions</td>
+</tr>
+<tr>
+<td>OS update</td>
+<td>RAUC hoặc giải pháp phù hợp BSP</td>
+<td>Signed bundle, slot state</td>
+</tr>
+</tbody>
+</table>
+<p>VSS và vsomeip thuộc COVESA, không đổi thành Eclipse chỉ vì được dùng trong một project Eclipse. Yocto cũng là hệ sinh thái riêng. Xem <a href="https://covesa.github.io/vehicle_signal_specification/">VSS</a>, <a href="https://github.com/COVESA/vsomeip">vsomeip</a>, <a href="https://docs.yoctoproject.org/overview-manual/yp-intro.html">Yocto introduction</a>.</p>
+<h2 id="chapter-03-3-luong-tao-san-pham">3. Luồng tạo sản phẩm</h2>
+<pre><code class="language-text">Requirement + architecture
+  → signal/service contracts
+  → app + provider source
+  → code generation + build
+  → unit/contract/integration tests
+  → OCI image + SBOM + signature
+  → release manifest
+  → orchestrator on target
+  → logs/metrics/diagnostics
+  → staged update + rollback evidence
+</code></pre>
+<p>Ở nhánh OS, source và layer configuration đi qua BitBake để tạo image. Ở nhánh core, feature/module source đi qua build và integration của S-CORE. Ba luồng này liên quan nhau nhưng có artifact và release cadence khác nhau.</p>
+<h2 id="chapter-03-4-khong-cai-moi-thu-cung-luc">4. Không cài mọi thứ cùng lúc</h2>
+<p>Baseline học đầu tiên chỉ cần Python. Mốc tiếp theo cần KUKSA và container engine. Chỉ thêm Ankaios khi bạn đã chạy được data plane. Chỉ thêm Yocto khi đã có nhu cầu kiểm soát OS image. Chỉ thêm middleware mới khi bạn chứng minh được yêu cầu mà lựa chọn hiện tại chưa đáp ứng.</p>
+<p>Các dự án như Chariott/Ibeji xuất hiện trong tài liệu SDV cũ. Snapshot repository trong <code>research/repository-snapshot.json</code> ghi nhận repository chưa archived tại thời điểm kiểm tra, nhưng ngày push gần nhất cũ hơn một số dự án khác. Đó là tín hiệu cần đánh giá maintainer, issue, release và compatibility; không đủ để kết luận dự án đã chết hay production-ready. Vì vậy giáo trình không chọn chúng làm dependency baseline.</p>
+<h2 id="chapter-03-bai-tap">Bài tập</h2>
+<p>Cho ba yêu cầu: đọc tốc độ xe; restart app sau crash; tạo rootfs cho board ARM64. Chọn một công cụ chính và một artifact kiểm chứng cho từng yêu cầu. Giải thích tại sao không dùng cùng một công cụ cho cả ba.</p></section>
+<section id="chapter-04" data-title="03 — VSS và Eclipse KUKSA: từ bit đến dữ liệu có nghĩa"><div class="source">Nguồn Markdown: <a href="docs/03-vss-kuksa.md">docs/03-vss-kuksa.md</a></div><h1 id="chapter-04-03-vss-va-eclipse-kuksa-tu-bit-en-du-lieu-co-nghia">03 — VSS và Eclipse KUKSA: từ bit đến dữ liệu có nghĩa</h1>
+<h2 id="chapter-04-1-vi-sao-can-signal-model">1. Vì sao cần signal model?</h2>
+<p>Hai xe có thể truyền tốc độ ở hai CAN ID, vị trí bit và scale khác nhau. Nếu app trực tiếp decode cả hai, mỗi thay đổi phần cứng đều lan vào app. Ta đặt một adapter/provider ở biên: nguồn riêng của xe → signal contract chung → app.</p>
+<p>Ví dụ quy ước riêng của lab: raw CAN speed <code>6000</code>, scale <code>0.01 km/h</code> → <code>Vehicle.Speed = 60.0 km/h</code>. Khi đổi frame layout, sửa provider và mapping; app vẫn đọc cùng đường dẫn.</p>
+<h2 id="chapter-04-2-vss-la-gi-va-khong-bao-gom-gi">2. VSS là gì và không bao gồm gì?</h2>
+<p>VSS của COVESA định nghĩa cách mô tả signal và catalog. Một signal có path, type, datatype, description và có thể có unit/min/max/allowed. Branch tổ chức cây; sensor biểu diễn giá trị quan sát; actuator biểu diễn khả năng nhận yêu cầu tác động; attribute mô tả thuộc tính. VSS không tự biết byte CAN, không tự chạy server và không tự cấp quyền. Xem <a href="https://covesa.github.io/vehicle_signal_specification/introduction/">VSS introduction</a>, <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/">rules</a>.</p>
+<p>Contract của project:</p>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Datatype</th>
+<th>Unit</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Vehicle.Speed</code></td>
+<td>float</td>
+<td>km/h</td>
+<td>Chọn từ VSS 6.1</td>
+</tr>
+<tr>
+<td><code>Vehicle.Powertrain.TractionBattery.StateOfCharge.Current</code></td>
+<td>float</td>
+<td>percent</td>
+<td>Chọn từ VSS 6.1, physical SOC</td>
+</tr>
+<tr>
+<td><code>Vehicle.Lab.BatteryTemperature</code></td>
+<td>float</td>
+<td>celsius</td>
+<td>Extension của project</td>
+</tr>
+<tr>
+<td><code>Vehicle.Lab.AdvisoryMode</code></td>
+<td>string</td>
+<td>không có</td>
+<td>Derived sensor, extension của project</td>
+</tr>
+</tbody>
+</table>
+<p><code>Vehicle.Lab.*</code> được tạo cho giáo trình, <strong>không phải đường dẫn chuẩn của COVESA</strong>. Nhiệt độ đại diện cho cả pack là lựa chọn mô phỏng; một xe thật có thể có nhiều sensor/cell/module và yêu cầu aggregate khác. File <code>config/vss.json</code> là cây JSON tối giản nạp trực tiếp vào broker, không phải toàn bộ VSS catalog.</p>
+<h2 id="chapter-04-3-kuksa-them-runtime">3. KUKSA thêm runtime</h2>
+<p>Databroker đăng ký signal metadata, cung cấp API đọc/publish/subscribe và cơ chế quyền truy cập. Provider hiểu nguồn dữ liệu; broker quản lý abstraction; app hiểu nghiệp vụ. Broker không tự sinh dữ liệu từ xe. Xem <a href="https://github.com/eclipse-kuksa/kuksa-databroker/blob/0.7.1/doc/system-architecture.md">KUKSA architecture</a>.</p>
+<p>Trong baseline, dữ liệu được lưu và truy cập qua gRPC <code>kuksa.val.v2</code>. Đây không phải kho lịch sử cho fleet; muốn replay/history cần recorder hoặc backend riêng.</p>
+<h2 id="chapter-04-4-api-v2-va-ranh-gioi-voi-vi-du-v1">4. API v2 và ranh giới với ví dụ v1</h2>
+<table>
+<thead>
+<tr>
+<th>Việc cần làm</th>
+<th>API v2 của lab</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Đọc một/nhiều signal</td>
+<td><code>GetValue</code> / <code>GetValues</code></td>
+<td>Giá trị hiện được biết, có thể chưa có value</td>
+</tr>
+<tr>
+<td>Đăng ký nhận cập nhật</td>
+<td><code>Subscribe</code></td>
+<td>Stream cập nhật, phải quản lý cache và timeout</td>
+</tr>
+<tr>
+<td>Publish chậm</td>
+<td><code>PublishValue</code></td>
+<td>Provider gửi observed/derived value</td>
+</tr>
+<tr>
+<td>Provider stream</td>
+<td><code>OpenProviderStream</code></td>
+<td>Nhánh nâng cao cho publishing/actuation</td>
+</tr>
+<tr>
+<td>Yêu cầu tác động</td>
+<td><code>Actuate</code> / <code>BatchActuate</code></td>
+<td>Gửi yêu cầu tới provider của actuator</td>
+</tr>
+<tr>
+<td>Xem metadata</td>
+<td><code>ListMetadata</code></td>
+<td>Xác minh path/type/entry type</td>
+</tr>
+</tbody>
+</table>
+<p>v1 có khái niệm current/target value. v2 dùng data value và luồng actuation riêng; không sao chép <code>set_target_values()</code> của SDK v1 rồi xem đó là tương đương API v2. Upstream cũng phân biệt các API cũ và mới: <a href="https://github.com/eclipse-kuksa/kuksa-databroker/blob/0.7.1/doc/protocol.md">protocol comparison</a>.</p>
+<p>Trong lab chỉ dùng <code>PublishValue</code> ở tần số thấp 1 Hz để code dễ đọc. Khi tăng tốc độ hoặc cung cấp actuator, phải học provider stream và ownership đúng contract. Proto được khóa theo submodule broker 0.7.1, không lấy ngẫu nhiên file trên <code>main</code>.</p>
+<h2 id="chapter-04-5-timestamp-quan-trong-ngang-value">5. Timestamp quan trọng ngang value</h2>
+<pre><code class="language-text">Provider gửi: value=47, source_timestamp=10:00:00
+App đọc lại: 10:00:05, broker vẫn trả 47
+Tuổi nguồn: 5 giây → input quá hạn → UNKNOWN
+</code></pre>
+<p>Timestamp là phần riêng trong protobuf Datapoint. Giá trị 0, không có value và không có timestamp là ba trường hợp khác nhau. <code>decode()</code> giữ các trường hợp thiếu thành <code>None</code>; policy không biến chúng thành số 0.</p>
+<p>Lab từ chối input quá 3 giây, timestamp tương lai quá 0,5 giây và bộ input lệch nhau quá 0,5 giây. Đây là kiểm tra coherence đơn giản. Các lần publish riêng lẻ vẫn không tạo atomic snapshot: khi đổi sang pipeline tốc độ cao, cần correlation/sequence/epoch hoặc thiết kế snapshot phù hợp.</p>
+<p>NTP/PTP hỗ trợ đồng bộ clock nhưng phải đo sai số. Monotonic clock thích hợp cho timer nội bộ; wall clock dùng để so sánh timestamp giữa process chỉ khi có giả định clock rõ ràng.</p>
+<h2 id="chapter-04-6-command-accepted-khac-physical-state">6. Command accepted khác physical state</h2>
+<p>Giả sử app muốn quạt 60%. Một API trả success có thể chỉ xác nhận yêu cầu đã đi tới provider hoặc được chấp nhận. Để biết quạt đang quay, phải đọc feedback RPM/current và timeout theo yêu cầu. App cần phân biệt <code>requested</code>, <code>accepted</code>, <code>observed</code> và <code>failed</code>.</p>
+<p>Project xuất <code>AdvisoryMode</code> dưới dạng sensor vì nó là kết quả quan sát/tính toán. Không đặt nó là actuator chỉ vì app đang publish. Contract v2 có mô tả riêng về actuation/provider: <a href="https://github.com/eclipse-kuksa/kuksa-proto/blob/28bf76ae57085dad425eedd95bc7bd442e1314a7/kuksa/val/v2/val.proto">proto được dùng</a>.</p>
+<h2 id="chapter-04-bai-tap">Bài tập</h2>
+<p>Thêm một extension <code>Vehicle.Lab.InputQuality</code> rồi xác định datatype, allowed values, owner và test. Thay đổi schema, transport và test đồng bộ. Sau đó giải thích vì sao “broker trả giá trị” chưa đồng nghĩa “data có chất lượng tốt”.</p></section>
+<section id="chapter-05" data-title="04 — Middleware và communication: dùng cái nào ở đâu?"><div class="source">Nguồn Markdown: <a href="docs/04-communication.md">docs/04-communication.md</a></div><h1 id="chapter-05-04-middleware-va-communication-dung-cai-nao-o-au">04 — Middleware và communication: dùng cái nào ở đâu?</h1>
+<h2 id="chapter-05-1-tach-semantic-model-api-va-transport">1. Tách semantic model, API và transport</h2>
+<p>Trong demo: VSS mô tả ý nghĩa dữ liệu; KUKSA VAL v2 mô tả API; protobuf mô tả message/serialization; gRPC thực hiện RPC; HTTP/2 và TCP/IP mang dữ liệu qua mạng. Container network cung cấp connectivity. Mỗi lớp trả lời một câu hỏi khác nhau.</p>
+<p>“Đã dùng TCP” chưa cho bạn service discovery, permission hay signal semantics. “Đã dùng VSS” chưa cho bạn kết nối tới ECU.</p>
+<h2 id="chapter-05-2-bang-lua-chon">2. Bảng lựa chọn</h2>
+<table>
+<thead>
+<tr>
+<th>Cơ chế</th>
+<th>Phù hợp</th>
+<th>Cần chú ý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CAN/CAN FD</td>
+<td>Liên lạc ECU/MCU, frame gọn</td>
+<td>Arbitration, bus load, mapping, counter, quality</td>
+</tr>
+<tr>
+<td>SOME/IP + SD</td>
+<td>Service/method/event trên automotive Ethernet</td>
+<td>Service/instance/version, discovery, eventgroup</td>
+</tr>
+<tr>
+<td>gRPC</td>
+<td>RPC giữa component có protobuf contract</td>
+<td>Deadline, streaming, TLS, backpressure</td>
+</tr>
+<tr>
+<td>DDS</td>
+<td>Data-centric pub/sub với QoS</td>
+<td>Discovery, reliability, history, deadlines, resource limits</td>
+</tr>
+<tr>
+<td>Zenoh</td>
+<td>Pub/sub/query giữa các node/môi trường mạng</td>
+<td>Keyspace, routing, topology, delivery behavior</td>
+</tr>
+<tr>
+<td>iceoryx2</td>
+<td>IPC giữa process bằng shared memory</td>
+<td>Ownership, lifetime, pool size, process failure</td>
+</tr>
+<tr>
+<td>MQTT</td>
+<td>Telemetry kiểu broker qua mạng/cloud</td>
+<td>QoS, retained, expiry, identity, duplicate handling</td>
+</tr>
+<tr>
+<td>uProtocol</td>
+<td>Model/API giao tiếp cùng các transport binding</td>
+<td>Chọn và kiểm chứng binding; không coi là một bus vật lý</td>
+</tr>
+</tbody>
+</table>
+<p>Đây là hướng chọn ban đầu, không phải benchmark khẳng định công cụ nào nhanh nhất. Nguồn từng cơ chế: <a href="https://docs.kernel.org/networking/can.html">SocketCAN</a>, <a href="https://github.com/COVESA/vsomeip">vsomeip</a>, <a href="https://grpc.io/docs/what-is-grpc/core-concepts/">gRPC concepts</a>, <a href="https://github.com/eclipse-cyclonedds/cyclonedds">Cyclone DDS</a>, <a href="https://zenoh.io/docs/overview/what-is-zenoh/">Zenoh</a>, <a href="https://github.com/eclipse-iceoryx/iceoryx2">iceoryx2</a>, <a href="https://github.com/eclipse-uprotocol/up-spec">uProtocol specification</a>.</p>
+<h2 id="chapter-05-3-someip-tu-vi-du-cu-the">3. SOME/IP từ ví dụ cụ thể</h2>
+<p>Một thermal service có thể expose <code>GetStatus()</code> và event <code>TemperatureChanged</code>. Client phải biết service ID, instance ID, major/minor version, method/event ID và payload contract. SOME/IP-SD giúp offer/find/subscribe; nhận được discovery không có nghĩa phương thức đã được cấp quyền hoặc thực thi thành công.</p>
+<p>vsomeip hiện thực SOME/IP. CommonAPI C++ hỗ trợ cách biểu diễn interface và binding/generation cho C++; phải kiểm tra version của generator/runtime/binding. Không tự xem vsomeip là bản hiện thực đầy đủ AUTOSAR Adaptive Platform. Tham khảo <a href="https://github.com/COVESA/capicxx-core-runtime">CommonAPI core</a>.</p>
+<p>Lab nâng cao: expose cùng thermal status qua SOME/IP ở một service riêng, viết adapter sang signal KUKSA. Ghi rõ field nào là sensor, field nào là method và ai sở hữu logic. Không cần ghép hai middleware chỉ để có thêm tên công nghệ.</p>
+<h2 id="chapter-05-4-streaming-va-backpressure">4. Streaming và backpressure</h2>
+<p>Một subscriber đọc 1 message/giây trong khi nguồn gửi 1000 message/giây sẽ làm queue tăng nếu không có giới hạn. Bạn phải chọn: giữ mọi sample, giữ mới nhất, drop oldest hoặc giảm tốc producer. Lựa chọn phụ thuộc vào việc đây là telemetry hiện tại, lịch sử phân tích hay event không được phép mất.</p>
+<p>Trong lab subscriber dùng buffer nhỏ. Khi stream reconnect, initial snapshot là trạng thái hiện tại; các event đã mất không tự biến thành history. <code>UNKNOWN</code> cần timer độc lập vì không có message mới cũng là một tình huống chức năng.</p>
+<h2 id="chapter-05-5-vi-sao-khong-ua-anh-camera-vao-signal-broker">5. Vì sao không đưa ảnh camera vào signal broker?</h2>
+<p>Một frame 1920×1080 RGB khoảng 6,2 MB chưa nén. 30 fps khoảng 187 MB/s cho một camera, chưa tính overhead/copy. Một scalar <code>Vehicle.Speed</code> có bài toán khác hoàn toàn. Đưa raw image qua cây signal làm sai lớp abstraction của use case này.</p>
+<p>Có thể dùng VSS cho metadata/trạng thái camera; image pipeline dùng buffer/media transport phù hợp. Nếu dùng shared memory, phải đo số lần copy thực tế toàn tuyến. Zero copy ở một đoạn không chứng minh toàn pipeline không copy.</p>
+<h2 id="chapter-05-6-o-thay-vi-oan">6. Đo thay vì đoán</h2>
+<p>Ghi các điểm timestamp, clock source, payload size, message rate, số subscriber và CPU load. Báo cáo p50/p95/p99/max trên một cửa sổ đo đủ dài. Xác định mất message bằng sequence/counter thay vì chỉ nhìn log “received”.</p>
+<p>Một benchmark trên localhost không đại diện cho Ethernet switch, congestion, ARM target, thermal throttling hay isolation thực. Đưa điều kiện đo vào artifact.</p>
+<h2 id="chapter-05-bai-tap">Bài tập</h2>
+<p>Chọn cơ chế cho: nhiệt độ 1 Hz; camera 30 fps cùng host; lệnh yêu cầu seat position có feedback; telemetry lên fleet qua mạng chập chờn. Viết lựa chọn, tradeoff, failure behavior và phép đo để xác minh.</p></section>
+<section id="chapter-06" data-title="05 — Chuẩn bị môi trường trên Windows và Linux"><div class="source">Nguồn Markdown: <a href="docs/05-setup.md">docs/05-setup.md</a></div><h1 id="chapter-06-05-chuan-bi-moi-truong-tren-windows-va-linux">05 — Chuẩn bị môi trường trên Windows và Linux</h1>
+<h2 id="chapter-06-1-ba-muc-moi-truong">1. Ba mức môi trường</h2>
+<table>
+<thead>
+<tr>
+<th>Mức</th>
+<th>Cần có</th>
+<th>Chạy được</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Python 3.12</td>
+<td>Offline policy, không cần dependencies</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Python + dependencies</td>
+<td>Policy tests, protobuf, gRPC fixture qua loopback</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Linux containers qua Docker/Podman</td>
+<td>Eclipse KUKSA thật và end-to-end demo</td>
+</tr>
+</tbody>
+</table>
+<p>SocketCAN và Ankaios lab dùng Linux. Trên Windows có thể dùng Linux VM, máy Linux khác hoặc WSL2 phù hợp. Chỉ có file <code>wsl.exe</code> không có nghĩa đã có distro dùng được. Kiểm tra <code>wsl --list --verbose</code>.</p>
+<p>Ngày chuẩn bị bộ này: Python 3.12 có sẵn; không tìm thấy <code>docker</code> trong PATH và WSL chưa cung cấp distro hoạt động qua lệnh kiểm tra. Bộ tài liệu không tự cài hypervisor, reboot hoặc thay cấu hình Windows.</p>
+<h2 id="chapter-06-2-powershell-tao-moi-truong-python">2. PowerShell: tạo môi trường Python</h2>
+<p>Mở PowerShell tại <code>SDV_Eclipse</code>:</p>
+<pre><code class="language-powershell">Set-Location .\project
+python -m sdv_lab offline
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+.\.venv\Scripts\python.exe scripts\generate_proto.py
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+.\.venv\Scripts\python.exe -m pip check
+</code></pre>
+<p>Không cần activate venv nên không cần sửa execution policy. Bước generate đọc proto đã đi kèm project, không fetch <code>main</code>. Output trong <code>project/kuksa/</code> là code sinh tự động, không sửa tay.</p>
+<h2 id="chapter-06-3-linux-cung-workflow">3. Linux: cùng workflow</h2>
+<p>Chạy từ <code>project/</code>:</p>
+<pre><code class="language-bash">python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-dev.txt
+.venv/bin/python scripts/generate_proto.py
+.venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python -m sdv_lab offline
+</code></pre>
+<p>Nếu Ubuntu thiếu module venv, cài gói <code>python3-venv</code> bằng package manager của distro. Tránh vừa dùng Python global vừa dùng dependency trong venv khác.</p>
+<h2 id="chapter-06-4-chuan-bi-container-engine">4. Chuẩn bị container engine</h2>
+<p>Trên Windows, cài Docker Desktop với backend Linux containers theo <a href="https://docs.docker.com/desktop/setup/install/windows-install/">hướng dẫn chính thức</a>. Trên Linux, dùng <a href="https://docs.docker.com/engine/install/">Docker Engine</a> hoặc Podman cho nhánh Ankaios. Kiểm tra:</p>
+<pre><code class="language-text">docker version
+docker compose version
+</code></pre>
+<p>Có client nhưng không kết nối được daemon thì chưa sẵn sàng. <code>compose.yaml</code> dùng DNS nội bộ <code>broker</code>, không dựa vào host networking trên Windows. Host truy cập <code>127.0.0.1:55555</code>; app trong container truy cập <code>broker:55555</code>.</p>
+<h2 id="chapter-06-5-kiem-tra-truoc-khi-chay-that">5. Kiểm tra trước khi chạy thật</h2>
+<pre><code class="language-text">docker compose config
+docker compose pull broker
+docker compose build
+docker compose up -d broker
+</code></pre>
+<p><code>config</code> kiểm tra Compose syntax và nội suy; không chứng minh broker chấp nhận schema. <code>pull</code> xác minh truy cập registry/platform; không chứng minh app compatible. Smoke test ở chương 06 mới kiểm tra API thực tế.</p>
+<p>Nếu có nhiều project chiếm cổng 55555, đổi <strong>host port</strong> ở mapping và dùng <code>--broker 127.0.0.1:&lt;port&gt;</code> khi chạy app từ host. App trong Compose vẫn dùng port 55555 của broker.</p>
+<h2 id="chapter-06-6-quy-tac-thu-muc-va-moi-truong">6. Quy tắc thư mục và môi trường</h2>
+<ul>
+<li>Code/document ở OneDrive đọc bình thường; build Linux lớn nên đặt trên filesystem Linux để giảm overhead và tránh locking/sync.</li>
+<li>Dockerfile dùng Python 3.12 slim; base tag còn có thể đổi digest. Muốn tái tạo release đầy đủ phải pin thêm base digest, OS packages và dependency hashes.</li>
+<li>Requirements được pin để tái tạo bài lab, không phải cam kết các phiên bản sẽ luôn là bản mới nhất sau ngày kiểm tra.</li>
+<li>Không cần Eclipse IDE để chạy lab. VS Code, Eclipse CDT hoặc terminal đều có thể dùng; chọn theo ngôn ngữ và workflow của nhóm.</li>
+</ul>
+<h2 id="chapter-06-tieu-chi-hoan-thanh">Tiêu chí hoàn thành</h2>
+<p>Bạn chạy được offline policy và unit tests, giải thích được Python interpreter nào đang dùng, file code nào được generate và vì sao <code>localhost</code> trong container là một namespace khác.</p></section>
+<section id="chapter-07" data-title="06 — Đọc và chạy project từ đầu đến cuối"><div class="source">Nguồn Markdown: <a href="docs/06-project-walkthrough.md">docs/06-project-walkthrough.md</a></div><h1 id="chapter-07-06-oc-va-chay-project-tu-au-en-cuoi">06 — Đọc và chạy project từ đầu đến cuối</h1>
+<h2 id="chapter-07-1-requirement-truoc-code">1. Requirement trước code</h2>
+<p>Prototype nhận ba input: speed, SOC và representative battery temperature. Mỗi input có source timestamp. App xuất một trong bốn trạng thái và log lý do. Không có physical actuation.</p>
+<table>
+<thead>
+<tr>
+<th>Điều kiện</th>
+<th>Kết quả</th>
+<th>Vì sao</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Thiếu, không hợp lệ, quá hạn hoặc lệch timestamp</td>
+<td>UNKNOWN</td>
+<td>Không đủ bằng chứng để kết luận</td>
+</tr>
+<tr>
+<td>Temperature ≥55°C</td>
+<td>CRITICAL</td>
+<td>Ngưỡng mô phỏng</td>
+</tr>
+<tr>
+<td>Đang CRITICAL và temperature ≥52°C</td>
+<td>CRITICAL</td>
+<td>Hysteresis tránh nhấp nháy</td>
+</tr>
+<tr>
+<td>Temperature ≥45°C</td>
+<td>WARN</td>
+<td>Ngưỡng mô phỏng</td>
+</tr>
+<tr>
+<td>Trước đó WARN/CRITICAL và temperature ≥42°C</td>
+<td>WARN</td>
+<td>Giảm cảnh báo có hysteresis</td>
+</tr>
+<tr>
+<td>SOC ≤15% và speed ≥100 km/h</td>
+<td>WARN</td>
+<td>Rule minh họa dùng nhiều input</td>
+</tr>
+<tr>
+<td>Các input còn lại hợp lệ</td>
+<td>NORMAL</td>
+<td>Theo rule của lab</td>
+</tr>
+</tbody>
+</table>
+<p>UNKNOWN xóa trạng thái hysteresis. Các ngưỡng cần requirement/calibration riêng nếu đem ý tưởng vào sản phẩm. Đây không phải thuật toán thermal management/BMS.</p>
+<h2 id="chapter-07-2-oc-source-theo-ung-luong">2. Đọc source theo đúng luồng</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Đọc để hiểu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config/signals.csv</code></td>
+<td>Data contract, owner, unit</td>
+</tr>
+<tr>
+<td><code>config/vss.json</code></td>
+<td>Cây metadata broker nạp khi startup</td>
+</tr>
+<tr>
+<td><code>sdv_lab/policy.py</code></td>
+<td>Rule, validity, freshness, coherence và hysteresis</td>
+</tr>
+<tr>
+<td><code>sdv_lab/transport.py</code></td>
+<td>Encode/decode Datapoint, RPC deadline và VAL v2 calls</td>
+</tr>
+<tr>
+<td><code>sdv_lab/__main__.py</code></td>
+<td>Provider, advisor, watch, offline và retry loop</td>
+</tr>
+<tr>
+<td><code>proto/kuksa/val/v2/*.proto</code></td>
+<td>Contract thực upstream</td>
+</tr>
+<tr>
+<td><code>Dockerfile</code>, <code>compose.yaml</code></td>
+<td>Packaging, networking và runtime arguments</td>
+</tr>
+<tr>
+<td><code>tests/</code></td>
+<td>Yêu cầu nào đã có kiểm tra</td>
+</tr>
+</tbody>
+</table>
+<p><code>Policy</code> không import gRPC để giữ nghiệp vụ độc lập. <code>Broker</code> là adapter: đổi transport không nên buộc viết lại rule. CLI nối hai phần lại thành một process.</p>
+<h2 id="chapter-07-3-bai-au-tien-khong-can-broker">3. Bài đầu tiên không cần broker</h2>
+<p>Chạy ở <code>project/</code>:</p>
+<pre><code class="language-text">python -m sdv_lab offline
+</code></pre>
+<p>Bạn sẽ thấy năm dòng JSON tương ứng <code>NORMAL</code>, <code>WARN</code>, <code>CRITICAL</code>, <code>NORMAL</code>, <code>UNKNOWN</code>. Dòng cuối cố tình gán input đã cũ 10 giây. Trường <code>transport=in-process</code> giúp phân biệt bài này với KUKSA thật.</p>
+<h2 id="chapter-07-4-khoi-ong-kuksa-that-va-kiem-tra-contract">4. Khởi động KUKSA thật và kiểm tra contract</h2>
+<p>Sau khi chuẩn bị Python và generate proto, chạy:</p>
+<pre><code class="language-text">docker compose up -d broker
+</code></pre>
+<p>Chờ log broker sẵn sàng qua <code>docker compose logs broker</code>. Sau đó trên PowerShell:</p>
+<pre><code class="language-powershell">.\.venv\Scripts\python.exe -m tests.smoke_live
+</code></pre>
+<p>Trên Linux:</p>
+<pre><code class="language-bash">.venv/bin/python -m tests.smoke_live
+</code></pre>
+<p>Chỉ chạy khi provider/advisor đang dừng để không có writer cạnh tranh. Smoke kiểm tra version, publish/read, preservation của source timestamp, policy transitions, invalid path/type/range và subscription initial snapshot. Nếu có lỗi thì xử lý lỗi thật; không thay broker bằng fixture rồi gọi kết quả đó là end-to-end thành công.</p>
+<h2 id="chapter-07-5-chay-ca-stack">5. Chạy cả stack</h2>
+<pre><code class="language-text">docker compose up -d --build
+docker compose logs -f advisor
+</code></pre>
+<p>Provider chuyển scenario mỗi 6 tick, mỗi tick khoảng 1 giây khi RPC thành công. Bạn sẽ thấy normal → warn → critical → normal và lặp lại. Có thể có UNKNOWN ngắn lúc startup hoặc chuyển input do ba publish không atomic; xem timestamp và lý do trong log.</p>
+<p>Một terminal khác xem bằng subscriber v2:</p>
+<pre><code class="language-text">docker compose run --rm advisor watch --broker broker:55555 --seconds 30
+</code></pre>
+<p>Hoặc chạy <code>python -m sdv_lab watch</code> bằng venv ở host. CLI <code>inspect</code> in server version và các sample hiện có.</p>
+<h2 id="chapter-07-6-tiem-loi-co-chu-ich">6. Tiêm lỗi có chủ đích</h2>
+<pre><code class="language-text">docker compose stop provider
+docker compose logs -f advisor
+</code></pre>
+<p>Sau khi input vượt 3 giây, advisor phải publish UNKNOWN. Broker vẫn có thể trả các giá trị cũ, nên thành công của GetValues không đủ chứng minh freshness.</p>
+<pre><code class="language-text">docker compose start provider
+docker compose stop broker
+</code></pre>
+<p>Khi broker mất, advisor log UNKNOWN cục bộ nhưng không publish được UNKNOWN. Signal output trong broker hoặc ở downstream cache có thể giữ giá trị trước đó; consumer bắt buộc kiểm tra <strong>output timestamp</strong>. Sau 5 lỗi transient liên tiếp, process thoát mã 2; Compose <code>restart: on-failure</code> khởi động lại. Khởi động broker lại rồi quan sát phục hồi.</p>
+<p>Thử input cũ ngay từ provider: dừng provider chính, chạy <code>docker compose run --rm provider provider --broker broker:55555 --scenario normal --age 10 --iterations 5</code>. Advisor phải UNKNOWN. Không chạy đồng thời hai provider cùng path trong bài này.</p>
+<h2 id="chapter-07-7-dung-lab">7. Dừng lab</h2>
+<pre><code class="language-text">docker compose down
+</code></pre>
+<p>Lệnh dừng và xóa các container/network của project Compose này; source và tài liệu vẫn ở thư mục project. Broker state của bài lab không được thiết kế để giữ lịch sử qua restart.</p>
+<h2 id="chapter-07-8-gioi-han-co-chu-ich">8. Giới hạn có chủ đích</h2>
+<p>Adapter dùng plaintext trên network lab, chưa có TLS/token handling. Retry có số lần giới hạn và interval cố định; production nên có backoff/jitter và shutdown policy rõ ràng. App chưa có metric endpoint, durable queue hay cloud bridge. Provider stream/actuation chưa implement. Những phần này có yêu cầu và bài nâng cấp trong các chương sau.</p>
+<p>Tiêu chí hoàn thành: bạn chỉ ra được nguyên nhân mỗi trạng thái, chứng minh stale behavior và phục hồi, đồng thời phân biệt test chạy trên máy với phần cần broker/Linux thực.</p></section>
+<section id="chapter-08" data-title="07 — CAN/DBC → provider → VSS → ứng dụng"><div class="source">Nguồn Markdown: <a href="docs/07-can-integration.md">docs/07-can-integration.md</a></div><h1 id="chapter-08-07-candbc-provider-vss-ung-dung">07 — CAN/DBC → provider → VSS → ứng dụng</h1>
+<h2 id="chapter-08-1-thay-ung-mot-lop">1. Thay đúng một lớp</h2>
+<p>Mục tiêu là giữ nguyên KUKSA, policy và output; thay nguồn dữ liệu từ simulator bằng CAN adapter. Đây là bài kiểm tra thiết kế: nếu đổi nguồn phải viết lại thuật toán cảnh báo thì ranh giới abstraction đang chưa tốt.</p>
+<pre><code class="language-text">Virtual ECU sender → vcan0 → SocketCAN provider → KUKSA → advisor
+</code></pre>
+<p>SocketCAN biểu diễn CAN device như network interface và cung cấp socket API trên Linux. <code>vcan</code> giúp thử nghiệm frame mà không cần transceiver. Nó không mô phỏng đầy đủ arbitration, electrical fault hay timing vật lý. Nguồn: <a href="https://docs.kernel.org/networking/can.html">Linux SocketCAN</a>.</p>
+<h2 id="chapter-08-2-private-frame-cua-bai-hoc">2. Private frame của bài học</h2>
+<p>CAN ID 11 bit <code>0x321</code>, DLC 8. <strong>Đây là protocol tự đặt của lab, không phải CAN message chuẩn của xe nào.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Byte</th>
+<th>Field</th>
+<th>Encode</th>
+<th>Giá trị ví dụ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0–1</td>
+<td>Speed</td>
+<td>uint16 little endian, ×0.01 km/h</td>
+<td>6000 → 60 km/h</td>
+</tr>
+<tr>
+<td>2–3</td>
+<td>Physical SOC</td>
+<td>uint16 little endian, ×0.01%</td>
+<td>7000 → 70%</td>
+</tr>
+<tr>
+<td>4–5</td>
+<td>Battery temperature</td>
+<td>int16 little endian, ×0.1°C</td>
+<td>470 → 47°C</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Counter</td>
+<td>uint8, wrap 255→0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Validity</td>
+<td>đúng 1 mới nhận</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Payload ví dụ: <code>70 17 58 1B D6 01 01 01</code>. Bạn phải giải thích được từng byte và vì sao nhiệt độ âm cần signed decode. Linux <code>can_frame</code> gồm header và payload 8 byte, tổng 16 byte trong helper này; không được gửi trực tiếp 8 byte rồi mong socket tự hiểu arbitration ID.</p>
+<p>File <a href="project/config/lab.dbc">lab.dbc</a> mô tả cùng layout để mở bằng DBC tooling. Các field <code>Counter</code> và <code>Validity</code> phục vụ adapter; không map trực tiếp thành standard VSS signals. Decoder hiện viết tay để thấy byte-level behavior, không parse DBC tự động.</p>
+<h2 id="chapter-08-3-tao-vcan-tren-linux">3. Tạo vcan trên Linux</h2>
+<p>Trong một Linux host/VM có module vcan:</p>
+<pre><code class="language-bash">sudo modprobe vcan
+sudo ip link add dev vcan0 type vcan
+sudo ip link set dev vcan0 up
+ip -details link show vcan0
+</code></pre>
+<p>Nếu <code>vcan0</code> đã tồn tại, bỏ bước add và kiểm tra nó đúng interface lab. Nếu kernel WSL không có vcan thì dùng Linux VM/host có hỗ trợ; không sửa code để giả vờ có CAN thật.</p>
+<h2 id="chapter-08-4-chay-ba-terminal">4. Chạy ba terminal</h2>
+<p>Đầu tiên chỉ giữ KUKSA broker, dừng simulator/advisor trong Compose:</p>
+<pre><code class="language-text">docker compose up -d broker
+docker compose stop provider advisor
+</code></pre>
+<p>Chạy trong <code>project/</code> bằng Python Linux đã setup:</p>
+<pre><code class="language-bash"># Terminal 1: adapter
+.venv/bin/python -m scripts.can_provider --interface vcan0
+</code></pre>
+<pre><code class="language-bash"># Terminal 2: advisor
+.venv/bin/python -m sdv_lab advisor
+</code></pre>
+<pre><code class="language-bash"># Terminal 3: nguồn frame ảo, nhiệt độ gây WARN
+.venv/bin/python -m scripts.can_sender --temperature 47 --count 30
+</code></pre>
+<p>Sender được giới hạn vào <code>vcan0</code> để lệnh thực hành có endpoint rõ ràng. Kết quả mong đợi là WARN khi input hợp lệ, rồi UNKNOWN sau khi sender dừng và timeout vượt 3 giây. Nếu adapter và Docker ở hai host khác nhau, cấu hình network/authorization phù hợp thay vì mặc định <code>127.0.0.1</code> trỏ sang host kia.</p>
+<h2 id="chapter-08-5-tu-helper-en-provider-thuc-te">5. Từ helper đến provider thực tế</h2>
+<p>Adapter hiện kiểm tra ID/DLC/validity/range, loại duplicate counter liền kề và log gap/reset. Nó gán timestamp <strong>lúc nhận ở gateway</strong>, chưa có timestamp từ ECU. Nó không có CRC/E2E protection, timeout output quality riêng hay state machine tái đồng bộ counter. Khi broker lỗi adapter thoát; supervisor chịu trách nhiệm restart.</p>
+<p>Trong dự án thực, DBC/ARXML và network description phải là nguồn mapping có version. Có thể đánh giá <a href="https://github.com/eclipse-kuksa/kuksa-can-provider">KUKSA CAN Provider</a>, nhưng phải kiểm tra API version/dependency trước khi ghép với VAL v2 baseline. Không đổi CAN ID, unit và bit layout bằng phỏng đoán.</p>
+<p>Những thông tin phải bổ sung: multiplexing, endian, signedness, invalid raw values, timeout từng signal, counter reset sau ECU boot, checksum và mapping giữa ECU clock/gateway clock. Tránh đưa mẫu invalid vào broker như một giá trị đo mới hợp lệ.</p>
+<h2 id="chapter-08-bai-tap-va-tieu-chi-hoan-thanh">Bài tập và tiêu chí hoàn thành</h2>
+<p>Gửi temperature âm, gap counter và validity=0; ghi nhận adapter reject/accept ra sao. Viết decoder test cho một frame bị sai DLC. Hoàn thành khi bạn chỉ ra được phần đã kiểm tra bằng unit test và phần cần chạy SocketCAN/physical CAN để chứng minh.</p></section>
+<section id="chapter-09" data-title="08 — Velocitas: phát triển Vehicle App theo quy trình"><div class="source">Nguồn Markdown: <a href="docs/08-velocitas.md">docs/08-velocitas.md</a></div><h1 id="chapter-09-08-velocitas-phat-trien-vehicle-app-theo-quy-trinh">08 — Velocitas: phát triển Vehicle App theo quy trình</h1>
+<h2 id="chapter-09-1-vai-tro-chinh-xac">1. Vai trò chính xác</h2>
+<p>Velocitas cung cấp toolchain cho containerized Vehicle Apps: project templates, SDK/model hỗ trợ truy cập vehicle abstraction, môi trường phát triển và workflow build/test/release. Nó giúp chuẩn hóa cách viết và đóng gói app; vehicle runtime và provider vẫn phải được cấu hình riêng. Xem <a href="https://eclipse.dev/velocitas/">Velocitas</a> và <a href="https://eclipse.dev/velocitas/docs/concepts/">concepts</a>.</p>
+<p>Trong lab hiện tại, ta dùng Python gRPC trực tiếp để nhìn rõ API. Khi đã hiểu data path, mới chuyển sang SDK/template để đánh giá giá trị của abstraction và workflow.</p>
+<h2 id="chapter-09-2-nhung-phan-can-oc">2. Những phần cần đọc</h2>
+<table>
+<thead>
+<tr>
+<th>Phần</th>
+<th>Bạn tìm điều gì?</th>
+<th>Artifact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vehicle model</td>
+<td>Path/type được biểu diễn trong code thế nào</td>
+<td>Generated model hoặc bindings</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>Async/subscription, errors, reconnect, lifecycle</td>
+<td>App dùng API typed</td>
+</tr>
+<tr>
+<td>App manifest</td>
+<td>Dependency/permission metadata gì được khai báo</td>
+<td>Manifest tương ứng template</td>
+</tr>
+<tr>
+<td>Dev container</td>
+<td>Tool phiên bản nào, broker nào được khởi động</td>
+<td>Môi trường dev tái tạo</td>
+</tr>
+<tr>
+<td>CI workflows</td>
+<td>Test, multiarch build, scan, publish</td>
+<td>Image và reports</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>Image được runtime nào nhận</td>
+<td>Deployment specification</td>
+</tr>
+</tbody>
+</table>
+<p>Không giả định một app manifest tự động thực thi ACL. Phải tìm nơi khai báo biến thành policy và nơi policy được runtime kiểm tra.</p>
+<h2 id="chapter-09-3-compatibility-truoc-migration">3. Compatibility trước migration</h2>
+<p>SDK Python release được khảo sát là <code>v0.15.7</code> ngày 03/07/2025; đó là release của <strong>SDK repository</strong>, không phải version chung cho mọi thành phần Velocitas. Tham khảo <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/releases/tag/v0.15.7">SDK release</a>.</p>
+<p>Đọc <code>pyproject.toml</code>, dependencies và transport implementation của tag bạn chọn. Xác định SDK dùng <code>kuksa.val.v1</code>, v2 hay adapter nào; so khớp với broker và provider. Bộ này không tuyên bố SDK đó đã tương thích toàn bộ VAL v2 0.7.1.</p>
+<h2 id="chapter-09-4-bai-migration-co-the-thuc-hien">4. Bài migration có thể thực hiện</h2>
+<ol>
+<li>Tạo một thư mục riêng từ template được <a href="https://eclipse.dev/velocitas/docs/tutorials/quickstart/quickstart/">quickstart chính thức</a> dẫn tới. Ghi commit template và từng dependency.</li>
+<li>Giữ <code>Policy</code> và các test nghiệp vụ. Đây là phần độc lập với SDK.</li>
+<li>Viết adapter mới chuyển model/SDK value thành <code>Sample(value, timestamp)</code>.</li>
+<li>Tạo test contract xác nhận datatype, missing value, timestamp và stale behavior.</li>
+<li>Chạy cùng bốn scenario với baseline trực tiếp gRPC; so sánh output và failure behavior.</li>
+<li>Build image, lưu digest; kiểm tra startup/shutdown/reconnect và tài nguyên trên target.</li>
+</ol>
+<p>Nếu SDK không hỗ trợ API v2 bạn cần, chọn một baseline được upstream hỗ trợ để học riêng hoặc viết adapter v2 có kiểm thử. Không âm thầm trộn actuation/current-target semantics khác phiên bản.</p>
+<h2 id="chapter-09-5-khi-nao-nen-dung">5. Khi nào nên dùng?</h2>
+<p>Nếu cả nhóm cần template, typed vehicle model, dev environment và workflow chung, toolchain có thể giảm khác biệt giữa các app. Nếu bạn đang học contract hoặc viết provider đặc thù, gọi gRPC trực tiếp giúp quan sát rõ hơn. Quyết định dựa trên maintenance, API coverage và test evidence.</p>
+<h2 id="chapter-09-tieu-chi-hoan-thanh">Tiêu chí hoàn thành</h2>
+<p>Trình bày đường đi từ một dòng <code>read signal</code> trong app đến RPC thực và từ source đến OCI image. Ghi một bảng compatibility có các cột: template commit, SDK, API, broker, signal model và runtime. Migration chỉ được coi hoàn thành khi cùng requirement và fault cases đã pass.</p></section>
+<section id="chapter-10" data-title="09 — Ankaios: lifecycle và orchestration trên xe"><div class="source">Nguồn Markdown: <a href="docs/09-ankaios.md">docs/09-ankaios.md</a></div><h1 id="chapter-10-09-ankaios-lifecycle-va-orchestration-tren-xe">09 — Ankaios: lifecycle và orchestration trên xe</h1>
+<h2 id="chapter-10-1-tai-sao-can-orchestrator">1. Tại sao cần orchestrator?</h2>
+<p>Ba process chạy bằng tay phù hợp khi học. Khi có nhiều workload, bạn cần một nơi mô tả app nào chạy ở node nào, dependency gì và làm gì sau crash. Đó là bài toán lifecycle/control plane.</p>
+<p>Ankaios có server giữ desired state và agent chạy trên node thực thi; CLI <code>ank</code> xem và thay đổi state. Agent giao tiếp runtime như Podman/containerd. Server không tự chạy workload nên node chứa server vẫn cần agent nếu muốn chạy app tại đó. Xem <a href="https://github.com/eclipse-ankaios/ankaios/blob/v1.1.0/doc/docs/architecture.md">architecture v1.1.0</a>.</p>
+<h2 id="chapter-10-2-ba-trang-thai-can-phan-biet">2. Ba trạng thái cần phân biệt</h2>
+<ul>
+<li><strong>Desired state:</strong> “advisor image X cần chạy ở agent_A”.</li>
+<li><strong>Execution state:</strong> runtime/agent báo workload đang running, failed hay pending.</li>
+<li><strong>Functional health:</strong> advisor có nhận input mới và xuất kết quả đúng hay không.</li>
+</ul>
+<p>Container Running không bảo đảm gRPC sẵn sàng, signal đã có dữ liệu hay policy đúng. Vì vậy code vẫn có deadline, freshness và lỗi kết nối. Compose <code>depends_on</code> cũng không tự đợi readiness khi chỉ dùng thứ tự startup: <a href="https://docs.docker.com/compose/how-tos/startup-order/">Docker startup order</a>.</p>
+<h2 id="chapter-10-3-baseline-manifest">3. Baseline manifest</h2>
+<p>File <code>project/config/ankaios.yaml</code> dành cho <strong>Ankaios 1.1.0</strong>, <code>apiVersion: v1</code>. Đừng lấy manifest <code>v0.1</code> trong bài cũ rồi trộn với binary mới.</p>
+<pre><code class="language-yaml">apiVersion: v1
+workloads:
+  advisor:
+    agent: agent_A
+    runtime: podman
+    restartPolicy: ALWAYS
+    dependencies:
+      kuksa: ADD_COND_RUNNING
+    runtimeConfig: |
+      image: localhost/sdv-eclipse-lab:0.1.0
+      commandOptions: [&quot;--network&quot;, &quot;host&quot;]
+      commandArgs: [&quot;advisor&quot;, &quot;--broker&quot;, &quot;127.0.0.1:55555&quot;]
+</code></pre>
+<p><code>runtimeConfig</code> là <strong>string chứa YAML khác</strong>, nên phải đọc hai tầng. <code>commandOptions</code> là options của <code>podman run</code>; <code>commandArgs</code> là arguments cho command/entrypoint trong container. Nguồn: <a href="https://github.com/eclipse-ankaios/ankaios/blob/v1.1.0/doc/docs/reference/startup-configuration.md">startup configuration</a>.</p>
+<h2 id="chapter-10-4-thuc-hanh-mot-node-linux">4. Thực hành một node Linux</h2>
+<p>Chuẩn bị Linux + Podman. Tải installer từ <a href="https://github.com/eclipse-ankaios/ankaios/releases/tag/v1.1.0">release v1.1.0</a>, đọc script và dùng tùy chọn version theo <a href="https://github.com/eclipse-ankaios/ankaios/blob/v1.1.0/doc/docs/usage/installation.md">installation</a>. Chọn một user context thống nhất cho <code>ank-agent</code>, <code>ank</code> và Podman. Cài service mặc định có thể chạy root; rootless image store sẽ không tự chia sẻ với rootful service.</p>
+<p>Từ <code>project/</code>, build app image bằng <strong>cùng Podman context với agent</strong>:</p>
+<pre><code class="language-bash">podman build -t localhost/sdv-eclipse-lab:0.1.0 .
+sudo install -d /opt/sdv-eclipse-lab/config
+sudo install -m 0644 config/vss.json /opt/sdv-eclipse-lab/config/vss.json
+</code></pre>
+<p>Lệnh <code>sudo</code> ở trên chỉ tạo config đọc được ở đường dẫn cố định. Nếu agent là root, hãy build/load image ở rootful Podman context tương ứng. Kiểm tra agent name là <code>agent_A</code> trong cấu hình agent. Dừng Compose trước để tránh broker khác giữ cổng 55555.</p>
+<p>Sau khi server và agent hoạt động, dùng CLI cùng cấu hình kết nối/quyền của installation:</p>
+<pre><code class="language-bash">ank apply config/ankaios.yaml
+ank get workloads
+ank get state
+</code></pre>
+<p>Nếu installation yêu cầu quyền root, chạy CLI trong context tương ứng. Với cấu hình systemd mặc định, xem <code>journalctl -u ank-server -u ank-agent</code>. Xác nhận tên container bằng <code>podman ps</code>, rồi xem log thực; tên workload không nhất thiết là tên container runtime.</p>
+<h2 id="chapter-10-5-vi-sao-dung-host-network-trong-manifest-nay">5. Vì sao dùng host network trong manifest này?</h2>
+<p>Đây là lựa chọn đơn giản cho <strong>một node Linux</strong>: broker bind <code>127.0.0.1</code>, app dùng cùng host namespace. Đây không phải manifest multi-node. Khi chuyển node, localhost không còn dùng được để nối giữa các node; phải thiết kế routing, DNS/address, firewall, identity/TLS và ACL.</p>
+<p>Dependencies chỉ quản lý thứ tự và điều kiện lifecycle; không tạo mạng hay đảm bảo functional health. Không để cả Ankaios và một supervisor khác cùng giành quyền restart một workload mà chưa xác định ownership.</p>
+<h2 id="chapter-10-6-thu-crash-va-update">6. Thử crash và update</h2>
+<p>Kill container advisor của lab, quan sát restart policy. Dừng provider, quan sát workload advisor có thể vẫn Running nhưng output UNKNOWN. Thay image version, theo dõi desired/execution state và log app. Rollback phải trả về artifact đã biết cùng config/schema phù hợp; không chỉ đổi tên tag.</p>
+<h2 id="chapter-10-tieu-chi-hoan-thanh">Tiêu chí hoàn thành</h2>
+<p>Bạn giải thích được toàn bộ manifest, phân biệt running/healthy, chứng minh restart và recovery. YAML đã được parse cục bộ trong bộ tài liệu; lifecycle thực của Ankaios vẫn cần thực hiện trên Linux, ghi vào nhật ký và lưu log.</p></section>
+<section id="chapter-11" data-title="10 — Leda, Yocto và triển khai lên thiết bị"><div class="source">Nguồn Markdown: <a href="docs/10-leda-yocto-target.md">docs/10-leda-yocto-target.md</a></div><h1 id="chapter-11-10-leda-yocto-va-trien-khai-len-thiet-bi">10 — Leda, Yocto và triển khai lên thiết bị</h1>
+<h2 id="chapter-11-1-os-image-khac-application-image">1. OS image khác application image</h2>
+<p>OCI image đóng gói user-space của ứng dụng; nó dùng kernel của host. OS image chứa những phần như boot artifacts, kernel, root filesystem và system services tùy thiết kế. Build được container ARM64 chưa có nghĩa board sẽ boot hoặc có CAN driver.</p>
+<p>Leda cung cấp recipes/reference distribution để học tích hợp các thành phần SDV trên Linux. Repository <code>eclipse-leda/leda</code> chủ yếu là <strong>documentation</strong>, còn <code>meta-leda</code> là Yocto/OpenEmbedded layers; không dùng “latest GitHub release” của docs repo làm version OS. Xem <a href="https://eclipse-leda.github.io/leda/docs/about/architecture/">Leda architecture</a> và <a href="https://github.com/eclipse-leda/meta-leda">meta-leda</a>.</p>
+<h2 id="chapter-11-2-cac-khai-niem-yocto-can-biet">2. Các khái niệm Yocto cần biết</h2>
+<table>
+<thead>
+<tr>
+<th>Khái niệm</th>
+<th>Nghĩa thực dụng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BitBake</td>
+<td>Công cụ thực thi build tasks theo metadata</td>
+</tr>
+<tr>
+<td>Recipe <code>.bb</code></td>
+<td>Cách fetch/configure/build/install một component</td>
+</tr>
+<tr>
+<td>Layer</td>
+<td>Nhóm recipes/config; thường có dependency giữa layer</td>
+</tr>
+<tr>
+<td>BSP</td>
+<td>Support cho board/SoC: kernel, bootloader, device tree...</td>
+</tr>
+<tr>
+<td>MACHINE</td>
+<td>Chọn target phần cứng</td>
+</tr>
+<tr>
+<td>DISTRO</td>
+<td>Chính sách/cấu hình distribution</td>
+</tr>
+<tr>
+<td>Image recipe</td>
+<td>Chọn nội dung root filesystem/image</td>
+</tr>
+<tr>
+<td>SDK/sysroot</td>
+<td>Toolchain và headers/libs để cross compile</td>
+</tr>
+<tr>
+<td>sstate/download cache</td>
+<td>Tái sử dụng output/tasks và nguồn đã fetch</td>
+</tr>
+</tbody>
+</table>
+<p>Đây là hệ thống build custom Linux; không phải chỉ <code>apt install</code> thêm package vào một distro sẵn có. Nguồn: <a href="https://docs.yoctoproject.org/overview-manual/yp-intro.html">Yocto overview</a>.</p>
+<h2 id="chapter-11-3-chon-mot-trong-hai-uong-target">3. Chọn một trong hai đường target</h2>
+<p><strong>Đường A — Linux có sẵn trên board:</strong> boot Ubuntu/Debian phù hợp board, kiểm tra kernel/network/container runtime rồi chạy lab. Đường này phù hợp để học app integration trước.</p>
+<p><strong>Đường B — OS do mình build:</strong> chọn board được BSP hỗ trợ, chọn branch Leda/Yocto/layer tương thích rồi tạo image. Lựa chọn branch phải đồng bộ; không ghép layer <code>main</code> với release Yocto bất kỳ.</p>
+<p>Chỉ có một lệnh <code>bitbake</code> tổng quát sẽ không đủ tái tạo vì còn MACHINE, layer revisions và image recipe. Bộ này không đưa tên board/image không được xác minh để tránh lệnh copy-paste sai. Dùng build setup và supported target của commit Leda bạn chọn làm nguồn.</p>
+<h2 id="chapter-11-4-quy-trinh-port-project-len-arm64">4. Quy trình port project lên ARM64</h2>
+<ol>
+<li>Xác nhận board boot ổn định, network/clock/storage và hardware access.</li>
+<li>Ghi <code>uname -a</code>, <code>/etc/os-release</code>, <code>uname -m</code>, runtime version và free RAM/storage.</li>
+<li>Build app image cho <code>linux/arm64</code> trên CI hoặc native trên board. Với cross build, kiểm tra wheel và binary architecture.</li>
+<li>Pull broker bằng digest multiarch đã pin; registry có amd64/arm64/riscv64 không có nghĩa mọi distro/kernel đều đã được test.</li>
+<li>Chạy real broker smoke và policy scenarios trên board.</li>
+<li>Chạy soak/load/restart tests, đo CPU/RAM và thermal behavior.</li>
+<li>Thay vcan bằng interface vật lý sau khi driver/mapping đã được xác nhận cho bench.</li>
+</ol>
+<p>Nếu dùng Docker, ví dụ build image riêng là <code>docker buildx build --platform linux/arm64 -t sdv-eclipse-lab:0.1.0 --load .</code> khi builder hỗ trợ. Native build trên ARM64 cũng được. <code>--load</code> cho một platform khác có thể build thành công nhưng không chạy native trên laptop x86 nếu thiếu emulation; luôn xác nhận trên target thật.</p>
+<h2 id="chapter-11-5-runtime-can-gi">5. Runtime cần gì?</h2>
+<p>Ghi yêu cầu kernel/cgroups/namespaces, filesystem mount, user ID, storage quota, log rotation, DNS, firewall và time sync. Với CAN adapter, cần host có interface và quyền truy cập phù hợp. Đừng cấp privileged cho mọi container chỉ để vượt qua một lỗi permission chưa hiểu.</p>
+<p>Boot flow nên thể hiện thứ tự: system ready → container runtime → orchestrator → broker/provider → application readiness. Systemd service active và application functional health vẫn là hai khái niệm khác nhau.</p>
+<h2 id="chapter-11-6-os-update-va-app-update">6. OS update và app update</h2>
+<p>App update thay OCI artifact và config tương ứng. OS update thay rootfs/kernel/boot artifacts theo thiết kế slot/update framework. RAUC là một lựa chọn image-based update với bundle/signing và boot integration; cần cấu hình phù hợp bootloader/partition của target, không tự xuất hiện khi thêm dependency. Xem <a href="https://rauc.readthedocs.io/en/latest/basic.html">RAUC basics</a>.</p>
+<p>Không thực hành flash/partition bằng một lệnh chung cho mọi board. Trong project thật, device target, backup và recovery procedure là phần của deployment plan.</p>
+<h2 id="chapter-11-tieu-chi-hoan-thanh">Tiêu chí hoàn thành</h2>
+<p>Tạo một target manifest gồm board, BSP, layer commits, MACHINE/DISTRO, kernel config, app/broker digest và test evidence. Chứng minh board restart xong app hoạt động và log không làm đầy storage.</p></section>
+<section id="chapter-12" data-title="11 — S-CORE: đi vào core software platform"><div class="source">Nguồn Markdown: <a href="docs/11-score-core.md">docs/11-score-core.md</a></div><h1 id="chapter-12-11-s-core-i-vao-core-software-platform">11 — S-CORE: đi vào core software platform</h1>
+<h2 id="chapter-12-1-s-core-nam-o-au">1. S-CORE nằm ở đâu?</h2>
+<p>Eclipse Safe Open Vehicle Core hướng tới core stack cho SDV trên embedded HPC ECU. Hướng này liên quan các dịch vụ nền, integration và engineering evidence để xây platform, khác với việc viết một app đọc signal qua KUKSA. Phạm vi công bố ở <a href="https://projects.eclipse.org/projects/automotive.score">Eclipse project page</a>.</p>
+<p>Không có cơ sở để nói demo KUKSA trong giáo trình “đã chạy trên S-CORE”. Muốn nối hai phía, phải chọn deployment target, API boundary, ownership và validation riêng. S-CORE cũng không được mặc định là một Linux distribution, hypervisor hay bản AUTOSAR Adaptive thay thế tương đương.</p>
+<h2 id="chapter-12-2-oc-repository-theo-trach-nhiem">2. Đọc repository theo trách nhiệm</h2>
+<table>
+<thead>
+<tr>
+<th>Điểm bắt đầu</th>
+<th>Bạn cần tìm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/eclipse-score/score">score</a></td>
+<td>Tài liệu platform, process/method/tooling và entrypoint</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-score/reference_integration">reference_integration</a></td>
+<td>Các module được ghép, version, build/run examples</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-score/communication">communication</a></td>
+<td>Communication APIs, bindings, shared-memory support và tests</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-score/lifecycle">lifecycle</a></td>
+<td>Quản lý vòng đời process/execution theo module design</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-score/persistency">persistency</a></td>
+<td>Dữ liệu lưu bền và contract khôi phục/lỗi</td>
+</tr>
+<tr>
+<td><a href="https://eclipse-score.github.io/score/main/">S-CORE docs</a></td>
+<td>Handbook, requirements, architecture, modules, releases</td>
+</tr>
+</tbody>
+</table>
+<p>Tên module và maturity có thể thay đổi theo release. Module có tài liệu safety không có nghĩa mọi API, OS, compiler và configuration đã được đánh giá trong use case của bạn.</p>
+<h2 id="chapter-12-3-feature-module-binding-va-integration">3. Feature, module, binding và integration</h2>
+<p>Ví dụ communication: feature nói về khả năng trao đổi dữ liệu cần cung cấp; module là phần hiện thực; binding quyết định cơ chế vận chuyển như IPC; integration ghép đúng versions và cấu hình trên target.</p>
+<p>Một API frontend ổn định có thể tách khỏi binding cụ thể. Khi đọc, tìm đường đi requirement → architectural decision → component/API → implementation → test. Mục tiêu là hiểu <strong>bảo đảm nào thực sự được cung cấp và dưới assumption nào</strong>, không chỉ tìm một hàm <code>send()</code>.</p>
+<p>Tham khảo <a href="https://eclipse-score.github.io/reference_integration/main/process_methods_tools/score_platform/features/communication/architecture/index.html">communication architecture</a>. Link <code>main</code> dùng để tra cứu; reproducible build phải checkout/tag và lưu manifest dependency.</p>
+<h2 id="chapter-12-4-bai-au-build-documentation-va-oc-traceability">4. Bài đầu: build documentation và đọc traceability</h2>
+<p>Tag <code>score v0.7.4</code> là baseline khảo sát của <strong>repository score</strong>, không suy diễn thành phiên bản đồng bộ của mọi module hay mốc marketing. Chuẩn bị Linux theo <a href="https://eclipse-score.github.io/score/main/contribute/development/index.html">development instructions</a>, đọc <code>.bazelversion</code>, <code>.bazelrc</code>, <code>MODULE.bazel</code> và setup của tag.</p>
+<pre><code class="language-bash">git clone --branch v0.7.4 --depth 1 https://github.com/eclipse-score/score.git score-study
+cd score-study
+bazel run //:help
+bazel run //:docs
+</code></pre>
+<p>Các target trên có trong README của tag; cần Bazel/toolchain đúng setup và internet cho dependencies chưa cache. <code>//:docs</code> tạo documentation, <strong>không build một vehicle runtime hoàn chỉnh</strong>. Sau đó chọn một requirements/architecture/test chain và ghi lại các ID liên kết.</p>
+<h2 id="chapter-12-5-bai-tiep-module-va-reference-integration">5. Bài tiếp: module và reference integration</h2>
+<p>Chọn một release/commit của <code>reference_integration</code>, đọc dependency manifest và build instructions <strong>trong chính commit đó</strong>. Không tự đổi module lên latest. Chạy một example upstream nhỏ nhất theo instructions; lưu lệnh, stdout/stderr, versions và target.</p>
+<p>Đề bài tự phát triển: producer phát thermal status có sequence/timestamp; consumer phát hiện duplicate/stale. Giữ scalar values giống project advisory nhưng dùng API/example communication được release đó hỗ trợ. Chỉ viết bridge sang KUKSA sau khi producer/consumer độc lập đã chạy và semantics được xác định.</p>
+<h2 id="chapter-12-6-core-services-can-suy-nghi-gi">6. Core services cần suy nghĩ gì?</h2>
+<ul>
+<li><strong>Lifecycle:</strong> startup order, state transition, shutdown deadline và crash recovery.</li>
+<li><strong>Communication:</strong> ownership buffer, discovery, queue size, ordering và timeout.</li>
+<li><strong>Persistency:</strong> atomicity theo contract, dữ liệu hỏng, power interruption và schema migration.</li>
+<li><strong>Health/monitoring:</strong> alive chưa chắc đúng deadline; cần thiết kế phản ứng với quá tải.</li>
+<li><strong>Execution environment:</strong> OS/toolchain support, memory/CPU budget và isolation assumptions.</li>
+</ul>
+<p>Đây là checklist đánh giá kiến trúc của người học, không phải tuyên bố mọi mục đều được mọi module/release implement.</p>
+<h2 id="chapter-12-7-ranh-gioi-safety">7. Ranh giới safety</h2>
+<p>Chỉ được nói điều đã có evidence: module version, target, compiler, safety manual/assumptions, requirements coverage và test kết quả. Sử dụng C++/Rust, đạt unit test hay có nhãn safety trong docs chưa chứng minh safety cho một chức năng của xe.</p>
+<h2 id="chapter-12-tieu-chi-hoan-thanh">Tiêu chí hoàn thành</h2>
+<p>Build docs, giải thích một feature/module, chạy một example trong reference integration và truy vết ít nhất một requirement tới test. Kèm một ADR giải thích liệu có cần bridge KUKSA hay app nên dùng service trực tiếp. Không cần nhồi S-CORE vào cùng demo chỉ để có đủ logo.</p></section>
+<section id="chapter-13" data-title="12 — Cloud, digital twin, fleet và diagnostics"><div class="source">Nguồn Markdown: <a href="docs/12-cloud-diagnostics.md">docs/12-cloud-diagnostics.md</a></div><h1 id="chapter-13-12-cloud-digital-twin-fleet-va-diagnostics">12 — Cloud, digital twin, fleet và diagnostics</h1>
+<h2 id="chapter-13-1-xe-phai-hoat-ong-khi-khong-co-cloud">1. Xe phải hoạt động khi không có cloud</h2>
+<p>Thermal advisory local dùng dữ liệu trong xe. Connector có thể gửi summary lên backend, nhưng mất mạng không được khiến app chờ RPC cloud để tính trạng thái. Tách local decision khỏi telemetry upload là một quyết định kiến trúc của capstone.</p>
+<pre><code class="language-text">Vehicle: provider → KUKSA → advisory
+                         ↘ connector → local queue → authenticated uplink
+Cloud:                    ingestion → twin / time series / fleet dashboard
+</code></pre>
+<p>Đây là kiến trúc mở rộng đề xuất; baseline chưa có cloud connector.</p>
+<h2 id="chapter-13-2-cac-building-block-phia-cloud">2. Các building block phía cloud</h2>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Vai trò</th>
+<th>Không được nhầm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MQTT / Mosquitto</td>
+<td>Pub/sub telemetry</td>
+<td>MQTT topic không tự mang VSS metadata/vehicle policy</td>
+</tr>
+<tr>
+<td>Hono</td>
+<td>Device connectivity, identity, tenant concepts</td>
+<td>Không tự là thuật toán ứng dụng trong xe</td>
+</tr>
+<tr>
+<td>Ditto</td>
+<td>Mô hình digital twin và state access/policy</td>
+<td>Twin state có thể cũ; không phải physical truth tức thì</td>
+</tr>
+<tr>
+<td>Time-series/event store</td>
+<td>History, analytics/replay</td>
+<td>Broker current values chưa thay thế database này</td>
+</tr>
+<tr>
+<td>Fleet release service</td>
+<td>Chọn nhóm nhận version/config</td>
+<td>Không đồng nghĩa orchestrator local</td>
+</tr>
+</tbody>
+</table>
+<p>Nguồn: <a href="https://mosquitto.org/documentation/">Mosquitto documentation</a>, <a href="https://eclipse.dev/hono/docs/concepts/">Hono concepts</a>, <a href="https://eclipse.dev/ditto/intro-overview.html">Ditto overview</a>.</p>
+<h2 id="chapter-13-3-thiet-ke-telemetry-contract">3. Thiết kế telemetry contract</h2>
+<p>Một message nên có <code>vehicle_id</code> giả cho lab, <code>schema_version</code>, <code>source_timestamp</code>, <code>sent_at</code>, <code>sequence</code>, <code>mode</code> và <code>data_quality</code>. Dùng UTC cho timestamp liên process, giải thích đơn vị thời gian. Với signal values, đi kèm unit/contract version hoặc có schema registry rõ ràng.</p>
+<p>Không dùng thời điểm backend nhận làm thời điểm đo. Mất mạng 10 phút rồi upload backlog phải phân biệt observed_at và received_at. Với location/VIN hoặc dữ liệu liên quan người sử dụng, cần requirement về thu thập/quyền truy cập/retention trước khi thêm vào telemetry.</p>
+<h2 id="chapter-13-4-store-and-forward">4. Store-and-forward</h2>
+<p>Queue local phải có dung lượng tối đa, TTL, chính sách drop và backoff. Chọn ưu tiên: alarm transition quan trọng hơn dòng sample lặp lại mỗi giây. Ghi metric queue depth/drop count. Khi reconnect, backend phải xử lý duplicate và out-of-order bằng identity/sequence/epoch phù hợp.</p>
+<p>MQTT QoS cao không tự làm side effect ở backend thành exactly-once nghiệp vụ. Hãy thiết kế idempotency: xử lý lại cùng event ID không tạo thêm một công việc hay bản ghi logic trùng.</p>
+<h2 id="chapter-13-5-diagnostics-khac-telemetry">5. Diagnostics khác telemetry</h2>
+<p>Telemetry cho biết các giá trị/trạng thái vận hành; diagnostic flow có thể đọc lỗi, status dịch vụ, identification hoặc điều khiển operation đặc biệt. DTC là mã lỗi theo diagnostic design, không phải cứ log ERROR là có một DTC hợp lệ.</p>
+<p>UDS là diagnostic service model; DoIP mang diagnostic communication trên IP theo các lớp giao thức tương ứng. SOVD hướng tới chẩn đoán service/compute của kiến trúc mới. Eclipse OpenSOVD là điểm nghiên cứu hiện thực nguồn mở: <a href="https://github.com/eclipse-opensovd/opensovd">OpenSOVD</a>. Chúng không tự map mọi process exception thành automotive diagnostic behavior.</p>
+<p>Trong capstone, trước tiên expose health snapshot qua một interface lab có schema: app version, last input timestamp, last decision và last broker error. Chỉ gọi đó là endpoint health của lab. Tích hợp UDS/SOVD phải có diagnostic specification và contract test riêng.</p>
+<h2 id="chapter-13-6-remote-commands">6. Remote commands</h2>
+<p>Lệnh từ backend phải đi qua identity, authorization, request ID, expiry, vehicle condition và audit. Một queued command hết hạn không được áp dụng chỉ vì xe vừa online. Kết quả cần tách accepted, running, completed, rejected và timed out.</p>
+<p>Không mở gRPC broker trực tiếp ra internet để thay connector. Cloud policy và local vehicle permissions là hai boundary phải thiết kế rõ ràng.</p>
+<h2 id="chapter-13-bai-tap">Bài tập</h2>
+<p>Thiết kế connector gửi mode transition, queue tối đa 10 MB và TTL 1 giờ. Mô phỏng offline 10 phút, restart connector, reconnect với duplicated messages. Chứng minh local advisory vẫn chạy và backlog không làm storage tăng vô hạn.</p></section>
+<section id="chapter-14" data-title="13 — Security, isolation và safety trong kiến trúc"><div class="source">Nguồn Markdown: <a href="docs/13-security-safety.md">docs/13-security-safety.md</a></div><h1 id="chapter-14-13-security-isolation-va-safety-trong-kien-truc">13 — Security, isolation và safety trong kiến trúc</h1>
+<h2 id="chapter-14-1-at-trust-boundaries-len-so-o">1. Đặt trust boundaries lên sơ đồ</h2>
+<p>Trong baseline, simulator, broker và app nằm trên network lab. Khi đổi simulator thành nguồn thật hoặc cho phép cloud connector, mức độ tin cậy thay đổi. Vẽ boundary giữa vehicle bus ↔ provider; provider ↔ broker; app ↔ lifecycle manager; vehicle ↔ cloud; build system ↔ artifact registry.</p>
+<p>Với mỗi boundary, ghi ai gửi, ai nhận, xác minh identity bằng gì, quyền gì và dữ liệu không hợp lệ bị xử lý ở đâu.</p>
+<h2 id="chapter-14-2-authentication-authorization-va-encryption">2. Authentication, authorization và encryption</h2>
+<p>Authentication trả lời “ai đang kết nối”; authorization trả lời “được thao tác gì”; encryption bảo vệ nội dung truyền. TLS và token scope không thay thế nhau.</p>
+<p>KUKSA có cấu hình TLS và authorization trong <a href="https://github.com/eclipse-kuksa/kuksa-databroker/blob/0.7.1/doc/user_guide.md">user guide</a>. Khi bật, cần client dùng secure channel, trust CA, xác minh server identity, token metadata và test positive/negative permissions. Không chỉ bỏ <code>--insecure</code> rồi xem toàn hệ thống đã secure.</p>
+<p>Baseline dùng insecure channel trong adapter và tắt authorization <strong>có chủ đích cho network lab</strong>. Chương này là kế hoạch nâng cấp, không tuyên bố adapter đã hỗ trợ TLS/JWT.</p>
+<h2 id="chapter-14-3-permission-matrix-e-xuat">3. Permission matrix đề xuất</h2>
+<table>
+<thead>
+<tr>
+<th>Principal</th>
+<th>Read</th>
+<th>Publish</th>
+<th>Actuate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Provider</td>
+<td>Chỉ metadata cần thiết</td>
+<td>Speed, SOC, lab temperature</td>
+<td>Không</td>
+</tr>
+<tr>
+<td>Advisor</td>
+<td>Ba input</td>
+<td>AdvisoryMode</td>
+<td>Không</td>
+</tr>
+<tr>
+<td>Observer</td>
+<td>Inputs + mode nếu được cấp</td>
+<td>Không</td>
+<td>Không</td>
+</tr>
+<tr>
+<td>Cloud connector</td>
+<td>Mode và telemetry được chọn</td>
+<td>Không mặc định</td>
+<td>Không mặc định</td>
+</tr>
+</tbody>
+</table>
+<p>Khi hiện thực, map bảng này vào đúng claim/policy format của broker version đã pin. Negative test phải chứng minh observer không publish được và advisor không tự ghi vào sensor nguồn.</p>
+<h2 id="chapter-14-4-container-isolation-u-en-au">4. Container isolation đủ đến đâu?</h2>
+<p>Container thường dùng chung kernel host. Namespace/cgroups/capabilities giúp giới hạn tài nguyên/quyền, nhưng không tự tạo mức isolation cho mọi safety/security requirement. VM/hypervisor hay process partitioning cũng cần cấu hình và bằng chứng, không có lựa chọn mặc định đúng cho mọi ECU.</p>
+<p>Compose đã drop capabilities và chạy app non-root/read-only. Chưa có thiết kế resource budget hay malicious workload qualification. Thêm memory/CPU limits sau khi đo baseline, kiểm tra overload và quan sát OOM/restart behavior. Privileged hoặc host networking làm thay đổi boundary, cần có lý do cụ thể.</p>
+<h2 id="chapter-14-5-safety-khac-cybersecurity">5. Safety khác cybersecurity</h2>
+<p>Functional safety quan tâm rủi ro do malfunction của hệ thống; cybersecurity engineering quan tâm threats và bảo vệ tài sản trước các hành vi tấn công. Hai hướng có liên quan nhưng assurance không tự chuyển từ hướng này sang hướng kia.</p>
+<p>Để đọc thuật ngữ và phạm vi chuẩn, xem trang chính thức <a href="https://www.iso.org/standard/68383.html">ISO 26262-1:2018</a> và <a href="https://www.iso.org/standard/70918.html">ISO/SAE 21434:2021</a>. Bộ này không sao chép chuẩn, không cung cấp đánh giá compliance và không thay safety/cybersecurity process của dự án.</p>
+<h2 id="chapter-14-6-failure-behavior-can-uoc-yeu-cau-ro">6. Failure behavior cần được yêu cầu rõ</h2>
+<p>Trong lab, invalid/stale → UNKNOWN là hành vi quan sát; nó không được gọi là “safe state của BMS”. Safe state thực phụ thuộc chức năng, hazard analysis, hệ thống dự phòng và thời gian cho phép phản ứng.</p>
+<p>Nếu broker chết, app log được UNKNOWN nhưng không ghi output mới lên broker. Downstream không kiểm tra output age có thể tiếp tục tin NORMAL cũ. Vì thế thiết kế phải kiểm tra freshness ở <strong>mọi consumer có quyết định dựa trên dữ liệu</strong>, không chỉ input của advisor.</p>
+<p>Trường hợp nguồn đứng yên nhưng timestamp vẫn được refresh bởi provider lỗi cũng vượt qua stale check. Cần quality, source counter, plausibility và diagnostic mechanism phù hợp để giải quyết; không có một if-condition giải quyết toàn bộ data validity.</p>
+<h2 id="chapter-14-7-bai-threat-model-va-failure-analysis">7. Bài threat model và failure analysis</h2>
+<p>Lập bảng cho bốn tình huống: provider phát nhiệt độ giả; observer ghi nhầm signal; app ăn hết RAM; clock lùi/tiến. Ghi asset, cause/threat, observable effect, detection, reaction và test. Phân biệt thứ đã implement với mitigation dự kiến.</p>
+<p>Tiêu chí hoàn thành: có permission matrix, hai negative auth tests sau khi thêm TLS/token, một overload test và giải thích được giới hạn safety của prototype.</p></section>
+<section id="chapter-15" data-title="14 — CI/CD, supply chain và OTA"><div class="source">Nguồn Markdown: <a href="docs/14-ci-cd-ota.md">docs/14-ci-cd-ota.md</a></div><h1 id="chapter-15-14-cicd-supply-chain-va-ota">14 — CI/CD, supply chain và OTA</h1>
+<h2 id="chapter-15-1-release-la-mot-bo-artifacts">1. Release là một bộ artifacts</h2>
+<p>Một release tái tạo được cần source commit, signal schema, generated-contract provenance, dependency versions, image digest, build config và test results. Tag <code>latest</code> tiện khi khám phá nhưng không đủ xác định artifact đã kiểm tra.</p>
+<p>Demo pin broker bằng OCI index digest và proto commit. App Dockerfile còn dùng base <code>python:3.12-slim</code>; requirements chưa có download hashes. Đây là baseline học có một phần pin, chưa phải hermetic/reproducible release đầy đủ.</p>
+<h2 id="chapter-15-2-pipeline-e-xuat">2. Pipeline đề xuất</h2>
+<pre><code class="language-text">Review requirements/contract change
+  → static checks + pure policy tests
+  → generate protobuf from pinned source
+  → transport serialization tests
+  → real broker integration smoke
+  → multiarch image build
+  → target tests + SBOM + vulnerability review
+  → sign + publish immutable artifacts
+  → staged rollout → observe → promote/rollback
+</code></pre>
+<p>Xem <code>project/ci/github-actions.example.yml</code>: đây là workflow mẫu để chạy tests và real broker smoke trên Linux CI nếu repo được đặt root tại <code>SDV_Eclipse</code>. Nó chưa được kích hoạt hay chạy trên tài khoản CI nào.</p>
+<h2 id="chapter-15-3-cac-kiem-tra-co-y-nghia">3. Các kiểm tra có ý nghĩa</h2>
+<ul>
+<li>Schema change phải đi kèm compatibility review và contract tests.</li>
+<li>Real broker smoke chạy với image đã pin, không thay bằng fixture.</li>
+<li>Test trên ARM target bổ sung cho test x86; emulator không đại diện mọi kernel/driver/timing.</li>
+<li>Báo cáo CVE/SBOM phải có quyết định xử lý; chỉ sinh file chưa hoàn thành risk review.</li>
+<li>CI publish và deployment phải có quyền hạn tối thiểu, secrets được quản lý riêng.</li>
+</ul>
+<p>SBOM mô tả thành phần; provenance mô tả artifact được build từ đâu/bằng gì; signature hỗ trợ kiểm tra người/identity ký. Khi verify còn phải kiểm tra identity/issuer/trust policy mong đợi. Nguồn: <a href="https://slsa.dev/spec/v1.1/">SLSA specification</a>, <a href="https://docs.sigstore.dev/cosign/verifying/verify/">Cosign verification</a>.</p>
+<h2 id="chapter-15-4-app-update-theo-buoc">4. App update theo bước</h2>
+<p>Giả sử release 0.2 chỉ thay rule/bugfix, giữ signal contract:</p>
+<ol>
+<li>Build image mới, chạy scenario/fault tests và ghi digest.</li>
+<li>Đánh giá tài nguyên/startup trên target; đặt health criteria trước rollout.</li>
+<li>Chọn một bench node hoặc cohort nhỏ đủ điều kiện cập nhật.</li>
+<li>Kiểm tra artifact identity, compatibility và update preconditions.</li>
+<li>Dừng/chuyển workload theo thiết kế, deploy version mới.</li>
+<li>Chỉ promote sau khi output đúng, fresh và health ổn định trong cửa sổ yêu cầu.</li>
+<li>Rollback về <strong>digest đã kiểm tra</strong> nếu gate thất bại; ghi audit.</li>
+</ol>
+<p>Ankaios thực thi thay đổi workload desired state; release decision, vehicle preconditions, signatures và fleet policy vẫn cần được xây hoặc tích hợp.</p>
+<h2 id="chapter-15-5-schemadata-migration-lam-rollback-kho-hon">5. Schema/data migration làm rollback khó hơn</h2>
+<p>Nếu app 0.2 đổi unit °C thành K nhưng giữ path cũ, app 0.1 rollback sẽ hiểu sai dữ liệu. Đổi nghĩa dưới cùng path là contract bug. Nếu persistency migration không backward compatible, rollback binary có thể không đọc lại được dữ liệu.</p>
+<p>Tách version của app, schema, config/calibration, OS và persistent data. Tạo compatibility matrix, migration plan và rollback boundary rõ ràng. Không xem “container cũ còn trên disk” là bằng chứng rollback hoàn chỉnh.</p>
+<h2 id="chapter-15-6-os-update">6. OS update</h2>
+<p>Với thiết kế A/B phù hợp, update inactive slot rồi boot và chỉ mark-good sau health criteria; bootloader/update framework phải có đường phục hồi khi boot lỗi. RAUC có cơ chế bundle/signing/boot integration nhưng partition/boot design của target là trách nhiệm integration: <a href="https://rauc.readthedocs.io/en/latest/basic.html">RAUC basics</a>.</p>
+<p>Thử power interruption trong môi trường bench có kế hoạch phục hồi. Artifact tải thành công không chứng minh update chịu lỗi mất nguồn.</p>
+<h2 id="chapter-15-bai-tap">Bài tập</h2>
+<p>Viết release manifest cho app 0.1.0: source commit, schema hash, broker digest, proto SHA, app digest, target/OS và test report. Thiết kế một rollout gate và một lỗi có chủ đích để chứng minh rollback cùng dữ liệu/config.</p></section>
+<section id="chapter-16" data-title="15 — Test, đo đạc và debug có bằng chứng"><div class="source">Nguồn Markdown: <a href="docs/15-testing-debugging.md">docs/15-testing-debugging.md</a></div><h1 id="chapter-16-15-test-o-ac-va-debug-co-bang-chung">15 — Test, đo đạc và debug có bằng chứng</h1>
+<h2 id="chapter-16-1-test-level-khac-nhau-tra-loi-cau-khac-nhau">1. Test level khác nhau trả lời câu khác nhau</h2>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Trong project</th>
+<th>Chứng minh được</th>
+<th>Chưa chứng minh được</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pure unit</td>
+<td><code>test_policy.py</code></td>
+<td>Rule/freshness/hysteresis theo input chỉ định</td>
+<td>Broker, network, target</td>
+</tr>
+<tr>
+<td>Decoder unit</td>
+<td><code>test_can_frame.py</code></td>
+<td>Byte layout, endian, signedness và reject cases</td>
+<td>CAN driver/bus điện</td>
+</tr>
+<tr>
+<td>Transport fixture</td>
+<td><code>test_transport.py</code></td>
+<td>Generated v2 messages qua gRPC loopback</td>
+<td>KUKSA thật có cùng behavior</td>
+</tr>
+<tr>
+<td>Broker contract</td>
+<td><code>tests.smoke_live</code></td>
+<td>API/schema thực của broker được pin</td>
+<td>Toàn bộ runtime và physical target</td>
+</tr>
+<tr>
+<td>End-to-end</td>
+<td>Compose + scenario/fault</td>
+<td>Các component ghép hoạt động</td>
+<td>Deadline/safety trên xe</td>
+</tr>
+<tr>
+<td>Target/HIL</td>
+<td>Bài capstone</td>
+<td>Behavior trên platform/hardware đã ghi rõ</td>
+<td>Mọi cấu hình/xe khác</td>
+</tr>
+</tbody>
+</table>
+<p>Không đổi nhãn “fixture pass” thành “KUKSA integration pass”. Khi môi trường thiếu Docker, ghi SKIPPED/NOT RUN và nguyên nhân cụ thể.</p>
+<h2 id="chapter-16-2-test-matrix-toi-thieu">2. Test matrix tối thiểu</h2>
+<table>
+<thead>
+<tr>
+<th>Tình huống</th>
+<th>Kỳ vọng</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input hợp lệ, nhiệt độ 30</td>
+<td>NORMAL</td>
+<td>Rule test + log</td>
+</tr>
+<tr>
+<td>45/55°C và ngưỡng hồi phục</td>
+<td>WARN/CRITICAL theo hysteresis</td>
+<td>Boundary sequence test</td>
+</tr>
+<tr>
+<td>Missing/None/NaN/Inf/bool</td>
+<td>UNKNOWN</td>
+<td>Data validity test</td>
+</tr>
+<tr>
+<td>Data cũ &gt;3 s</td>
+<td>UNKNOWN</td>
+<td>Timestamp test + dừng provider</td>
+</tr>
+<tr>
+<td>Timestamp tương lai/lệch nhau</td>
+<td>UNKNOWN</td>
+<td>Coherence test</td>
+</tr>
+<tr>
+<td>Path/type/range sai</td>
+<td>Broker reject</td>
+<td>Real broker smoke</td>
+</tr>
+<tr>
+<td>Broker mất</td>
+<td>Log UNKNOWN, retry, exit/restart</td>
+<td>Process log + supervisor state</td>
+</tr>
+<tr>
+<td>Advisor chết</td>
+<td>Output dừng đổi timestamp</td>
+<td>Consumer freshness check</td>
+</tr>
+<tr>
+<td>CAN duplicate/gap</td>
+<td>Drop duplicate/log gap theo helper</td>
+<td>Bench log + decoder test</td>
+</tr>
+<tr>
+<td>Reboot target</td>
+<td>Stack trở lại theo yêu cầu</td>
+<td>Boot log + functional check</td>
+</tr>
+</tbody>
+</table>
+<p>Mỗi test phải chỉ ra requirement và expected behavior trước khi nhìn kết quả. Một log “không crash” chưa chứng minh output đúng.</p>
+<h2 id="chapter-16-3-debug-theo-uong-du-lieu">3. Debug theo đường dữ liệu</h2>
+<ol>
+<li><strong>Nguồn:</strong> có sample mới/counter tiến không? Scenario có đúng không?</li>
+<li><strong>Adapter:</strong> ID/DLC/endian/scale/quality có đúng không?</li>
+<li><strong>Broker metadata:</strong> path/datatype/unit và API version đúng chưa?</li>
+<li><strong>RPC:</strong> endpoint/DNS, deadline, status code và permission?</li>
+<li><strong>App:</strong> giá trị và source timestamp nào được tính?</li>
+<li><strong>Consumer:</strong> có kiểm tra output timestamp không?</li>
+<li><strong>Lifecycle:</strong> process chết/restart, image và config thực đang chạy là gì?</li>
+</ol>
+<p>Đừng sửa threshold để che lỗi CAN scale. Ví dụ raw 470 đáng ra là 47°C nhưng được publish 470°C thì phải sửa mapping, không tăng CRITICAL threshold lên 550°C.</p>
+<h2 id="chapter-16-4-cac-loi-thuong-gap">4. Các lỗi thường gặp</h2>
+<table>
+<thead>
+<tr>
+<th>Triệu chứng</th>
+<th>Kiểm tra đầu tiên</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ModuleNotFoundError: kuksa</code></td>
+<td>Đã generate proto bằng đúng venv chưa?</td>
+</tr>
+<tr>
+<td><code>UNAVAILABLE</code></td>
+<td>Broker chạy chưa, endpoint ở host hay container?</td>
+</tr>
+<tr>
+<td><code>UNIMPLEMENTED</code></td>
+<td>Có đang gọi sai API version/endpoint không?</td>
+</tr>
+<tr>
+<td><code>NOT_FOUND</code></td>
+<td>Schema đang mount thực có path đó không?</td>
+</tr>
+<tr>
+<td><code>INVALID_ARGUMENT</code></td>
+<td>Datatype, range, allowed values</td>
+</tr>
+<tr>
+<td><code>PERMISSION_DENIED</code></td>
+<td>Token/policy scope của principal</td>
+</tr>
+<tr>
+<td>RPC OK nhưng UNKNOWN</td>
+<td>Timestamp/missing/quality/coherence trong reason</td>
+</tr>
+<tr>
+<td>Advisor Running nhưng không có data</td>
+<td>Provider, schema, source freshness</td>
+</tr>
+<tr>
+<td>Ankaios không tìm image</td>
+<td>Rootful/rootless image storage và agent context</td>
+</tr>
+<tr>
+<td>vcan lỗi trên Windows</td>
+<td>Chạy Linux interpreter và kernel có module</td>
+</tr>
+</tbody>
+</table>
+<h2 id="chapter-16-5-lenh-quan-sat">5. Lệnh quan sát</h2>
+<pre><code class="language-text">docker compose ps
+docker compose logs --tail 100 broker provider advisor
+docker stats
+</code></pre>
+<p>Trên Linux: <code>ss -lntp</code> xem listener, <code>ip -details link show vcan0</code> xem interface, <code>candump vcan0</code> nếu có can-utils, <code>journalctl -u ank-agent</code> xem agent service. Chỉ packet capture khi cần kiểm tra traffic cụ thể; TLS làm payload không đọc như plaintext và đó là hành vi mong đợi.</p>
+<h2 id="chapter-16-6-performance-va-reliability">6. Performance và reliability</h2>
+<p>Đo CPU, RSS, startup time, RPC latency và output age dưới các mức tải. Tách benchmark latency của RPC khỏi end-to-end sensor→decision latency. Trong lab polling 1 Hz, chu kỳ polling tự thêm độ trễ đến gần một chu kỳ; không gọi đây là hard real-time.</p>
+<p>Soak test cần thời gian/mức tải, disk/log growth và tiêu chí fail. Fault injection gồm dừng provider, restart broker, kill app, đổi clock trong môi trường thử phù hợp và hạn chế CPU/RAM. Chỉ kết luận cho target/config đã đo.</p>
+<h2 id="chapter-16-bai-tap">Bài tập</h2>
+<p>Dùng <a href="notes/lab-journal.md">mẫu nhật ký</a>, chọn một fault, dự đoán output, chạy và lưu evidence. Kết quả tốt phải chỉ ra root cause, assumption và giới hạn của phép thử, kể cả khi test fail.</p></section>
+<section id="chapter-17" data-title="16 — Lộ trình từ beginner đến expert"><div class="source">Nguồn Markdown: <a href="docs/16-learning-roadmap.md">docs/16-learning-roadmap.md</a></div><h1 id="chapter-17-16-lo-trinh-tu-beginner-en-expert">16 — Lộ trình từ beginner đến expert</h1>
+<h2 id="chapter-17-1-i-theo-nang-luc-khong-theo-so-trang-a-oc">1. Đi theo năng lực, không theo số trang đã đọc</h2>
+<p>Lịch tham khảo là 12–16 tuần, khoảng 6–10 giờ/tuần cho người đã biết lập trình cơ bản. Chưa biết Linux/CAN có thể cần thêm thời gian. “Expert” là định hướng năng lực; không có số tuần nào tự bảo đảm mức chuyên gia.</p>
+<table>
+<thead>
+<tr>
+<th>Chặng</th>
+<th>Đọc</th>
+<th>Thực hành</th>
+<th>Điều kiện qua chặng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A — Beginner</td>
+<td>00–02</td>
+<td>Vẽ architecture và chạy offline</td>
+<td>Giải thích ECU/signal/service/control plane</td>
+</tr>
+<tr>
+<td>B — Data/API</td>
+<td>03–06</td>
+<td>Generate proto, tests, broker smoke</td>
+<td>Phân biệt value/timestamp, v1/v2, fixture/real</td>
+</tr>
+<tr>
+<td>C — Integration</td>
+<td>04, 07</td>
+<td>vcan provider, negative data cases</td>
+<td>Giải thích byte→unit→path và source freshness</td>
+</tr>
+<tr>
+<td>D — App engineer</td>
+<td>08, 09</td>
+<td>Container, SDK evaluation, restart</td>
+<td>Build artifact và lifecycle có evidence</td>
+</tr>
+<tr>
+<td>E — Target engineer</td>
+<td>10, 15</td>
+<td>ARM/Linux target, resource/boot tests</td>
+<td>Deployment và measurement tái tạo</td>
+</tr>
+<tr>
+<td>F — Platform engineer</td>
+<td>11, 13</td>
+<td>S-CORE docs/example, isolation design</td>
+<td>Requirement→architecture→code/test trace</td>
+</tr>
+<tr>
+<td>G — Advanced project</td>
+<td>12–17</td>
+<td>Fleet connector, release/rollback, HIL</td>
+<td>Chứng minh behavior khi có lỗi</td>
+</tr>
+</tbody>
+</table>
+<h2 id="chapter-17-2-ke-hoach-hoc-theo-tuan">2. Kế hoạch học theo tuần</h2>
+<ul>
+<li><strong>Tuần 1–2:</strong> từ chức năng thermal advisory vẽ ba architecture views; học Linux process/network cơ bản, đọc pure policy.</li>
+<li><strong>Tuần 3–4:</strong> VSS/KUKSA v2, real broker smoke, subscription, stale data và endpoint debugging.</li>
+<li><strong>Tuần 5–6:</strong> CAN frame, endian/scale/counter, vcan, mapping vào provider.</li>
+<li><strong>Tuần 7–8:</strong> đóng gói, lifecycle, Ankaios một node; đánh giá Velocitas bằng compatibility matrix.</li>
+<li><strong>Tuần 9–10:</strong> triển khai target, tài nguyên, reboot, logging; chọn đường Leda/Yocto nếu cần kiểm soát OS.</li>
+<li><strong>Tuần 11–12:</strong> S-CORE feature/module, build docs, một reference integration example và traceability.</li>
+<li><strong>Tuần 13–16:</strong> chọn phần mở rộng capstone, chạy fault/soak/rollback, hoàn thiện project dossier.</li>
+</ul>
+<p>Nếu chưa có Docker/Linux, vẫn làm được architecture, offline, policy và gRPC fixture trên Windows. Đánh dấu những lab phụ thuộc kernel/runtime là pending rồi quay lại; không đánh dấu hoàn thành chỉ từ việc đọc lệnh.</p>
+<h2 id="chapter-17-3-chon-nhanh-chuyen-sau">3. Chọn nhánh chuyên sâu</h2>
+<p><strong>Vehicle App engineer:</strong> async/subscription, signal/service model, SDK, error handling, OCI, metrics và contract versioning. Đầu ra: app chạy được trên target, debug được stale/reconnect và có release artifact.</p>
+<p><strong>Core Platform engineer:</strong> Linux/RTOS, IPC/memory, lifecycle/persistency, scheduler, isolation, cross compile và S-CORE. Đầu ra: module/example có traceable requirement, measured behavior và integration assumptions.</p>
+<p><strong>Vehicle Integration/Test engineer:</strong> CAN/Ethernet, DBC, diagnostics, clocking, SIL/HIL, fault injection và CI. Đầu ra: mapping được kiểm thử, test rig và evidence đủ tái hiện lỗi.</p>
+<p><strong>Connected Vehicle engineer:</strong> device identity, telemetry, offline queue, digital twin, fleet operations và OTA policy. Đầu ra: connector chịu offline/duplicate và rollout/rollback có audit.</p>
+<h2 id="chapter-17-4-cach-oc-source-hieu-qua">4. Cách đọc source hiệu quả</h2>
+<p>Mỗi repository, tìm theo thứ tự: README của tag → build/dependency manifest → public API → example nhỏ → test tương ứng → implementation → issue/ADR liên quan. Ghi version ngay khi bắt đầu. Đừng chỉ đọc <code>main</code> rồi chạy binary từ release cũ.</p>
+<p>Với mỗi lớp tự hỏi: input/output là gì; ownership của data là ai; invariant nào phải giữ; lỗi nào có thể xảy ra; test nào chứng minh behavior đó? Năm câu này dùng được từ Python app tới core middleware.</p>
+<h2 id="chapter-17-5-cach-tu-anh-gia-muc-o">5. Cách tự đánh giá mức độ</h2>
+<p>Bạn đã vượt beginner khi tự chạy lab và giải thích được luồng. Đã ở mức triển khai khi thay nguồn/target, viết contract và xử lý lỗi được. Năng lực expert thể hiện qua lựa chọn/tradeoff có bằng chứng, review thiết kế người khác, root-cause lỗi xuyên nhiều lớp và vận hành version changes lâu dài.</p>
+<h2 id="chapter-17-bai-cuoi">Bài cuối</h2>
+<p>Chọn một nhánh chính, một nhánh bổ trợ. Tạo backlog theo <a href="#chapter-18">capstone spec</a>, mỗi task có acceptance criterion và evidence file. Chỉ đánh dấu Done sau khi người khác chạy lại hoặc review được kết quả.</p></section>
+<section id="chapter-18" data-title="17 — Đặc tả capstone: từ lab đến prototype thực tế"><div class="source">Nguồn Markdown: <a href="docs/17-capstone-spec.md">docs/17-capstone-spec.md</a></div><h1 id="chapter-18-17-ac-ta-capstone-tu-lab-en-prototype-thuc-te">17 — Đặc tả capstone: từ lab đến prototype thực tế</h1>
+<h2 id="chapter-18-1-muc-tieu-va-pham-vi">1. Mục tiêu và phạm vi</h2>
+<p>Xây <strong>Vehicle Thermal Advisory Gateway</strong> trên một Linux target: nhận dữ liệu từ ECU mô phỏng hoặc bench CAN đã định nghĩa, cung cấp vehicle abstraction qua KUKSA, chạy app advisory, quản lý workload, quan sát và cập nhật có kiểm soát.</p>
+<p>Prototype tiếp cận thực tế bằng integration, lifecycle và test evidence. Nó không nhận trách nhiệm BMS protection/control loop, không tự chứng minh functional safety và không tác động phanh/lái/powertrain thật.</p>
+<h2 id="chapter-18-2-architecture-trien-khai-e-xuat">2. Architecture triển khai đề xuất</h2>
+<pre><code class="language-text">Bench ECU / virtual CAN
+   │ private DBC or verified bench network description
+   ▼
+Linux target: CAN driver → provider → KUKSA → advisory → observer
+                                      │               │
+                                      └── connector ──┴── offline queue → backend
+
+systemd → container runtime → Ankaios server/agent → workload lifecycle
+CI → signed/versioned artifacts → release decision → local deployment
+</code></pre>
+<p>Chọn target sau khi xác định CPU/RAM, OS/BSP, CAN interface, container support và recovery method. Raspberry Pi có thể là lựa chọn học tập nếu driver/runtime phù hợp; chưa chọn cụ thể board nào cho mọi yêu cầu automotive.</p>
+<h2 id="chapter-18-3-yeu-cau-chuc-nang-va-trang-thai-hien-tai">3. Yêu cầu chức năng và trạng thái hiện tại</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Yêu cầu</th>
+<th>Acceptance criterion</th>
+<th>Baseline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-01</td>
+<td>Normalize speed/SOC/temp</td>
+<td>Đúng path, type, unit, range và timestamp semantics</td>
+<td>Code + schema có</td>
+</tr>
+<tr>
+<td>FR-02</td>
+<td>Advisory rule</td>
+<td>Đúng thresholds, hysteresis, precedence</td>
+<td>Unit test đã chạy</td>
+</tr>
+<tr>
+<td>FR-03</td>
+<td>Invalid/stale → UNKNOWN</td>
+<td>Missing/NaN/old/future/incoherent bị phát hiện</td>
+<td>Unit test đã chạy</td>
+</tr>
+<tr>
+<td>FR-04</td>
+<td>Broker contract</td>
+<td>Version/API/schema/negative cases đúng</td>
+<td>Smoke có, cần broker thật</td>
+</tr>
+<tr>
+<td>FR-05</td>
+<td>CAN ingestion</td>
+<td>Decode, validity, counter policy đúng</td>
+<td>Decoder test; vcan pending</td>
+</tr>
+<tr>
+<td>FR-06</td>
+<td>Restart/recovery</td>
+<td>Crash app và broker restart rồi functional health phục hồi</td>
+<td>Manifest có; runtime pending</td>
+</tr>
+<tr>
+<td>FR-07</td>
+<td>Output freshness</td>
+<td>Observer không tin output đã cũ</td>
+<td>Thiết kế; cần implement observer guard</td>
+</tr>
+<tr>
+<td>FR-08</td>
+<td>Telemetry offline</td>
+<td>Queue bounded, TTL, duplicate handling</td>
+<td>Chưa implement</td>
+</tr>
+<tr>
+<td>FR-09</td>
+<td>Access control</td>
+<td>Provider/app/observer đúng matrix, negative tests pass</td>
+<td>Chưa implement</td>
+</tr>
+<tr>
+<td>FR-10</td>
+<td>Controlled update</td>
+<td>Deploy digest mới, verify health, rollback có evidence</td>
+<td>Kế hoạch + CI mẫu</td>
+</tr>
+</tbody>
+</table>
+<p><code>watch</code> trong baseline chỉ in sample/timestamp, chưa phải observer guard của FR-07. Đây là việc phải bổ sung trước khi downstream tự quyết định dựa trên mode.</p>
+<h2 id="chapter-18-4-yeu-cau-phi-chuc-nang-tham-khao-cho-prototype">4. Yêu cầu phi chức năng tham khảo cho prototype</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Mục tiêu ban đầu</th>
+<th>Cách đo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NFR-01</td>
+<td>Source publish nominal 1 Hz</td>
+<td>Counter/timestamp log trong 10 phút</td>
+</tr>
+<tr>
+<td>NFR-02</td>
+<td>Input &gt;3 s không được coi fresh</td>
+<td>Dừng nguồn, đo UNKNOWN và timer resolution</td>
+</tr>
+<tr>
+<td>NFR-03</td>
+<td>Advisor emit UNKNOWN không quá 1,5 s sau khi tuổi input vượt 3 s khi broker healthy và RPC nhanh</td>
+<td>End-to-end log trên target dưới tải quy định</td>
+</tr>
+<tr>
+<td>NFR-04</td>
+<td>Process restart/reconnect có giới hạn</td>
+<td>Kill/crash/restart có log timestamps</td>
+</tr>
+<tr>
+<td>NFR-05</td>
+<td>Queue/log/storage có giới hạn</td>
+<td>Soak 2 giờ đầu, nâng 24 giờ khi mốc trước pass</td>
+</tr>
+<tr>
+<td>NFR-06</td>
+<td>CPU/RAM nằm trong budget target</td>
+<td>Đặt budget sau baseline measurement, thử overload</td>
+</tr>
+<tr>
+<td>NFR-07</td>
+<td>Release tái xác định được</td>
+<td>Manifest source/schema/image/proto/OS hashes</td>
+</tr>
+</tbody>
+</table>
+<p>NFR-03 là <strong>mục tiêu cần đo</strong>, không phải guarantee hiện tại: RPC có timeout 2 giây và ba publish riêng lẻ có thể làm vòng lặp lâu hơn. Muốn bảo đảm budget phải điều chỉnh thiết kế và kiểm chứng worst case, không chỉ sửa văn bản.</p>
+<h2 id="chapter-18-5-interface-contracts-phai-ban-giao">5. Interface contracts phải bàn giao</h2>
+<ul>
+<li>Signal contract: path, semantics, datatype, unit, range, publisher/consumer, sample rate, timestamp và missing/quality behavior.</li>
+<li>CAN contract: ID, DLC, endian, scale, offset, counter/CRC/validity, ECU restart và timeout.</li>
+<li>Process contract: arguments/env, startup readiness, exit codes, shutdown/retry và permissions.</li>
+<li>Deployment contract: node/agent names, runtime context, image digest, mounts, network và resource budget.</li>
+<li>Release contract: versions/compatibility, health gates, rollback, persistent data migration.</li>
+</ul>
+<p>Mỗi contract phải có version và owner. Đổi scale hay unit là interface change, không phải chỉnh implementation nội bộ vô hại.</p>
+<h2 id="chapter-18-6-backlog-trien-khai-theo-thu-tu">6. Backlog triển khai theo thứ tự</h2>
+<ol>
+<li><strong>P0 — Baseline thực:</strong> setup Linux engine, real broker smoke, Compose scenarios và stale behavior; lưu output.</li>
+<li><strong>P1 — Observer guard:</strong> kiểm tra output age, broker reconnect và UNKNOWN reason; test downstream không dùng NORMAL cũ.</li>
+<li><strong>P2 — CAN bench:</strong> vcan, mapping/counter cases, sau đó verified physical bench; ghi rõ timestamp limitation.</li>
+<li><strong>P3 — Supervision:</strong> Ankaios trên target, crash/reboot/recovery, log rotation và tài nguyên.</li>
+<li><strong>P4 — Secure boundary:</strong> TLS/token/policy adapters và negative tests theo matrix.</li>
+<li><strong>P5 — Delivery:</strong> CI thật, image digests, SBOM/signature verification, staged deployment và rollback.</li>
+<li><strong>P6 — Fleet:</strong> connector bounded queue, timestamps, duplicate/out-of-order và offline recovery.</li>
+<li><strong>P7 — Core study:</strong> một S-CORE example và ADR đánh giá bridge/integration boundary khi có use case phù hợp.</li>
+</ol>
+<h2 id="chapter-18-7-bo-test-nghiem-thu">7. Bộ test nghiệm thu</h2>
+<p>Nominal và thresholds; missing/bad type/out-of-range; stale source/output; ECU counter reset; broker unavailable; network reconnect; advisor kill/restart; resource pressure; clock skew; unauthorized access; invalid update; rollback; storage full/log quota; boot recovery.</p>
+<p>Không cần chạy lại toàn bộ test cho mỗi thay đổi tài liệu. Chọn impact-based regression; khi thay data contract/runtime/target thì mở rộng kiểm tra tương ứng.</p>
+<h2 id="chapter-18-8-dossier-cuoi-project">8. Dossier cuối project</h2>
+<pre><code class="language-text">requirements + traceability
+architecture: physical / logical / deployment + ADRs
+source + dependency manifest + schema/mapping
+build instructions + target/BSP config
+test plans/results + fault/measurement evidence
+security boundaries + permission matrix
+release manifest + update/rollback report
+known limitations + maintenance backlog
+</code></pre>
+<p>Tiêu chí hoàn thành prototype: một người khác theo tài liệu dựng lại được môi trường, chạy nominal/fault scenarios, chỉ ra artifact thực đang chạy và khôi phục được sau lỗi đã quy định.</p></section>
+<section id="chapter-19" data-title="18 — Thuật ngữ và câu hỏi thường gặp"><div class="source">Nguồn Markdown: <a href="docs/18-glossary-faq.md">docs/18-glossary-faq.md</a></div><h1 id="chapter-19-18-thuat-ngu-va-cau-hoi-thuong-gap">18 — Thuật ngữ và câu hỏi thường gặp</h1>
+<h2 id="chapter-19-thuat-ngu-oc-source">Thuật ngữ đọc source</h2>
+<table>
+<thead>
+<tr>
+<th>Từ</th>
+<th>Giải thích trong ngữ cảnh bộ này</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SDV</td>
+<td>Software Defined Vehicle; kiến trúc và vòng đời hướng phần mềm</td>
+</tr>
+<tr>
+<td>E/E</td>
+<td>Electrical/Electronic architecture của xe</td>
+</tr>
+<tr>
+<td>ECU</td>
+<td>Electronic Control Unit</td>
+</tr>
+<tr>
+<td>MCU / SoC / HPC</td>
+<td>Vi điều khiển / system-on-chip / high-performance compute</td>
+</tr>
+<tr>
+<td>BSP</td>
+<td>Board Support Package</td>
+</tr>
+<tr>
+<td>HAL</td>
+<td>Hardware Abstraction Layer</td>
+</tr>
+<tr>
+<td>VAL</td>
+<td>Vehicle Abstraction Layer; với KUKSA còn là namespace/API cụ thể</td>
+</tr>
+<tr>
+<td>VSS</td>
+<td>Vehicle Signal Specification của COVESA</td>
+</tr>
+<tr>
+<td>DBC</td>
+<td>Mô tả mapping signal trong CAN messages</td>
+</tr>
+<tr>
+<td>Provider</td>
+<td>Adapter publish giá trị và/hoặc cung cấp actuator theo API</td>
+</tr>
+<tr>
+<td>Consumer</td>
+<td>Đọc/subscribe và sử dụng dữ liệu</td>
+</tr>
+<tr>
+<td>Broker</td>
+<td>Trung gian quản lý dữ liệu/message theo contract cụ thể</td>
+</tr>
+<tr>
+<td>RPC / gRPC</td>
+<td>Remote procedure call / framework RPC dùng trong demo</td>
+</tr>
+<tr>
+<td>Protobuf / proto</td>
+<td>Message schema và serialization; <code>.proto</code> là source contract</td>
+</tr>
+<tr>
+<td>IPC</td>
+<td>Inter-process communication</td>
+</tr>
+<tr>
+<td>SOME/IP-SD</td>
+<td>Service discovery cho SOME/IP</td>
+</tr>
+<tr>
+<td>QoS</td>
+<td>Quality of service; tập chính sách cụ thể theo middleware</td>
+</tr>
+<tr>
+<td>OCI</td>
+<td>Open Container Initiative; standards liên quan container image/runtime</td>
+</tr>
+<tr>
+<td>Digest</td>
+<td>Content identifier, khác mutable tag</td>
+</tr>
+<tr>
+<td>Desired state</td>
+<td>Trạng thái workload mong muốn ở control plane</td>
+</tr>
+<tr>
+<td>Readiness / liveness</td>
+<td>Sẵn sàng phục vụ / còn hoạt động theo tiêu chí kiểm tra</td>
+</tr>
+<tr>
+<td>SIL / HIL</td>
+<td>Software-in-the-loop / hardware-in-the-loop</td>
+</tr>
+<tr>
+<td>DTC / UDS / DoIP</td>
+<td>Diagnostic trouble code / diagnostic services / diagnostics over IP</td>
+</tr>
+<tr>
+<td>SOVD</td>
+<td>Service-oriented vehicle diagnostics</td>
+</tr>
+<tr>
+<td>OTA / A-B</td>
+<td>Update từ xa / bố trí slot phục vụ update/recovery theo thiết kế</td>
+</tr>
+<tr>
+<td>SBOM</td>
+<td>Software bill of materials</td>
+</tr>
+<tr>
+<td>Provenance</td>
+<td>Thông tin nguồn gốc/quá trình tạo artifact</td>
+</tr>
+<tr>
+<td>ASIL / QM</td>
+<td>Thuật ngữ mức integrity/quality trong functional-safety context; không tự gán cho demo</td>
+</tr>
+<tr>
+<td>TARA / HARA</td>
+<td>Threat analysis and risk assessment / hazard analysis and risk assessment</td>
+</tr>
+<tr>
+<td>NTP / PTP</td>
+<td>Các cơ chế đồng bộ thời gian qua mạng</td>
+</tr>
+<tr>
+<td>E2E</td>
+<td>Có thể là end-to-end integration hoặc protection profile tùy ngữ cảnh; phải nói rõ</td>
+</tr>
+</tbody>
+</table>
+<h2 id="chapter-19-co-bat-buoc-eclipse-ide-khong">Có bắt buộc Eclipse IDE không?</h2>
+<p>Không. IDE/CDT phục vụ development; Eclipse SDV là hệ sinh thái projects/runtime/tooling rộng hơn. Chọn editor phù hợp ngôn ngữ, build và debug workflow.</p>
+<h2 id="chapter-19-eclipse-sdv-co-thay-autosar-khong">Eclipse SDV có thay AUTOSAR không?</h2>
+<p>Không thể kết luận chung cho cả hệ sinh thái. Các thành phần có scope khác nhau, có thể được tích hợp trong kiến trúc cùng các platform khác. Muốn so sánh phải chọn chức năng, API, compatibility, target và assurance cụ thể. “Open source” chưa trả lời câu hỏi feature coverage và qualification.</p>
+<h2 id="chapter-19-kuksa-co-tu-oc-can-khong">KUKSA có tự đọc CAN không?</h2>
+<p>Databroker không tự suy ra mapping bus. Cần provider hiểu source, mapping và quality. Schema VSS mô tả signal; DBC/mapping giải thích bit ở nguồn.</p>
+<h2 id="chapter-19-tai-sao-khong-dung-mqtt-cho-moi-thu">Tại sao không dùng MQTT cho mọi thứ?</h2>
+<p>MQTT phù hợp nhiều luồng telemetry; nhưng không tự cung cấp VSS semantics, memory ownership cho raw image IPC hay deadline control loop. Chọn theo contract và measurement.</p>
+<h2 id="chapter-19-vi-sao-get-thanh-cong-van-unknown">Vì sao get thành công vẫn UNKNOWN?</h2>
+<p>RPC success là thành công giao tiếp. Policy còn kiểm tra missing/type/range/source timestamp/coherence. Đây là những bằng chứng độc lập.</p>
+<h2 id="chapter-19-polling-hay-subscribe-tot-hon">Polling hay subscribe tốt hơn?</h2>
+<p>Polling đơn giản để quan sát và kiểm tra age định kỳ. Subscribe hiệu quả khi cần phản ứng với thay đổi nhưng phải có cache, reconnect/backpressure và timer phát hiện im lặng. Dù dùng cách nào, consumer vẫn kiểm tra tuổi dữ liệu.</p>
+<h2 id="chapter-19-docker-restart-co-phai-ota-khong">Docker restart có phải OTA không?</h2>
+<p>Không đủ. Còn artifact identity, compatibility, điều kiện cập nhật, rollout policy, health gate, rollback và audit. Restart là một thao tác lifecycle.</p>
+<h2 id="chapter-19-co-the-trien-khai-ngay-len-xe-khong">Có thể triển khai ngay lên xe không?</h2>
+<p>Bạn có thể dùng code làm điểm khởi đầu cho bench/prototype. Để chạy chức năng trên xe phải có yêu cầu, hardware mapping, integration, timing, security/safety engineering và validation phù hợp. Bộ này đã tách phần code có sẵn khỏi phần cần hoàn thành trong capstone.</p>
+<h2 id="chapter-19-hoc-xong-co-thanh-expert-khong">Học xong có thành expert không?</h2>
+<p>Tài liệu giúp đi đúng trình tự và tạo project có bằng chứng. Năng lực expert còn đến từ phát triển/vận hành thực, review, đo đạc và xử lý lỗi trên nhiều release và target.</p></section>
+<section id="chapter-20" data-title="19 — Nguồn chính thức, phiên bản và cách cập nhật"><div class="source">Nguồn Markdown: <a href="docs/19-sources-versions.md">docs/19-sources-versions.md</a></div><h1 id="chapter-20-19-nguon-chinh-thuc-phien-ban-va-cach-cap-nhat">19 — Nguồn chính thức, phiên bản và cách cập nhật</h1>
+<h2 id="chapter-20-1-baseline-a-khao-sat-ngay-09112026">1. Baseline đã khảo sát ngày 09/11/2026</h2>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Version/identity</th>
+<th>Ý nghĩa và bằng chứng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KUKSA Databroker</td>
+<td>0.7.1, release 26/08/2026</td>
+<td><a href="https://github.com/eclipse-kuksa/kuksa-databroker/releases/tag/0.7.1">Release</a>; image index đã hỏi GHCR</td>
+</tr>
+<tr>
+<td>KUKSA OCI index</td>
+<td><code>sha256:529d8c6d3cc223362667672978bcb8f92c4d356b25aedd336e7a2e004d7279bd</code></td>
+<td>Pin trong Compose và Ankaios manifest</td>
+</tr>
+<tr>
+<td>KUKSA proto</td>
+<td><code>28bf76ae57085dad425eedd95bc7bd442e1314a7</code></td>
+<td>Submodule <code>proto</code> của broker tag 0.7.1</td>
+</tr>
+<tr>
+<td>KUKSA API</td>
+<td><code>kuksa.val.v2</code></td>
+<td>Proto và code của project</td>
+</tr>
+<tr>
+<td>COVESA VSS</td>
+<td>6.1, release 17/09/2026</td>
+<td><a href="https://github.com/COVESA/vehicle_signal_specification/releases/tag/v6.1">Release</a>; chọn 2 standard signals</td>
+</tr>
+<tr>
+<td>Ankaios</td>
+<td>1.1.0, release 22/10/2026</td>
+<td><a href="https://github.com/eclipse-ankaios/ankaios/releases/tag/v1.1.0">Release</a>; manifest <code>apiVersion: v1</code></td>
+</tr>
+<tr>
+<td>S-CORE <code>score</code> repository</td>
+<td>v0.7.4, release 27/10/2026</td>
+<td><a href="https://github.com/eclipse-score/score/releases/tag/v0.7.4">Release</a>; không gán version này cho mọi module</td>
+</tr>
+<tr>
+<td>Velocitas Python SDK</td>
+<td>v0.15.7, release 03/07/2025</td>
+<td><a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/releases/tag/v0.15.7">Release</a>; khảo sát, chưa migration</td>
+</tr>
+<tr>
+<td>Leda</td>
+<td>Chọn commit build/layers khi làm target</td>
+<td>Docs repository không phải OS release artifact</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>3.12, Windows trong local validation</td>
+<td>Xem <code>VALIDATION.md</code> và generated report</td>
+</tr>
+<tr>
+<td>Python dependencies</td>
+<td>grpcio/tools 1.85.1; protobuf 7.36.2</td>
+<td>Đã resolve/install; requirements có pin đầy đủ trực tiếp</td>
+</tr>
+</tbody>
+</table>
+<p>Phiên bản release repository, milestone toàn dự án, docs <code>main</code> và release của module là bốn loại thông tin khác nhau. Ví dụ website có thể nói mốc S-CORE 0.9 trong khi <code>score</code> repository có tag khác; không tự hợp nhất chúng thành một version. Khi build reference integration, manifest của commit được chọn mới quyết định module versions.</p>
+<h2 id="chapter-20-2-kien-truc-va-he-sinh-thai">2. Kiến trúc và hệ sinh thái</h2>
+<ul>
+<li><a href="https://eclipsesdv.org/">Eclipse SDV</a> — khái niệm, projects và integration initiatives.</li>
+<li><a href="https://eclipsesdv.org/projects/">Eclipse SDV project portfolio</a> — điểm tra cứu hệ sinh thái.</li>
+<li><a href="https://github.com/eclipse-sdv-blueprints/blueprints">SDV Blueprints</a> — use-case integration references.</li>
+<li><a href="https://projects.eclipse.org/projects/automotive.score">Eclipse S-CORE project</a> — scope chính thức.</li>
+</ul>
+<h2 id="chapter-20-3-signal-model-va-kuksa">3. Signal model và KUKSA</h2>
+<ul>
+<li><a href="https://covesa.github.io/vehicle_signal_specification/">COVESA VSS docs</a> — signal syntax/catalog, license và extension.</li>
+<li><a href="https://github.com/COVESA/vehicle_signal_specification/tree/v6.1">VSS source 6.1</a> — source version dùng đối chiếu signal.</li>
+<li><a href="https://github.com/COVESA/vss-tools">VSS tooling</a> — parser và format conversion.</li>
+<li><a href="https://github.com/eclipse-kuksa/kuksa-databroker/blob/0.7.1/doc/system-architecture.md">KUKSA architecture 0.7.1</a>.</li>
+<li><a href="https://github.com/eclipse-kuksa/kuksa-databroker/blob/0.7.1/doc/user_guide.md">KUKSA user guide 0.7.1</a>.</li>
+<li><a href="https://github.com/eclipse-kuksa/kuksa-databroker/blob/0.7.1/doc/protocol.md">KUKSA protocol comparison 0.7.1</a>.</li>
+<li><a href="https://github.com/eclipse-kuksa/kuksa-proto/tree/28bf76ae57085dad425eedd95bc7bd442e1314a7/kuksa/val/v2">Pinned VAL v2 proto</a>.</li>
+<li><a href="https://github.com/eclipse-kuksa/kuksa-can-provider">CAN provider</a> — kiểm tra compatibility trước khi tích hợp.</li>
+</ul>
+<h2 id="chapter-20-4-middleware-va-development-toolchain">4. Middleware và development toolchain</h2>
+<ul>
+<li><a href="https://docs.kernel.org/networking/can.html">SocketCAN — Linux kernel</a>.</li>
+<li><a href="https://grpc.io/docs/languages/python/basics/">gRPC Python basics</a> và <a href="https://grpc.io/docs/what-is-grpc/core-concepts/">core concepts</a>.</li>
+<li><a href="https://github.com/COVESA/vsomeip">COVESA vsomeip</a> và <a href="https://github.com/COVESA/capicxx-core-runtime">CommonAPI core runtime</a>.</li>
+<li><a href="https://github.com/eclipse-iceoryx/iceoryx2">Eclipse iceoryx2</a>.</li>
+<li><a href="https://zenoh.io/docs/overview/what-is-zenoh/">Zenoh overview</a>.</li>
+<li><a href="https://github.com/eclipse-uprotocol/up-spec">uProtocol specifications</a>.</li>
+<li><a href="https://github.com/eclipse-cyclonedds/cyclonedds">Cyclone DDS</a> và <a href="https://github.com/eclipse-ecal/ecal">eCAL</a>.</li>
+<li><a href="https://eclipse.dev/velocitas/docs/concepts/">Velocitas concepts</a> và <a href="https://eclipse.dev/velocitas/docs/tutorials/quickstart/quickstart/">quickstart</a>.</li>
+</ul>
+<h2 id="chapter-20-5-lifecycle-image-va-core-platform">5. Lifecycle, image và core platform</h2>
+<ul>
+<li><a href="https://github.com/eclipse-ankaios/ankaios/blob/v1.1.0/doc/docs/architecture.md">Ankaios architecture v1.1.0</a>.</li>
+<li><a href="https://github.com/eclipse-ankaios/ankaios/blob/v1.1.0/doc/docs/usage/installation.md">Ankaios installation v1.1.0</a>.</li>
+<li><a href="https://github.com/eclipse-ankaios/ankaios/blob/v1.1.0/doc/docs/reference/startup-configuration.md">Ankaios startup configuration v1.1.0</a>.</li>
+<li><a href="https://github.com/eclipse-ankaios/ankaios/blob/v1.1.0/doc/docs/reference/inter-workload-dependencies.md">Ankaios inter-workload dependencies v1.1.0</a>.</li>
+<li><a href="https://docs.docker.com/compose/how-tos/startup-order/">Docker startup order</a>.</li>
+<li><a href="https://eclipse-leda.github.io/leda/docs/about/architecture/">Leda architecture</a> và <a href="https://github.com/eclipse-leda/meta-leda">meta-leda</a>.</li>
+<li><a href="https://docs.yoctoproject.org/overview-manual/yp-intro.html">Yocto overview</a>.</li>
+<li><a href="https://eclipse-score.github.io/score/main/contribute/development/index.html">S-CORE development</a>.</li>
+<li><a href="https://github.com/eclipse-score/reference_integration">S-CORE reference integration</a>.</li>
+<li><a href="https://github.com/eclipse-score/communication">Communication</a>, <a href="https://github.com/eclipse-score/lifecycle">lifecycle</a>, <a href="https://github.com/eclipse-score/persistency">persistency</a>.</li>
+<li><a href="https://github.com/eclipse-openbsw/openbsw">OpenBSW</a> và <a href="https://github.com/eclipse-threadx/threadx">ThreadX</a>.</li>
+</ul>
+<h2 id="chapter-20-6-cloud-diagnostics-va-delivery">6. Cloud, diagnostics và delivery</h2>
+<ul>
+<li><a href="https://mosquitto.org/documentation/">Eclipse Mosquitto docs</a>, <a href="https://eclipse.dev/hono/docs/concepts/">Hono concepts</a>, <a href="https://eclipse.dev/ditto/intro-overview.html">Ditto overview</a>.</li>
+<li><a href="https://eclipse.dev/kanto/">Eclipse Kanto</a> — phương án edge stack để đánh giá.</li>
+<li><a href="https://github.com/eclipse-opensovd/opensovd">OpenSOVD</a>.</li>
+<li><a href="https://eclipse.dev/sumo/">SUMO</a> — traffic simulation, không thay ECU HIL.</li>
+<li><a href="https://rauc.readthedocs.io/en/latest/basic.html">RAUC basics</a>.</li>
+<li><a href="https://slsa.dev/spec/v1.1/">SLSA</a> và <a href="https://docs.sigstore.dev/cosign/verifying/verify/">Cosign verification</a>.</li>
+<li><a href="https://www.iso.org/standard/68383.html">ISO 26262-1:2018</a> và <a href="https://www.iso.org/standard/70918.html">ISO/SAE 21434:2021</a> — tra thuật ngữ/phạm vi, không thay tiêu chuẩn đầy đủ.</li>
+</ul>
+<h2 id="chapter-20-7-evidence-luu-trong-thu-muc">7. Evidence lưu trong thư mục</h2>
+<p><code>research/</code> giữ repository metadata snapshot, một số tài liệu upstream đã đọc, broker OCI manifest và metadata/hash của VSS/proto. Đây là nguồn đối chiếu, không phải dependency runtime. Các lần fetch thất bại cũng có trong log nghiên cứu ban đầu; file URL/version đã chọn cuối cùng mới là baseline dùng trong code.</p>
+<p>Nguồn chính thức có thể đổi sau ngày kiểm tra. Khi nâng cấp: chọn version → đọc changelog/proto → update dependency/schema → generate → run unit/real-broker tests → target tests → update manifest/report. Không thay hàng loạt thành <code>latest</code>.</p></section>
+<section id="chapter-21" data-title="Trạng thái kiểm chứng"><div class="source">Nguồn Markdown: <a href="VALIDATION.md">VALIDATION.md</a></div><h1 id="chapter-21-trang-thai-kiem-chung">Trạng thái kiểm chứng</h1>
+<p>Ngày chuẩn bị: <strong>09/11/2026</strong>. Local host: Windows, Python 3.12. Không tìm thấy Docker trong PATH; lệnh kiểm tra WSL chưa trả về môi trường distro hoạt động. Không tự cài system runtime hay reboot máy.</p>
+<h2 id="chapter-21-a-kiem-tra-cuc-bo">Đã kiểm tra cục bộ</h2>
+<table>
+<thead>
+<tr>
+<th>Hạng mục</th>
+<th>Kết quả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cài dependencies trong <code>project/.venv</code></td>
+<td>Thành công, versions pin trong requirements</td>
+</tr>
+<tr>
+<td>Generate protobuf từ upstream files được pin</td>
+<td>Thành công, VAL v2</td>
+</tr>
+<tr>
+<td>Policy, decoder CAN và transport</td>
+<td>Tổng cộng 9 test cases pass; mỗi case còn có subcases</td>
+</tr>
+<tr>
+<td>Policy và invalid/freshness/hysteresis</td>
+<td>Unit tests pass</td>
+</tr>
+<tr>
+<td>CAN private frame decode</td>
+<td>Unit tests pass; không thay thế vcan/physical CAN</td>
+</tr>
+<tr>
+<td>gRPC serialization qua TCP loopback</td>
+<td>Pass với test fixture nhỏ trong <code>test_transport.py</code></td>
+</tr>
+<tr>
+<td>Offline demo</td>
+<td>NORMAL → WARN → CRITICAL → NORMAL → UNKNOWN</td>
+</tr>
+<tr>
+<td>Dependency consistency</td>
+<td><code>pip check</code> pass</td>
+</tr>
+<tr>
+<td>YAML và schema</td>
+<td>Parse Compose/Ankaios, parse nested runtimeConfig, đối chiếu CSV/JSON và proto SHA-256</td>
+</tr>
+<tr>
+<td>Tài liệu</td>
+<td>Kiểm tra local Markdown links, HTML anchors/files và duplicate IDs</td>
+</tr>
+<tr>
+<td>HTML reader</td>
+<td>Đã mở bằng Chrome headless, kiểm tra ảnh chụp desktop ở <code>artifacts/reader-preview.png</code></td>
+</tr>
+<tr>
+<td>Upstream versions</td>
+<td>Đối chiếu GitHub releases/repository metadata; kiểm tra OCI index digest từ GHCR</td>
+</tr>
+</tbody>
+</table>
+<p>Kết quả tự động chi tiết ở <a href="artifacts/validation.json">artifacts/validation.json</a>; stdout/stderr từng bước nằm cùng thư mục. Test fixture dùng network/gRPC thật giữa client và server chạy trên các thread trong cùng process, nhưng server fixture <strong>không phải Eclipse KUKSA</strong>.</p>
+<h2 id="chapter-21-chua-chay-trong-phien-chuan-bi-nay">Chưa chạy trong phiên chuẩn bị này</h2>
+<ul>
+<li><code>docker compose config</code>, pull/start thực tế, Dockerfile build và smoke với <strong>KUKSA Databroker thật</strong>.</li>
+<li>Workflow CI trên runner Linux thật.</li>
+<li>SocketCAN/vcan và physical CAN bench.</li>
+<li>Ankaios server/agent/Podman lifecycle và restart/update thực tế.</li>
+<li>ARM board, Leda/Yocto build, target resource/timing/soak tests.</li>
+<li>S-CORE docs build/reference integration example.</li>
+<li>TLS/JWT/ACL, cloud connector và OTA end-to-end; những phần này là backlog nâng cấp, chưa implement trong baseline.</li>
+</ul>
+<p>Các cấu hình deployment là kết quả chuẩn bị để review/chạy tiếp, không được ghi nhận là runtime pass. <code>smoke_live.py</code> có thể phát hiện các vấn đề compatibility/schema chưa lộ trong fixture.</p>
+<h2 id="chapter-21-chay-lai-kiem-chung-cuc-bo">Chạy lại kiểm chứng cục bộ</h2>
+<p>Từ <code>SDV_Eclipse</code> trong PowerShell sau khi đã setup venv:</p>
+<pre><code class="language-powershell">.\project\.venv\Scripts\python.exe tools\build_reader.py
+.\project\.venv\Scripts\python.exe tools\verify.py
+</code></pre>
+<p>Linux thay interpreter bằng <code>./project/.venv/bin/python</code>. Script verify ghi kết quả local và <strong>không tự chạy broker smoke hay Linux runtime labs</strong>. Báo cáo NOT RUN của script tương ứng phiên kiểm chứng cục bộ; thêm bằng chứng runtime riêng khi đã chạy.</p>
+<h2 id="chapter-21-thu-tu-xac-minh-tren-moi-truong-u-ieu-kien">Thứ tự xác minh trên môi trường đủ điều kiện</h2>
+<ol>
+<li><code>docker compose config</code>, build, start broker.</li>
+<li>Khi provider/advisor đang dừng: <code>python -m tests.smoke_live</code> bằng Python đã generate proto.</li>
+<li>Chạy cả stack, kiểm tra scenarios, stale input và broker failure/recovery.</li>
+<li>Linux vcan, rồi Ankaios, rồi target tests theo chương tương ứng.</li>
+<li>Ghi target/config/artifact digest và raw logs vào <a href="notes/lab-journal.md">nhật ký</a>.</li>
+</ol></section>
+</main>
+<a href="#top" class="top">↑ Đầu trang</a>
+<script>
+const sections=[...document.querySelectorAll('main section')];
+const links=[...document.querySelectorAll('nav a')];
+const search=document.getElementById('search');
+const normalize=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase();
+const haystacks=sections.map(s=>normalize(s.textContent));
+function filter(){const q=normalize(search.value.trim());let count=0;sections.forEach((s,i)=>{const show=!q||haystacks[i].includes(q);s.hidden=!show;links[i].hidden=!show;if(show)count++});document.getElementById('status').textContent=q?`${count}/${sections.length} mục có nội dung phù hợp`:`${sections.length} mục · đọc theo thứ tự hoặc chọn chương`;}
+search.addEventListener('input',filter);
+document.getElementById('clear').addEventListener('click',()=>{search.value='';filter();search.focus()});
+function revealHash(){if(location.hash){const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(target&&target.closest('section')?.hidden){search.value='';filter();target.scrollIntoView()}}}
+window.addEventListener('hashchange',revealHash);filter();revealHash();
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+name: sdv-eclipse-lab
+services:
+  broker:
+    # KUKSA 0.7.1, multi-architecture index verified against GHCR.
+    image: ghcr.io/eclipse-kuksa/kuksa-databroker@sha256:529d8c6d3cc223362667672978bcb8f92c4d356b25aedd336e7a2e004d7279bd
+    command: ["--address", "0.0.0.0", "--port", "55555", "--insecure", "--disable-authorization", "--vss", "/config/vss.json"]
+    volumes:
+      - ./config/vss.json:/config/vss.json:ro
+    ports:
+      - "127.0.0.1:55555:55555"
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]
+  provider:
+    image: sdv-eclipse-lab:0.1.0
+    build: .
+    command: ["provider", "--broker", "broker:55555", "--scenario", "cycle"]
+    depends_on: [broker]
+    restart: on-failure
+    read_only: true
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]
+  advisor:
+    image: sdv-eclipse-lab:0.1.0
+    build: .
+    command: ["advisor", "--broker", "broker:55555"]
+    depends_on: [broker]
+    restart: on-failure
+    read_only: true
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]

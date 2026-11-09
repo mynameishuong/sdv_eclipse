@@ -1,0 +1,20 @@
+{
+  "source_url": "https://github.com/COVESA/vehicle_signal_specification/releases/download/v6.1/vss.json",
+  "sha256_full_release_json": "bef9ad501b38edd60e7b903cb39ba5b8f0864a984595b3e901d6efa3f06bdb70",
+  "selected_signals": {
+    "Vehicle.Speed": {
+      "datatype": "float",
+      "description": "Vehicle speed.",
+      "type": "sensor",
+      "unit": "km/h"
+    },
+    "Vehicle.Powertrain.TractionBattery.StateOfCharge.Current": {
+      "datatype": "float",
+      "description": "Physical state of charge of the high voltage battery, relative to net capacity. This is not necessarily the state of charge being displayed to the customer.",
+      "max": 100.0,
+      "min": 0,
+      "type": "sensor",
+      "unit": "percent"
+    }
+  }
+}

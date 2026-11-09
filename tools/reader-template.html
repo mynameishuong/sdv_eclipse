@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Giáo trình Eclipse SDV tiếng Việt: architecture, toolchain, KUKSA project, core platform và deployment.">
+<title>Eclipse SDV — Beginner to Expert</title>
+<style>
+:root{color-scheme:light;--bg:#f3f5f9;--paper:#fff;--ink:#1e293b;--muted:#52617a;--line:#dbe2ee;--link:#165cb6;--code:#101c30}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.8 system-ui,"Segoe UI",sans-serif}a{color:var(--link);text-underline-offset:3px}a:hover{color:#0d3b78}aside{position:fixed;inset:0 auto 0 0;width:300px;overflow:auto;padding:25px 18px;background:#101c30;color:#dbe6f6}aside .eyebrow{font-size:12px;letter-spacing:2px;color:#64ddc4}aside h2{font-size:25px;line-height:1.35;margin:10px 0}aside p{font-size:13px;color:#aebed6}nav a{display:block;padding:8px 10px;margin:3px 0;border-radius:7px;font-size:13px;line-height:1.5;color:#d8e5f8;text-decoration:none}nav a:hover,nav a:focus{background:#233a58;color:#fff}input{width:100%;padding:11px 12px;margin:12px 0;border:1px solid #536581;border-radius:7px;font:14px system-ui;background:#fff;color:#172035}button{cursor:pointer;background:#254367;color:#fff;border:1px solid #547396;border-radius:6px;padding:8px 12px}main{margin-left:300px;padding:36px clamp(18px,4vw,70px);max-width:1500px}section{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:clamp(20px,4vw,50px);margin:0 0 30px;box-shadow:0 5px 16px #24395407;scroll-margin-top:24px}h1{font-size:clamp(26px,3vw,37px);line-height:1.35;letter-spacing:-.6px;margin:22px 0}h2{font-size:23px;line-height:1.45;margin-top:34px}h3{font-size:20px}p{margin:15px 0}li{margin:7px 0}table{display:block;width:100%;overflow:auto;border-collapse:collapse;font-size:14px;line-height:1.65;margin:22px 0}th,td{padding:12px 14px;border:1px solid var(--line);text-align:left;vertical-align:top;min-width:100px}th{background:#eaf0f8}tr:nth-child(even){background:#f7f9fc}pre{background:var(--code);color:#e4edf9;padding:20px;border-radius:9px;overflow:auto;font-size:13px;line-height:1.65;tab-size:4}code{font-family:Consolas,"Cascadia Code",monospace;font-size:.86em;overflow-wrap:anywhere}p code,li code,td code{background:#eaf0f7;padding:2px 5px;border-radius:4px}pre code{font-size:inherit;overflow-wrap:normal}blockquote{border-left:4px solid #2b8a78;padding-left:18px;color:var(--muted)}.source{font-size:12px;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:10px}.source a{color:var(--muted)}svg{width:100%;height:auto;display:block;margin:26px 0}.status{font-size:12px;color:#8ce7d0;min-height:20px}.empty{display:none}section[hidden],nav a[hidden]{display:none}.top{position:fixed;bottom:18px;right:18px;background:#1d5f9d;color:white;padding:8px 13px;border-radius:9px;text-decoration:none;font-size:13px}.notice{font-size:13px;background:#e5f2ef;padding:12px 18px;border-radius:7px;margin-bottom:25px}
+@media(max-width:980px){aside{position:relative;width:100%;max-height:none}nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}main{margin-left:0;padding:18px}aside h2{font-size:24px}section{padding:22px}nav a{font-size:12px}}
+@media(max-width:540px){nav{grid-template-columns:1fr}body{font-size:16px}h1{font-size:27px}section{border-radius:8px;padding:18px}th,td{padding:9px}main{padding:10px}}
+@media print{aside,.top,.notice,.source{display:none}main{margin:0;padding:0;max-width:none}body{background:white;font-size:11pt;line-height:1.6}section{box-shadow:none;border:0;padding:0;page-break-before:always}section:first-child{page-break-before:auto}section[hidden]{display:block}pre{white-space:pre-wrap;border:1px solid #999;background:#f4f4f4;color:#111}a{color:#111}table{display:table;font-size:9pt}h1,h2,h3{break-after:avoid}tr,svg{break-inside:avoid}}
+</style>
+</head>
+<body id="top">
+<aside aria-label="Mục lục giáo trình">
+<div class="eyebrow">ECLIPSE · SDV · LEARNING LAB</div>
+<h2>Từ kiến trúc<br>đến triển khai</h2>
+<p>Giáo trình tiếng Việt · Beginner → Expert<br>Đối chiếu nguồn: 09/11/2026</p>
+<label for="search">Tìm nội dung</label>
+<input id="search" type="search" placeholder="Ví dụ: timestamp, Ankaios, CAN…" autocomplete="off">
+<div id="status" class="status" aria-live="polite"></div>
+<button type="button" id="clear">Hiện tất cả chương</button>
+<nav aria-label="Các chương">{{NAV}}</nav>
+<p>Đọc cục bộ, không cần internet. Ctrl+F tìm trong các chương đang hiện. Dùng Print để lưu PDF.</p>
+</aside>
+<main>
+<div class="notice">Bắt đầu ở chương 00 và 01. Kiến trúc trong sách là lựa chọn phục vụ học tập; mỗi phần triển khai có trạng thái kiểm chứng riêng.</div>
+{{CONTENT}}
+</main>
+<a href="#top" class="top">↑ Đầu trang</a>
+<script>
+const sections=[...document.querySelectorAll('main section')];
+const links=[...document.querySelectorAll('nav a')];
+const search=document.getElementById('search');
+const normalize=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase();
+const haystacks=sections.map(s=>normalize(s.textContent));
+function filter(){const q=normalize(search.value.trim());let count=0;sections.forEach((s,i)=>{const show=!q||haystacks[i].includes(q);s.hidden=!show;links[i].hidden=!show;if(show)count++});document.getElementById('status').textContent=q?`${count}/${sections.length} mục có nội dung phù hợp`:`${sections.length} mục · đọc theo thứ tự hoặc chọn chương`;}
+search.addEventListener('input',filter);
+document.getElementById('clear').addEventListener('click',()=>{search.value='';filter();search.focus()});
+function revealHash(){if(location.hash){const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(target&&target.closest('section')?.hidden){search.value='';filter();target.scrollIntoView()}}}
+window.addEventListener('hashchange',revealHash);filter();revealHash();
+</script>
+</body>
+</html>

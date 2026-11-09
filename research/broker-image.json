@@ -1,0 +1,37 @@
+{
+  "image": "ghcr.io/eclipse-kuksa/kuksa-databroker:0.7.1",
+  "digest": "sha256:529d8c6d3cc223362667672978bcb8f92c4d356b25aedd336e7a2e004d7279bd",
+  "manifest": {
+    "schemaVersion": 2,
+    "mediaType": "application/vnd.oci.image.index.v1+json",
+    "manifests": [
+      {
+        "mediaType": "application/vnd.oci.image.manifest.v1+json",
+        "digest": "sha256:f999187600011dd41ef6191bdb46a7e4859989dc33306e39cdb2cbe9296a6ef5",
+        "size": 1240,
+        "platform": {
+          "architecture": "amd64",
+          "os": "linux"
+        }
+      },
+      {
+        "mediaType": "application/vnd.oci.image.manifest.v1+json",
+        "digest": "sha256:d5a3fa1a4fd93b9af72715a3baad287b4150dd5bc82c58d52750852c9c932633",
+        "size": 1240,
+        "platform": {
+          "architecture": "arm64",
+          "os": "linux"
+        }
+      },
+      {
+        "mediaType": "application/vnd.oci.image.manifest.v1+json",
+        "digest": "sha256:577d8f2c42a71e24834b1275b2d6e7bb466d630cec770e951e9f812c25182990",
+        "size": 1433,
+        "platform": {
+          "architecture": "riscv64",
+          "os": "linux"
+        }
+      }
+    ]
+  }
+}

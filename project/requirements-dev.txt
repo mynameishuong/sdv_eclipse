@@ -1,0 +1,5 @@
+-r requirements.txt
+grpcio-tools==1.85.1
+setuptools==80.9.0
+PyYAML==6.0.3
+Markdown==3.9

@@ -1,0 +1,47 @@
+[
+  {
+    "name": "kuksa-user-guide.md",
+    "url": "https://raw.githubusercontent.com/eclipse-kuksa/kuksa-databroker/0.7.1/doc/user_guide.md",
+    "bytes": 16087
+  },
+  {
+    "name": "kuksa-protocol.md",
+    "url": "https://raw.githubusercontent.com/eclipse-kuksa/kuksa-databroker/0.7.1/doc/protocol.md",
+    "bytes": 4272
+  },
+  {
+    "name": "val.proto",
+    "url": "https://raw.githubusercontent.com/eclipse-kuksa/kuksa-databroker/0.7.1/proto/kuksa/val/v2/val.proto",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "types.proto",
+    "url": "https://raw.githubusercontent.com/eclipse-kuksa/kuksa-databroker/0.7.1/proto/kuksa/val/v2/types.proto",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "ankaios-README.md",
+    "url": "https://raw.githubusercontent.com/eclipse-ankaios/ankaios/v1.1.0/README.md",
+    "bytes": 4926
+  },
+  {
+    "name": "ankaios-example.yaml",
+    "url": "https://raw.githubusercontent.com/eclipse-ankaios/ankaios/v1.1.0/examples/ankaios_manifest.yaml",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "leda-README.md",
+    "url": "https://raw.githubusercontent.com/eclipse-leda/leda/main/README.md",
+    "bytes": 2539
+  },
+  {
+    "name": "score-README.md",
+    "url": "https://raw.githubusercontent.com/eclipse-score/score/v0.7.4/README.md",
+    "bytes": 4062
+  },
+  {
+    "name": "velocitas-README.md",
+    "url": "https://raw.githubusercontent.com/eclipse-velocitas/vehicle-app-python-sdk/v0.15.7/README.md",
+    "bytes": 6717
+  }
+]

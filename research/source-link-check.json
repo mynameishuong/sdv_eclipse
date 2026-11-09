@@ -1,0 +1,335 @@
+[
+  {
+    "url": "https://covesa.github.io/vehicle_signal_specification/",
+    "status": 200,
+    "resolved_url": "https://covesa.github.io/vehicle_signal_specification/"
+  },
+  {
+    "url": "https://covesa.github.io/vehicle_signal_specification/introduction/",
+    "status": 200,
+    "resolved_url": "https://covesa.github.io/vehicle_signal_specification/introduction/"
+  },
+  {
+    "url": "https://covesa.github.io/vehicle_signal_specification/rule_set/",
+    "status": 200,
+    "resolved_url": "https://covesa.github.io/vehicle_signal_specification/rule_set/"
+  },
+  {
+    "url": "https://docs.docker.com/compose/how-tos/startup-order/",
+    "status": 200,
+    "resolved_url": "https://docs.docker.com/compose/how-tos/startup-order/"
+  },
+  {
+    "url": "https://docs.docker.com/desktop/setup/install/windows-install/",
+    "status": 200,
+    "resolved_url": "https://docs.docker.com/desktop/setup/install/windows-install/"
+  },
+  {
+    "url": "https://docs.docker.com/engine/install/",
+    "status": 200,
+    "resolved_url": "https://docs.docker.com/engine/install/"
+  },
+  {
+    "url": "https://docs.kernel.org/networking/can.html",
+    "status": 200,
+    "resolved_url": "https://docs.kernel.org/networking/can.html"
+  },
+  {
+    "url": "https://docs.sigstore.dev/cosign/verifying/verify/",
+    "status": 200,
+    "resolved_url": "https://docs.sigstore.dev/cosign/verifying/verify/"
+  },
+  {
+    "url": "https://docs.yoctoproject.org/overview-manual/yp-intro.html",
+    "status": 200,
+    "resolved_url": "https://docs.yoctoproject.org/overview-manual/yp-intro.html"
+  },
+  {
+    "url": "https://eclipse-leda.github.io/leda/",
+    "status": 200,
+    "resolved_url": "https://eclipse-leda.github.io/leda/"
+  },
+  {
+    "url": "https://eclipse-leda.github.io/leda/docs/about/architecture/",
+    "status": 200,
+    "resolved_url": "https://eclipse-leda.github.io/leda/docs/about/architecture/"
+  },
+  {
+    "url": "https://eclipse-score.github.io/reference_integration/main/process_methods_tools/score_platform/features/communication/architecture/index.html",
+    "status": 200,
+    "resolved_url": "https://eclipse-score.github.io/reference_integration/main/process_methods_tools/score_platform/features/communication/architecture/index.html"
+  },
+  {
+    "url": "https://eclipse-score.github.io/score/main/",
+    "status": 200,
+    "resolved_url": "https://eclipse-score.github.io/score/main/"
+  },
+  {
+    "url": "https://eclipse-score.github.io/score/main/contribute/development/index.html",
+    "status": 200,
+    "resolved_url": "https://eclipse-score.github.io/score/main/contribute/development/index.html"
+  },
+  {
+    "url": "https://eclipse.dev/ditto/intro-overview.html",
+    "status": 200,
+    "resolved_url": "https://eclipse.dev/ditto/intro-overview.html"
+  },
+  {
+    "url": "https://eclipse.dev/hono/docs/concepts/",
+    "status": 200,
+    "resolved_url": "https://eclipse.dev/hono/docs/concepts/"
+  },
+  {
+    "url": "https://eclipse.dev/kanto/",
+    "status": 200,
+    "resolved_url": "https://eclipse.dev/kanto/"
+  },
+  {
+    "url": "https://eclipse.dev/sumo/",
+    "status": 200,
+    "resolved_url": "https://eclipse.dev/sumo/"
+  },
+  {
+    "url": "https://eclipse.dev/velocitas/",
+    "status": 200,
+    "resolved_url": "https://eclipse.dev/velocitas/"
+  },
+  {
+    "url": "https://eclipse.dev/velocitas/docs/concepts/",
+    "status": 200,
+    "resolved_url": "https://eclipse.dev/velocitas/docs/concepts/"
+  },
+  {
+    "url": "https://eclipse.dev/velocitas/docs/tutorials/quickstart/quickstart/",
+    "status": 200,
+    "resolved_url": "https://eclipse.dev/velocitas/docs/tutorials/quickstart/quickstart/"
+  },
+  {
+    "url": "https://eclipsesdv.org/",
+    "status": 200,
+    "resolved_url": "https://eclipsesdv.org/"
+  },
+  {
+    "url": "https://eclipsesdv.org/projects/",
+    "status": 200,
+    "resolved_url": "https://eclipsesdv.org/projects/"
+  },
+  {
+    "url": "https://github.com/COVESA/capicxx-core-runtime",
+    "status": 200,
+    "resolved_url": "https://github.com/COVESA/capicxx-core-runtime"
+  },
+  {
+    "url": "https://github.com/COVESA/vehicle_signal_specification/releases/tag/v6.1",
+    "status": 200,
+    "resolved_url": "https://github.com/COVESA/vehicle_signal_specification/releases/tag/v6.1"
+  },
+  {
+    "url": "https://github.com/COVESA/vehicle_signal_specification/tree/v6.1",
+    "status": 200,
+    "resolved_url": "https://github.com/COVESA/vehicle_signal_specification/tree/v6.1"
+  },
+  {
+    "url": "https://github.com/COVESA/vsomeip",
+    "status": 200,
+    "resolved_url": "https://github.com/COVESA/vsomeip"
+  },
+  {
+    "url": "https://github.com/COVESA/vss-tools",
+    "status": 200,
+    "resolved_url": "https://github.com/COVESA/vss-tools"
+  },
+  {
+    "url": "https://github.com/eclipse-ankaios/ankaios",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-ankaios/ankaios"
+  },
+  {
+    "url": "https://github.com/eclipse-ankaios/ankaios/blob/v1.1.0/doc/docs/architecture.md",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-ankaios/ankaios/blob/v1.1.0/doc/docs/architecture.md"
+  },
+  {
+    "url": "https://github.com/eclipse-ankaios/ankaios/blob/v1.1.0/doc/docs/reference/inter-workload-dependencies.md",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-ankaios/ankaios/blob/v1.1.0/doc/docs/reference/inter-workload-dependencies.md"
+  },
+  {
+    "url": "https://github.com/eclipse-ankaios/ankaios/blob/v1.1.0/doc/docs/reference/startup-configuration.md",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-ankaios/ankaios/blob/v1.1.0/doc/docs/reference/startup-configuration.md"
+  },
+  {
+    "url": "https://github.com/eclipse-ankaios/ankaios/blob/v1.1.0/doc/docs/usage/installation.md",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-ankaios/ankaios/blob/v1.1.0/doc/docs/usage/installation.md"
+  },
+  {
+    "url": "https://github.com/eclipse-ankaios/ankaios/releases/tag/v1.1.0",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-ankaios/ankaios/releases/tag/v1.1.0"
+  },
+  {
+    "url": "https://github.com/eclipse-cyclonedds/cyclonedds",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-cyclonedds/cyclonedds"
+  },
+  {
+    "url": "https://github.com/eclipse-ecal/ecal",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-ecal/ecal"
+  },
+  {
+    "url": "https://github.com/eclipse-iceoryx/iceoryx2",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-iceoryx/iceoryx2"
+  },
+  {
+    "url": "https://github.com/eclipse-kuksa/kuksa-can-provider",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-kuksa/kuksa-can-provider"
+  },
+  {
+    "url": "https://github.com/eclipse-kuksa/kuksa-databroker",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-kuksa/kuksa-databroker"
+  },
+  {
+    "url": "https://github.com/eclipse-kuksa/kuksa-databroker/blob/0.7.1/doc/protocol.md",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-kuksa/kuksa-databroker/blob/0.7.1/doc/protocol.md"
+  },
+  {
+    "url": "https://github.com/eclipse-kuksa/kuksa-databroker/blob/0.7.1/doc/system-architecture.md",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-kuksa/kuksa-databroker/blob/0.7.1/doc/system-architecture.md"
+  },
+  {
+    "url": "https://github.com/eclipse-kuksa/kuksa-databroker/blob/0.7.1/doc/user_guide.md",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-kuksa/kuksa-databroker/blob/0.7.1/doc/user_guide.md"
+  },
+  {
+    "url": "https://github.com/eclipse-kuksa/kuksa-databroker/releases/tag/0.7.1",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-kuksa/kuksa-databroker/releases/tag/0.7.1"
+  },
+  {
+    "url": "https://github.com/eclipse-kuksa/kuksa-proto/blob/28bf76ae57085dad425eedd95bc7bd442e1314a7/kuksa/val/v2/val.proto",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-kuksa/kuksa-proto/blob/28bf76ae57085dad425eedd95bc7bd442e1314a7/kuksa/val/v2/val.proto"
+  },
+  {
+    "url": "https://github.com/eclipse-kuksa/kuksa-proto/tree/28bf76ae57085dad425eedd95bc7bd442e1314a7/kuksa/val/v2",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-kuksa/kuksa-proto/tree/28bf76ae57085dad425eedd95bc7bd442e1314a7/kuksa/val/v2"
+  },
+  {
+    "url": "https://github.com/eclipse-leda/meta-leda",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-leda/meta-leda"
+  },
+  {
+    "url": "https://github.com/eclipse-openbsw/openbsw",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-openbsw/openbsw"
+  },
+  {
+    "url": "https://github.com/eclipse-opensovd/opensovd",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-opensovd/opensovd"
+  },
+  {
+    "url": "https://github.com/eclipse-score/communication",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-score/communication"
+  },
+  {
+    "url": "https://github.com/eclipse-score/lifecycle",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-score/lifecycle"
+  },
+  {
+    "url": "https://github.com/eclipse-score/persistency",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-score/persistency"
+  },
+  {
+    "url": "https://github.com/eclipse-score/reference_integration",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-score/reference_integration"
+  },
+  {
+    "url": "https://github.com/eclipse-score/score",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-score/score"
+  },
+  {
+    "url": "https://github.com/eclipse-score/score/releases/tag/v0.7.4",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-score/score/releases/tag/v0.7.4"
+  },
+  {
+    "url": "https://github.com/eclipse-sdv-blueprints/blueprints",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-sdv-blueprints/blueprints"
+  },
+  {
+    "url": "https://github.com/eclipse-threadx/threadx",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-threadx/threadx"
+  },
+  {
+    "url": "https://github.com/eclipse-uprotocol/up-spec",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-uprotocol/up-spec"
+  },
+  {
+    "url": "https://github.com/eclipse-velocitas/vehicle-app-python-sdk/releases/tag/v0.15.7",
+    "status": 200,
+    "resolved_url": "https://github.com/eclipse-velocitas/vehicle-app-python-sdk/releases/tag/v0.15.7"
+  },
+  {
+    "url": "https://grpc.io/docs/languages/python/basics/",
+    "status": 200,
+    "resolved_url": "https://grpc.io/docs/languages/python/basics/"
+  },
+  {
+    "url": "https://grpc.io/docs/what-is-grpc/core-concepts/",
+    "status": 200,
+    "resolved_url": "https://grpc.io/docs/what-is-grpc/core-concepts/"
+  },
+  {
+    "url": "https://mosquitto.org/documentation/",
+    "status": 200,
+    "resolved_url": "https://mosquitto.org/documentation/"
+  },
+  {
+    "url": "https://projects.eclipse.org/projects/automotive.score",
+    "status": 200,
+    "resolved_url": "https://projects.eclipse.org/projects/automotive.score"
+  },
+  {
+    "url": "https://rauc.readthedocs.io/en/latest/basic.html",
+    "status": 200,
+    "resolved_url": "https://rauc.readthedocs.io/en/latest/basic.html"
+  },
+  {
+    "url": "https://slsa.dev/spec/v1.1/",
+    "status": 200,
+    "resolved_url": "https://slsa.dev/spec/v1.1/"
+  },
+  {
+    "url": "https://www.iso.org/standard/68383.html",
+    "status": 403
+  },
+  {
+    "url": "https://www.iso.org/standard/70918.html",
+    "status": 403
+  },
+  {
+    "url": "https://zenoh.io/docs/overview/what-is-zenoh/",
+    "status": 200,
+    "resolved_url": "https://zenoh.io/docs/overview/what-is-zenoh/"
+  }
+]

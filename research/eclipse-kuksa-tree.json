@@ -1,0 +1,1980 @@
+{
+  "sha": "a79e2420b319cedccd98298e2a75ee78cfca4b87",
+  "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/a79e2420b319cedccd98298e2a75ee78cfca4b87",
+  "tree": [
+    {
+      "path": ".devcontainer",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "28a442468be11eeda7c13fca385a6bb29149ebcb",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/28a442468be11eeda7c13fca385a6bb29149ebcb"
+    },
+    {
+      "path": ".devcontainer/Dockerfile",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a400ef8072e1bf79af0f3d1938f7863bf5701285",
+      "size": 1542,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/a400ef8072e1bf79af0f3d1938f7863bf5701285"
+    },
+    {
+      "path": ".devcontainer/devcontainer.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4799d9bed854fd9431e1b5c14ad976dba1d9d4ab",
+      "size": 630,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/4799d9bed854fd9431e1b5c14ad976dba1d9d4ab"
+    },
+    {
+      "path": ".devcontainer/postStartCommand.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "86fa2985a00ed41d4cc5cda9719ad0d725ae29a9",
+      "size": 488,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/86fa2985a00ed41d4cc5cda9719ad0d725ae29a9"
+    },
+    {
+      "path": ".dockerignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d13c0e3405d9b095e0b06d8244a97d35a28138aa",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/d13c0e3405d9b095e0b06d8244a97d35a28138aa"
+    },
+    {
+      "path": ".github/actions",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "91ed251fb6ad72b65e9f195dc1b3232ac63ee8b2",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/91ed251fb6ad72b65e9f195dc1b3232ac63ee8b2"
+    },
+    {
+      "path": ".github/actions/run-lib-tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5a2947ae151c4c36a3aa308ecae3c586b1739954",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/5a2947ae151c4c36a3aa308ecae3c586b1739954"
+    },
+    {
+      "path": ".github/actions/run-lib-tests/action.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "073ccbc539dd0c221d4ce6e3aa3c810a22a96d8c",
+      "size": 1021,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/073ccbc539dd0c221d4ce6e3aa3c810a22a96d8c"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "45ed7e8db6029b60dee5354a0f11f5ba0f273b48",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/45ed7e8db6029b60dee5354a0f11f5ba0f273b48"
+    },
+    {
+      "path": ".github/workflows/check_license.yml",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "fa0d9ef8731b61d2a6b12bbbabf6469e5133050d",
+      "size": 828,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/fa0d9ef8731b61d2a6b12bbbabf6469e5133050d"
+    },
+    {
+      "path": ".github/workflows/create_draft_release.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a72336ff45145a94733a96d5e38802c1ea70f01d",
+      "size": 2637,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/a72336ff45145a94733a96d5e38802c1ea70f01d"
+    },
+    {
+      "path": ".github/workflows/debug_build.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5171bb2ce19617bd925a10530fbc556d2d022845",
+      "size": 11434,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/5171bb2ce19617bd925a10530fbc556d2d022845"
+    },
+    {
+      "path": ".github/workflows/kuksa_databroker-cli_build.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "796cf0c03e377a6869768f45258b75e0ef8a2b91",
+      "size": 9051,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/796cf0c03e377a6869768f45258b75e0ef8a2b91"
+    },
+    {
+      "path": ".github/workflows/kuksa_databroker_build.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0b126c13378fa0c7e8f4947437aa13d8e5286c04",
+      "size": 12947,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/0b126c13378fa0c7e8f4947437aa13d8e5286c04"
+    },
+    {
+      "path": ".github/workflows/pre-commit.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d26fa3930dc86efc3f7c35b6f2202d58b3402654",
+      "size": 672,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/d26fa3930dc86efc3f7c35b6f2202d58b3402654"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec62d376bb9daad47d0af62aee13ed850ed34a82",
+      "size": 141,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/ec62d376bb9daad47d0af62aee13ed850ed34a82"
+    },
+    {
+      "path": ".gitmodules",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f14702eb389eccaa5073cd23f668afdc43d59a0",
+      "size": 90,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/9f14702eb389eccaa5073cd23f668afdc43d59a0"
+    },
+    {
+      "path": ".pre-commit-config.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3fe778d83bfec4b8c76bedba6c035bd455d83d3",
+      "size": 977,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/c3fe778d83bfec4b8c76bedba6c035bd455d83d3"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d943327077898a324960b94f2532b9e410ba2edb",
+      "size": 1687,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/d943327077898a324960b94f2532b9e410ba2edb"
+    },
+    {
+      "path": "Cargo.lock",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9bfac72fba6e6e98c62c591f8b848f2f1b5c7e6d",
+      "size": 125622,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/9bfac72fba6e6e98c62c591f8b848f2f1b5c7e6d"
+    },
+    {
+      "path": "Cargo.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae6ca9589a7bf2648d3c7fa7c11b724cb6ac011d",
+      "size": 1484,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/ae6ca9589a7bf2648d3c7fa7c11b724cb6ac011d"
+    },
+    {
+      "path": "Cross.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01203b328c01317fa3462b3556c2a78c178b91cc",
+      "size": 1355,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/01203b328c01317fa3462b3556c2a78c178b91cc"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "size": 11357,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "path": "NOTICE.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "05dbafe8fdac499395dd0a9d98a039b59293eb3b",
+      "size": 1143,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/05dbafe8fdac499395dd0a9d98a039b59293eb3b"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7aaeaa11fc4b974ea10cf271ea426ecf095a99e",
+      "size": 14331,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/e7aaeaa11fc4b974ea10cf271ea426ecf095a99e"
+    },
+    {
+      "path": "certificates",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9bc4ae0435b8a23986edfb8841d3eb23da1decf",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/a9bc4ae0435b8a23986edfb8841d3eb23da1decf"
+    },
+    {
+      "path": "certificates/CA.key",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d855c26b0f0f4301bc759e0bf74db6c944623e4",
+      "size": 1675,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/2d855c26b0f0f4301bc759e0bf74db6c944623e4"
+    },
+    {
+      "path": "certificates/CA.pem",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c92a60998b3781b6f0e5b3aa6d4c8fad7b4d046",
+      "size": 1342,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/0c92a60998b3781b6f0e5b3aa6d4c8fad7b4d046"
+    },
+    {
+      "path": "certificates/Client.key",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6168be8f08e93356e33e6cb0bc39eb3bc19afdb2",
+      "size": 1679,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/6168be8f08e93356e33e6cb0bc39eb3bc19afdb2"
+    },
+    {
+      "path": "certificates/Client.pem",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c20633c6c947a35e219cfe2c2d752b28608ca6af",
+      "size": 1704,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/c20633c6c947a35e219cfe2c2d752b28608ca6af"
+    },
+    {
+      "path": "certificates/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c679b0bf01bd823549f30f34274eef4eff121328",
+      "size": 2442,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/c679b0bf01bd823549f30f34274eef4eff121328"
+    },
+    {
+      "path": "certificates/Server.key",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e0e5f9a0789e1e10057a0ce3b42ac48594decbb",
+      "size": 1679,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/2e0e5f9a0789e1e10057a0ce3b42ac48594decbb"
+    },
+    {
+      "path": "certificates/Server.pem",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e410082efea53122ac2fee40eae0f6dafdaabe0b",
+      "size": 1704,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/e410082efea53122ac2fee40eae0f6dafdaabe0b"
+    },
+    {
+      "path": "certificates/jwt",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5c5db488b69147cbf8d907b99227c4f30c9b460c",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/5c5db488b69147cbf8d907b99227c4f30c9b460c"
+    },
+    {
+      "path": "certificates/jwt/jwt.key",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1adf10541adbf13ce34478848abd005c31ce325c",
+      "size": 3243,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/1adf10541adbf13ce34478848abd005c31ce325c"
+    },
+    {
+      "path": "certificates/jwt/jwt.key.pub",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9f7853418ec5a1c5817739417d133154423a798",
+      "size": 800,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/d9f7853418ec5a1c5817739417d133154423a798"
+    },
+    {
+      "path": "data",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "509e7a7f75c70c99be8b88992965abf6e6b429b0",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/509e7a7f75c70c99be8b88992965abf6e6b429b0"
+    },
+    {
+      "path": "data/vss-core",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1499be95de8380a44a8377cb51d5720b9ff6fb64",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/1499be95de8380a44a8377cb51d5720b9ff6fb64"
+    },
+    {
+      "path": "data/vss-core/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4adde6a47e80ca7b5be73082de2d4dfbb57ef3ce",
+      "size": 4890,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/4adde6a47e80ca7b5be73082de2d4dfbb57ef3ce"
+    },
+    {
+      "path": "data/vss-core/vss_release_2.0.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ccf3430c7241aa8ba99bce933532413628965641",
+      "size": 574433,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/ccf3430c7241aa8ba99bce933532413628965641"
+    },
+    {
+      "path": "data/vss-core/vss_release_2.1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6d838e8be85861c596a71d626226862278523d0",
+      "size": 319563,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/a6d838e8be85861c596a71d626226862278523d0"
+    },
+    {
+      "path": "data/vss-core/vss_release_2.2.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cee3b0b1efae2791ab3ecde1f14dddb5b39942c1",
+      "size": 320354,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/cee3b0b1efae2791ab3ecde1f14dddb5b39942c1"
+    },
+    {
+      "path": "data/vss-core/vss_release_3.0.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5d32adc5569bac76e3b6292b12d8d1ea1957ff6c",
+      "size": 219192,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/5d32adc5569bac76e3b6292b12d8d1ea1957ff6c"
+    },
+    {
+      "path": "data/vss-core/vss_release_3.1.1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3183f26c1667a20a60ee894739fc28d7e19028b",
+      "size": 238244,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/c3183f26c1667a20a60ee894739fc28d7e19028b"
+    },
+    {
+      "path": "data/vss-core/vss_release_4.0.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f6b4cc07555bf3b8bf0bbe1a5d4fb40888062e5",
+      "size": 259898,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/8f6b4cc07555bf3b8bf0bbe1a5d4fb40888062e5"
+    },
+    {
+      "path": "data/vss-core/vss_release_5.1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "073d1f8561d65694c895ab033cd6f00d2aed3a6d",
+      "size": 348311,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/073d1f8561d65694c895ab033cd6f00d2aed3a6d"
+    },
+    {
+      "path": "data/vss-core/vss_release_6.0.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e28032f4b8ae36cb0ca43fe08fcb3f7be159f98f",
+      "size": 325953,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/e28032f4b8ae36cb0ca43fe08fcb3f7be159f98f"
+    },
+    {
+      "path": "databroker-cli",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "46a484d396068be85f14252d47c15c472a66b313",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/46a484d396068be85f14252d47c15c472a66b313"
+    },
+    {
+      "path": "databroker-cli/Cargo.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "693991c5ab80e64030a8a35d5e36612d7a5e2d11",
+      "size": 1508,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/693991c5ab80e64030a8a35d5e36612d7a5e2d11"
+    },
+    {
+      "path": "databroker-cli/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3da9af0aff75f2ec9b6a400e4fc94c23efff54d1",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/3da9af0aff75f2ec9b6a400e4fc94c23efff54d1"
+    },
+    {
+      "path": "databroker-cli/src/cli.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "82aa496f8ba616a4acab92987fd3f1c7e96c94d3",
+      "size": 12557,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/82aa496f8ba616a4acab92987fd3f1c7e96c94d3"
+    },
+    {
+      "path": "databroker-cli/src/kuksa_cli.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "323fca047b999339a82f87a0e21fd5a318717316",
+      "size": 56700,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/323fca047b999339a82f87a0e21fd5a318717316"
+    },
+    {
+      "path": "databroker-cli/src/main.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "abb928a8d65e96567c51775cdffd442829096126",
+      "size": 1005,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/abb928a8d65e96567c51775cdffd442829096126"
+    },
+    {
+      "path": "databroker-proto",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5fadd8cde633ad596e95db86ee71905b37443692",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/5fadd8cde633ad596e95db86ee71905b37443692"
+    },
+    {
+      "path": "databroker-proto/Cargo.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a0108babda7fe97469cbb57809d317db1ae60d0e",
+      "size": 987,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/a0108babda7fe97469cbb57809d317db1ae60d0e"
+    },
+    {
+      "path": "databroker-proto/build.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d0f2b3455407e8bd576b21ace7b50b803165cf28",
+      "size": 1847,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/d0f2b3455407e8bd576b21ace7b50b803165cf28"
+    },
+    {
+      "path": "databroker-proto/proto",
+      "mode": "120000",
+      "type": "blob",
+      "sha": "4d1e2d8b96ba0a719d95aaa74dbabcfdfde928b3",
+      "size": 9,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/4d1e2d8b96ba0a719d95aaa74dbabcfdfde928b3"
+    },
+    {
+      "path": "databroker-proto/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "175688fc6727209a2a017d079c0cd2a170b24b4a",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/175688fc6727209a2a017d079c0cd2a170b24b4a"
+    },
+    {
+      "path": "databroker-proto/src/lib.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cc3d9919e92616d4d2403836387b707f9ab38ed0",
+      "size": 6734,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/cc3d9919e92616d4d2403836387b707f9ab38ed0"
+    },
+    {
+      "path": "databroker",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3eafc605aee952e22b8a8aeffdbdca7f4a1cb7cc",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/3eafc605aee952e22b8a8aeffdbdca7f4a1cb7cc"
+    },
+    {
+      "path": "databroker/Cargo.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "19e7024dc5cc3c98f727a162515eaa51b36246e2",
+      "size": 3331,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/19e7024dc5cc3c98f727a162515eaa51b36246e2"
+    },
+    {
+      "path": "databroker/Cross.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "028e0e3be90ca046c18ffbce197e75c5a8acf6ea",
+      "size": 73,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/028e0e3be90ca046c18ffbce197e75c5a8acf6ea"
+    },
+    {
+      "path": "databroker/build.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f3d5cbf3b21a6d7fe81f789d0fd85c61871ef9a",
+      "size": 1007,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/3f3d5cbf3b21a6d7fe81f789d0fd85c61871ef9a"
+    },
+    {
+      "path": "databroker/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5972ba56f8d3adfc2e98468cfe59a986ddb90de2",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/5972ba56f8d3adfc2e98468cfe59a986ddb90de2"
+    },
+    {
+      "path": "databroker/src/authorization",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ded3c6742fde8fae71a67055d66190bc63cfdc9f",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/ded3c6742fde8fae71a67055d66190bc63cfdc9f"
+    },
+    {
+      "path": "databroker/src/authorization/jwt",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1fdb86bc2ab8b9c1f40e56a89c1bed96ea7158f8",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/1fdb86bc2ab8b9c1f40e56a89c1bed96ea7158f8"
+    },
+    {
+      "path": "databroker/src/authorization/jwt/decoder.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3f834109281bcf8910496a93cbde59e61f07fbf",
+      "size": 14336,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/c3f834109281bcf8910496a93cbde59e61f07fbf"
+    },
+    {
+      "path": "databroker/src/authorization/jwt/mod.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8edae8a92a9e4a3b994f983af13abd810899fe4a",
+      "size": 625,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/8edae8a92a9e4a3b994f983af13abd810899fe4a"
+    },
+    {
+      "path": "databroker/src/authorization/jwt/scope.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "263b277d155cc2b642883724b3cd1f24abb9525d",
+      "size": 8444,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/263b277d155cc2b642883724b3cd1f24abb9525d"
+    },
+    {
+      "path": "databroker/src/authorization/mod.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1edfa02fb109203de56415ff3ae335f4d7e6b963",
+      "size": 1077,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/1edfa02fb109203de56415ff3ae335f4d7e6b963"
+    },
+    {
+      "path": "databroker/src/broker.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "63fcd2957becded29169fc0131fd22dd0d96b672",
+      "size": 176638,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/63fcd2957becded29169fc0131fd22dd0d96b672"
+    },
+    {
+      "path": "databroker/src/filter",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4cf471b94e5481d2cee0c9ce905f079daf8d800a",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/4cf471b94e5481d2cee0c9ce905f079daf8d800a"
+    },
+    {
+      "path": "databroker/src/filter/filter_manager.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6d47d05c66002298c7ea80f08a508936d0889b0a",
+      "size": 9939,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/6d47d05c66002298c7ea80f08a508936d0889b0a"
+    },
+    {
+      "path": "databroker/src/filter/mod.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9ace61e850423ebac38170290a94b12f9523bfb4",
+      "size": 581,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/9ace61e850423ebac38170290a94b12f9523bfb4"
+    },
+    {
+      "path": "databroker/src/glob.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f3a3f75e990efd366a0bcb587010960a7ec8b1e",
+      "size": 147420,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/8f3a3f75e990efd366a0bcb587010960a7ec8b1e"
+    },
+    {
+      "path": "databroker/src/grpc",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e79747fa52ca9101ed0b79f198298c93caea0a01",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/e79747fa52ca9101ed0b79f198298c93caea0a01"
+    },
+    {
+      "path": "databroker/src/grpc/kuksa_val_v1",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ae1b45d396f49cab2517aaa2b3626ec3780a4659",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/ae1b45d396f49cab2517aaa2b3626ec3780a4659"
+    },
+    {
+      "path": "databroker/src/grpc/kuksa_val_v1/conversions.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3f438745b475d312b92f3e06b5b13effbdd0c83",
+      "size": 15093,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/c3f438745b475d312b92f3e06b5b13effbdd0c83"
+    },
+    {
+      "path": "databroker/src/grpc/kuksa_val_v1/mod.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2da4088277c72797495ef197efc0c11f44bf75e1",
+      "size": 583,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/2da4088277c72797495ef197efc0c11f44bf75e1"
+    },
+    {
+      "path": "databroker/src/grpc/kuksa_val_v1/val.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93bc66e68c32301e18964b149638a81160e68e15",
+      "size": 63877,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/93bc66e68c32301e18964b149638a81160e68e15"
+    },
+    {
+      "path": "databroker/src/grpc/kuksa_val_v2",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f664b19afe300e27786b0652733a74900344b377",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/f664b19afe300e27786b0652733a74900344b377"
+    },
+    {
+      "path": "databroker/src/grpc/kuksa_val_v2/conversions.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "36c6a872d1bac6e0ac4e3af6e0b356b6b94e89ed",
+      "size": 24871,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/36c6a872d1bac6e0ac4e3af6e0b356b6b94e89ed"
+    },
+    {
+      "path": "databroker/src/grpc/kuksa_val_v2/mod.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "88302b1988e76a87735395a0f520134d36dbbc07",
+      "size": 583,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/88302b1988e76a87735395a0f520134d36dbbc07"
+    },
+    {
+      "path": "databroker/src/grpc/kuksa_val_v2/val.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "62cb6f71fe0e8d2eacda7adc068defed1277b1fd",
+      "size": 153537,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/62cb6f71fe0e8d2eacda7adc068defed1277b1fd"
+    },
+    {
+      "path": "databroker/src/grpc/mod.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9cf8bb4a8bb9ce7b628789c11f30e52889864866",
+      "size": 610,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/9cf8bb4a8bb9ce7b628789c11f30e52889864866"
+    },
+    {
+      "path": "databroker/src/grpc/server.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8ff2d9be1101162eecbea27d28ef9303e325d451",
+      "size": 8365,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/8ff2d9be1101162eecbea27d28ef9303e325d451"
+    },
+    {
+      "path": "databroker/src/lib.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6bb8fe693b7c236dfb6b4541b21b936bac1ddf15",
+      "size": 2842,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/6bb8fe693b7c236dfb6b4541b21b936bac1ddf15"
+    },
+    {
+      "path": "databroker/src/main.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "186cea237e3ec709dd29fb89aa9233f9dbe82957",
+      "size": 22975,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/186cea237e3ec709dd29fb89aa9233f9dbe82957"
+    },
+    {
+      "path": "databroker/src/open_telemetry.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f2979770498ab218a6f0978b8898f212a6c562d",
+      "size": 5750,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/6f2979770498ab218a6f0978b8898f212a6c562d"
+    },
+    {
+      "path": "databroker/src/permissions.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f9b0f5d3b26f2fefb76ac492210b14a422437ddb",
+      "size": 9212,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/f9b0f5d3b26f2fefb76ac492210b14a422437ddb"
+    },
+    {
+      "path": "databroker/src/types.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c3251908d4779ac823a32645cbbd955cabf15c1",
+      "size": 37785,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/5c3251908d4779ac823a32645cbbd955cabf15c1"
+    },
+    {
+      "path": "databroker/src/viss",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "daa5cd682463c501058a7b311e9e6610ee5bf3e8",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/daa5cd682463c501058a7b311e9e6610ee5bf3e8"
+    },
+    {
+      "path": "databroker/src/viss/mod.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "31a6e7d611ae260aee818d4edde133779f3f1bc3",
+      "size": 585,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/31a6e7d611ae260aee818d4edde133779f3f1bc3"
+    },
+    {
+      "path": "databroker/src/viss/server.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a70d30023b6d203f81f43b29e937b8dab10f6a8",
+      "size": 12201,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/7a70d30023b6d203f81f43b29e937b8dab10f6a8"
+    },
+    {
+      "path": "databroker/src/viss/v2",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "955800cb5205bd3c8ca48805d404199c385ec1c0",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/955800cb5205bd3c8ca48805d404199c385ec1c0"
+    },
+    {
+      "path": "databroker/src/viss/v2/conversions.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a209cb6ada8ce7c2f0a63f5462a9f64baa9925cd",
+      "size": 15964,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/a209cb6ada8ce7c2f0a63f5462a9f64baa9925cd"
+    },
+    {
+      "path": "databroker/src/viss/v2/mod.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "74df5c54dfbb235238369b300679ee4c812e84ef",
+      "size": 639,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/74df5c54dfbb235238369b300679ee4c812e84ef"
+    },
+    {
+      "path": "databroker/src/viss/v2/server.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "197a82ec05680238b4a156e5dee95a822846534b",
+      "size": 22505,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/197a82ec05680238b4a156e5dee95a822846534b"
+    },
+    {
+      "path": "databroker/src/viss/v2/types.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb49267fbe3f4c312df44e46fe9f2ac95373c86a",
+      "size": 19038,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/bb49267fbe3f4c312df44e46fe9f2ac95373c86a"
+    },
+    {
+      "path": "databroker/src/vss.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6d2540edf24560be6dcbfbb304db3b7c2533242",
+      "size": 28970,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/a6d2540edf24560be6dcbfbb304db3b7c2533242"
+    },
+    {
+      "path": "databroker/tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "356af52de19331506250e5d19afdcfbd748b8d4a",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/356af52de19331506250e5d19afdcfbd748b8d4a"
+    },
+    {
+      "path": "databroker/tests/features",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8b12a177ec4a25fd7429bb496ff680e726bd5ce4",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/8b12a177ec4a25fd7429bb496ff680e726bd5ce4"
+    },
+    {
+      "path": "databroker/tests/features/read_write_values.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "58a0c21bc115c8f31ce0667440c4fddbd73f26ed",
+      "size": 11071,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/58a0c21bc115c8f31ce0667440c4fddbd73f26ed"
+    },
+    {
+      "path": "databroker/tests/read_write_values.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8e4d74d0fc31d7fed4dac360f191a8cc4f75eae5",
+      "size": 16035,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/8e4d74d0fc31d7fed4dac360f191a8cc4f75eae5"
+    },
+    {
+      "path": "databroker/tests/world",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0d5fa9476e511e90efd6a0e14ce05c00e8fe729f",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/0d5fa9476e511e90efd6a0e14ce05c00e8fe729f"
+    },
+    {
+      "path": "databroker/tests/world/mod.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ebb499c20f3b0dc603473e716dc6f3a448d146ee",
+      "size": 15806,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/ebb499c20f3b0dc603473e716dc6f3a448d146ee"
+    },
+    {
+      "path": "doc",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "bc61119ea390a83c3037be3329204db4e8762e47",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/bc61119ea390a83c3037be3329204db4e8762e47"
+    },
+    {
+      "path": "doc/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "00f6a03d6e454ef37fccc336d515d63f751f06d4",
+      "size": 1311,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/00f6a03d6e454ef37fccc336d515d63f751f06d4"
+    },
+    {
+      "path": "doc/TYPES.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e99f26e6e7e745a14572a4ef19f169fa2f0375f",
+      "size": 2734,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/1e99f26e6e7e745a14572a4ef19f169fa2f0375f"
+    },
+    {
+      "path": "doc/authorization.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e9f9bc8e077905757ff58e5150ccc2bc894c6e93",
+      "size": 27230,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/e9f9bc8e077905757ff58e5150ccc2bc894c6e93"
+    },
+    {
+      "path": "doc/behavior.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c6f4f0a3392c8a149985dd7f7deb6250d208319",
+      "size": 1344,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/5c6f4f0a3392c8a149985dd7f7deb6250d208319"
+    },
+    {
+      "path": "doc/debugging.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "082cee0122b4997fd15e9156585a3c81c2531af5",
+      "size": 1125,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/082cee0122b4997fd15e9156585a3c81c2531af5"
+    },
+    {
+      "path": "doc/deployment.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4b35a2784bf9ad7c2e1a59c65c230c6b869b7087",
+      "size": 10165,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/4b35a2784bf9ad7c2e1a59c65c230c6b869b7087"
+    },
+    {
+      "path": "doc/diagrams",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "92e4ea11502cb8b1be0a82c2e06bbe9c0be0018d",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/92e4ea11502cb8b1be0a82c2e06bbe9c0be0018d"
+    },
+    {
+      "path": "doc/diagrams/consumer_actuate.drawio",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "806e9f34f3fe4ba7a3c6e4c936a8568fd983a15b",
+      "size": 11925,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/806e9f34f3fe4ba7a3c6e4c936a8568fd983a15b"
+    },
+    {
+      "path": "doc/diagrams/consumer_actuate.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d684b0efa0b4e6c5af554b4756134e2e9c97c5b6",
+      "size": 18326,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/d684b0efa0b4e6c5af554b4756134e2e9c97c5b6"
+    },
+    {
+      "path": "doc/diagrams/consumer_actuate_multiple_providers.drawio",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57ee71a75adfec48c57535d576b506326369e77e",
+      "size": 19458,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/57ee71a75adfec48c57535d576b506326369e77e"
+    },
+    {
+      "path": "doc/diagrams/consumer_actuate_multiple_providers.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24c5c6da27306d021932fcd50a131af43983ad12",
+      "size": 28523,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/24c5c6da27306d021932fcd50a131af43983ad12"
+    },
+    {
+      "path": "doc/diagrams/consumer_get_values.drawio",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad0a38f447531341fca8e1fec70aa34344cfeeda",
+      "size": 14556,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/ad0a38f447531341fca8e1fec70aa34344cfeeda"
+    },
+    {
+      "path": "doc/diagrams/consumer_get_values.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fe2780c93fd96ce1800a800813bc741fb7bedbc",
+      "size": 22851,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/7fe2780c93fd96ce1800a800813bc741fb7bedbc"
+    },
+    {
+      "path": "doc/diagrams/consumer_provider_list_metadata.drawio",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd39f6abe068a38908e4a51f11901ec454b54afa",
+      "size": 6255,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/fd39f6abe068a38908e4a51f11901ec454b54afa"
+    },
+    {
+      "path": "doc/diagrams/consumer_provider_list_metadata.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f83682bff9ea63d78cf7b5ec45bb513cdce3399b",
+      "size": 11074,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/f83682bff9ea63d78cf7b5ec45bb513cdce3399b"
+    },
+    {
+      "path": "doc/diagrams/consumer_provider_server_info.drawio",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "840695d621fae1b719bbf0ef4fe07bedc45993aa",
+      "size": 6582,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/840695d621fae1b719bbf0ef4fe07bedc45993aa"
+    },
+    {
+      "path": "doc/diagrams/consumer_provider_server_info.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "550f08f4fe9ae88952258dbdb67a1d3f83873d41",
+      "size": 10922,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/550f08f4fe9ae88952258dbdb67a1d3f83873d41"
+    },
+    {
+      "path": "doc/diagrams/consumer_subscribes.drawio",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "37e4aa32bf4bf7055c7c518b1b250b0910f7f547",
+      "size": 25302,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/37e4aa32bf4bf7055c7c518b1b250b0910f7f547"
+    },
+    {
+      "path": "doc/diagrams/consumer_subscribes.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e8fa7da639d0bb47226341de6dfc256ef1ce3f49",
+      "size": 36559,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/e8fa7da639d0bb47226341de6dfc256ef1ce3f49"
+    },
+    {
+      "path": "doc/diagrams/provider_publish.drawio",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6fa4b5590354219ed1bc733f27285f9916604739",
+      "size": 17447,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/6fa4b5590354219ed1bc733f27285f9916604739"
+    },
+    {
+      "path": "doc/diagrams/provider_publish.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4988dddd705da81a672548a31529c5d97801204f",
+      "size": 26114,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/4988dddd705da81a672548a31529c5d97801204f"
+    },
+    {
+      "path": "doc/diagrams/provider_recv_actuation.drawio",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3dd9739176d9427c88a4ea3ec70e43eb39d69fe7",
+      "size": 8707,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/3dd9739176d9427c88a4ea3ec70e43eb39d69fe7"
+    },
+    {
+      "path": "doc/diagrams/provider_recv_actuation.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec95e79f3bc470db1094ce8e6d4bbe9252979db9",
+      "size": 14089,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/ec95e79f3bc470db1094ce8e6d4bbe9252979db9"
+    },
+    {
+      "path": "doc/kuksa_analysis.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "af6534d8b170a59910a5745573a3c0c9ce42f260",
+      "size": 755,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/af6534d8b170a59910a5745573a3c0c9ce42f260"
+    },
+    {
+      "path": "doc/kuksa_analysis",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f199b0f5b7f971b18682de02fb8436a022dab489",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/f199b0f5b7f971b18682de02fb8436a022dab489"
+    },
+    {
+      "path": "doc/kuksa_analysis/kuksa_design_topics.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae1b6b7adcc8c2bdb4e5be153076d9441a50b120",
+      "size": 36121,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/ae1b6b7adcc8c2bdb4e5be153076d9441a50b120"
+    },
+    {
+      "path": "doc/kuksa_analysis/kuksa_requirements.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ceef743fc104188bc16d670ade0a34a0d19830f1",
+      "size": 11107,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/ceef743fc104188bc16d670ade0a34a0d19830f1"
+    },
+    {
+      "path": "doc/kuksa_analysis/kuksa_use_cases.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5bb15296c1defdcd2e459106d88966ff33449284",
+      "size": 10255,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/5bb15296c1defdcd2e459106d88966ff33449284"
+    },
+    {
+      "path": "doc/opentelemetry",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1a494f400e4110afd762c1604f385750eee2fdb1",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/1a494f400e4110afd762c1604f385750eee2fdb1"
+    },
+    {
+      "path": "doc/opentelemetry/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fac18c8ae1b24d2afb998dceaa23421677b6b478",
+      "size": 6992,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/fac18c8ae1b24d2afb998dceaa23421677b6b478"
+    },
+    {
+      "path": "doc/opentelemetry/config-jaeger.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "83fea0cc052b319727639c4742eb2d34c373b366",
+      "size": 1751,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/83fea0cc052b319727639c4742eb2d34c373b366"
+    },
+    {
+      "path": "doc/opentelemetry/config-otel-collector.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "11843a38e8033d97d3180147d1af75e49724fce7",
+      "size": 595,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/11843a38e8033d97d3180147d1af75e49724fce7"
+    },
+    {
+      "path": "doc/opentelemetry/prometheus.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aaa0aa19b6891f0f316f7cd1d33f6f97f469a452",
+      "size": 92,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/aaa0aa19b6891f0f316f7cd1d33f6f97f469a452"
+    },
+    {
+      "path": "doc/pictures",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7f9ba4ef91b2840a686187cd760a52db284c7838",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/7f9ba4ef91b2840a686187cd760a52db284c7838"
+    },
+    {
+      "path": "doc/pictures/client-taxonomy.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8399c91e227c1dc083478565b2228ae946585572",
+      "size": 16606,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/8399c91e227c1dc083478565b2228ae946585572"
+    },
+    {
+      "path": "doc/pictures/databroker.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e510b9d6db5fb6f8883a75325992be63e7704473",
+      "size": 12848,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/e510b9d6db5fb6f8883a75325992be63e7704473"
+    },
+    {
+      "path": "doc/pictures/deployment_artifacts.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "015141a5ea78810614c21c8eaa416118112baea0",
+      "size": 204624,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/015141a5ea78810614c21c8eaa416118112baea0"
+    },
+    {
+      "path": "doc/pictures/deployment_blueprint1.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9995725e34094cb85ba7251df2627bae7bfd7578",
+      "size": 218284,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/9995725e34094cb85ba7251df2627bae7bfd7578"
+    },
+    {
+      "path": "doc/pictures/deployment_blueprint2.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "48bb2a5b015de50bdc6d2164ce0bcb905a335fca",
+      "size": 291752,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/48bb2a5b015de50bdc6d2164ce0bcb905a335fca"
+    },
+    {
+      "path": "doc/pictures/deployment_blueprint3.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "70ddd325b4742a71d8342b838857f6359bb12547",
+      "size": 449967,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/70ddd325b4742a71d8342b838857f6359bb12547"
+    },
+    {
+      "path": "doc/pictures/deployment_blueprint4.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "41782e9a3265db52cb21db00236e71a0a3329c87",
+      "size": 1066488,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/41782e9a3265db52cb21db00236e71a0a3329c87"
+    },
+    {
+      "path": "doc/pictures/logo.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "522d23e4971e497da30f24f3c3b24eda3cc17e97",
+      "size": 20852,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/522d23e4971e497da30f24f3c3b24eda3cc17e97"
+    },
+    {
+      "path": "doc/pictures/logo2.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50bdde4059cd8832890aa30738a93085923bf5e6",
+      "size": 92889,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/50bdde4059cd8832890aa30738a93085923bf5e6"
+    },
+    {
+      "path": "doc/pictures/sysarch_basic.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e280d44f9e0816436329306078dd75b06bd28361",
+      "size": 315434,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/e280d44f9e0816436329306078dd75b06bd28361"
+    },
+    {
+      "path": "doc/pictures/sysarch_consumers.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9469c3052bfcc26ec152d93794c9b5e237cc9e70",
+      "size": 346162,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/9469c3052bfcc26ec152d93794c9b5e237cc9e70"
+    },
+    {
+      "path": "doc/pictures/sysarch_deployment.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2944d326bd2dece2891f9f7f0214fd23a78424d",
+      "size": 630727,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/a2944d326bd2dece2891f9f7f0214fd23a78424d"
+    },
+    {
+      "path": "doc/pictures/sysarch_providers.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7c5babd99cbcb2a80cd5e75594530e45c5af9985",
+      "size": 525678,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/7c5babd99cbcb2a80cd5e75594530e45c5af9985"
+    },
+    {
+      "path": "doc/pictures/terminology.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3c8a39a080f79eba9cce123c2958297ea1115be9",
+      "size": 117491,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/3c8a39a080f79eba9cce123c2958297ea1115be9"
+    },
+    {
+      "path": "doc/pictures/unified_databroker.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "32d1e4ae0056475c3852b8394367068476b44070",
+      "size": 11916,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/32d1e4ae0056475c3852b8394367068476b44070"
+    },
+    {
+      "path": "doc/protocol.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f8696bd9cdebc44b6dce031d61cd7118baf441f4",
+      "size": 4272,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/f8696bd9cdebc44b6dce031d61cd7118baf441f4"
+    },
+    {
+      "path": "doc/quickstart.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b02bb8232516cee881de1706e3bd91f64cdae7b4",
+      "size": 6382,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/b02bb8232516cee881de1706e3bd91f64cdae7b4"
+    },
+    {
+      "path": "doc/system-architecture.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f05a2d5262c90f4b5c838eb3f60c01c4fa5867da",
+      "size": 8355,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/f05a2d5262c90f4b5c838eb3f60c01c4fa5867da"
+    },
+    {
+      "path": "doc/terminology.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5736f7738612de075a212d7a7550a0d0ef5ff497",
+      "size": 8883,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/5736f7738612de075a212d7a7550a0d0ef5ff497"
+    },
+    {
+      "path": "doc/tls.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73f94632b4e9eb4d6a6f772786dd499bd7b666db",
+      "size": 4032,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/73f94632b4e9eb4d6a6f772786dd499bd7b666db"
+    },
+    {
+      "path": "doc/user_guide.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3b5f8162866d9e1d2584af7ea133bdbfc00969dd",
+      "size": 16087,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/3b5f8162866d9e1d2584af7ea133bdbfc00969dd"
+    },
+    {
+      "path": "doc/wildcard_matching.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2534c99e52630f9d7d74638d106172f1191d4ee",
+      "size": 2830,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/f2534c99e52630f9d7d74638d106172f1191d4ee"
+    },
+    {
+      "path": "integration_test",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b8d01a3b404cdb668d99b4f4d7e30878d9a38e99",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/b8d01a3b404cdb668d99b4f4d7e30878d9a38e99"
+    },
+    {
+      "path": "integration_test/provider.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f18816e4b9ca98b769ffa028aed17b65a949e1b",
+      "size": 11392,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/4f18816e4b9ca98b769ffa028aed17b65a949e1b"
+    },
+    {
+      "path": "integration_test/requirements-dev.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ddfc57157f815ae596957f1d9b6650952146b33b",
+      "size": 32,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/ddfc57157f815ae596957f1d9b6650952146b33b"
+    },
+    {
+      "path": "integration_test/requirements.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d62c83ec23b798d62b451f812cdbea2255b2059f",
+      "size": 82,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/d62c83ec23b798d62b451f812cdbea2255b2059f"
+    },
+    {
+      "path": "integration_test/run.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "9e098cb1b39cbd2b78562b9c9266cf61a4ee1868",
+      "size": 2257,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/9e098cb1b39cbd2b78562b9c9266cf61a4ee1868"
+    },
+    {
+      "path": "integration_test/test_databroker.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2f85eebda6754a50ed7220a9b9b16bd19ff82b48",
+      "size": 6978,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/2f85eebda6754a50ed7220a9b9b16bd19ff82b48"
+    },
+    {
+      "path": "integration_test/update-proto.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "a138361f04d7e23b99a85497419ec88e0ce2394b",
+      "size": 1468,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/a138361f04d7e23b99a85497419ec88e0ce2394b"
+    },
+    {
+      "path": "integration_test/viss",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8b2b44997d79f00b6abb5c1dd87458a92b85e95a",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/8b2b44997d79f00b6abb5c1dd87458a92b85e95a"
+    },
+    {
+      "path": "integration_test/viss/STEPS.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7d21874f9f46764ee114fa22a9701bac8d63f93",
+      "size": 7094,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/c7d21874f9f46764ee114fa22a9701bac8d63f93"
+    },
+    {
+      "path": "integration_test/viss/conftest.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0783bd5ba548139161c4bda3e39476c039743da4",
+      "size": 2216,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/0783bd5ba548139161c4bda3e39476c039743da4"
+    },
+    {
+      "path": "integration_test/viss/features",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1a62f0fa003c67297a746982257cc3b28cf2dd48",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/1a62f0fa003c67297a746982257cc3b28cf2dd48"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v2_basic.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f6c57be2e143c2ef20b72f4d404006f73c463c4a",
+      "size": 2467,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/f6c57be2e143c2ef20b72f4d404006f73c463c4a"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v2_bulk_updates.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6889867b671d79f4b06afa6bd311aa5244f12e0b",
+      "size": 2324,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/6889867b671d79f4b06afa6bd311aa5244f12e0b"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v2_core_authorization.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "425add0355287ebed9f9dc87ac09fe781fccd19e",
+      "size": 948,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/425add0355287ebed9f9dc87ac09fe781fccd19e"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v2_core_read.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0da5b6d4f202dba97dc49a81628571e97cea5dd",
+      "size": 1107,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/c0da5b6d4f202dba97dc49a81628571e97cea5dd"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v2_core_subscribe.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9af526eee6e206e1bf48412faa164980c52ee1f7",
+      "size": 1631,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/9af526eee6e206e1bf48412faa164980c52ee1f7"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v2_core_unsubscribe.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f016766d8c90401ec0da2f1325e8db0615ce157a",
+      "size": 537,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/f016766d8c90401ec0da2f1325e8db0615ce157a"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v2_core_update.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ac77a718543831872e761a8c46143fe1e3795da",
+      "size": 1044,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/6ac77a718543831872e761a8c46143fe1e3795da"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v2_history_data.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "36b82bc6f56ef63b36c1cc7abf6c18b48eea5c35",
+      "size": 2909,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/36b82bc6f56ef63b36c1cc7abf6c18b48eea5c35"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v2_multiple_paths.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c69a3aeed1d5f8bed7579257c640925172485642",
+      "size": 1596,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/c69a3aeed1d5f8bed7579257c640925172485642"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v2_server_capabilities.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e1a1618724e2271924cde56c531ee423732d895",
+      "size": 574,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/2e1a1618724e2271924cde56c531ee423732d895"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v2_transport_http_read.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0b170f5c7974494f09b032317eed01f19d63fbfc",
+      "size": 935,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/0b170f5c7974494f09b032317eed01f19d63fbfc"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v2_transport_mqtt_read.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5040e91e359fea3d1e89163efc6af4f5a62837f4",
+      "size": 1163,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/5040e91e359fea3d1e89163efc6af4f5a62837f4"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v2_transport_wss_filter.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2da4e298f31d6d2dec14d0e94fa050fae0eebfa9",
+      "size": 2836,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/2da4e298f31d6d2dec14d0e94fa050fae0eebfa9"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v3_basic.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "467331d634ff9b0fc39692e07585a9c86d82cdcd",
+      "size": 2494,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/467331d634ff9b0fc39692e07585a9c86d82cdcd"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v3_core_read.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a170dc1f1f40c8c7a71c5cc6285cb8ce0912aff3",
+      "size": 2493,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/a170dc1f1f40c8c7a71c5cc6285cb8ce0912aff3"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v3_transport_grpc.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "60162bada86ac506a1ba3b4741835703905f3418",
+      "size": 496,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/60162bada86ac506a1ba3b4741835703905f3418"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v3_transport_http.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d8920724b10a5717aea43470e9649eee6e4d015",
+      "size": 496,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/7d8920724b10a5717aea43470e9649eee6e4d015"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v3_transport_mqtt.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "596b7147d0cf44ed920fafa7e359a7648efe485a",
+      "size": 496,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/596b7147d0cf44ed920fafa7e359a7648efe485a"
+    },
+    {
+      "path": "integration_test/viss/features/viss_v3_transport_wss.feature",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "733e11cee0874e12ab5869f4e4c72d1566f6f811",
+      "size": 506,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/733e11cee0874e12ab5869f4e4c72d1566f6f811"
+    },
+    {
+      "path": "integration_test/viss/mosquitto-config",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "564e1a22b46488d50a1d09acd9a202539f3eeeeb",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/564e1a22b46488d50a1d09acd9a202539f3eeeeb"
+    },
+    {
+      "path": "integration_test/viss/mosquitto-config/mosquitto.conf",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "853a93dccaba67d01d49db3b790b3173bec6767a",
+      "size": 446,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/853a93dccaba67d01d49db3b790b3173bec6767a"
+    },
+    {
+      "path": "integration_test/viss/pytest.ini",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7333e954174af784e5be49a3f94f49646ded8c75",
+      "size": 643,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/7333e954174af784e5be49a3f94f49646ded8c75"
+    },
+    {
+      "path": "integration_test/viss/readme.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a57586507979062473a3cd7d0bc8bf9932e8477e",
+      "size": 3190,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/a57586507979062473a3cd7d0bc8bf9932e8477e"
+    },
+    {
+      "path": "integration_test/viss/requirements.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3bc0e2ec40adf71107ada5beb562929de29be3c",
+      "size": 119,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/c3bc0e2ec40adf71107ada5beb562929de29be3c"
+    },
+    {
+      "path": "integration_test/viss/tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "77011836f5271f580e59403debe516505d6f905a",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/77011836f5271f580e59403debe516505d6f905a"
+    },
+    {
+      "path": "integration_test/viss/tests/test_steps",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3f55897daa820eff938368033739320fdddbdbd7",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/3f55897daa820eff938368033739320fdddbdbd7"
+    },
+    {
+      "path": "integration_test/viss/tests/test_steps/http_viss_client.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d6934f17e5d7641fb83557ade6d7ed40c12f4ab7",
+      "size": 5294,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/d6934f17e5d7641fb83557ade6d7ed40c12f4ab7"
+    },
+    {
+      "path": "integration_test/viss/tests/test_steps/mqtt_mock_databroker.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0777b9c0ab65b40901b1e634e96fd7b1b2f92ef8",
+      "size": 4308,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/0777b9c0ab65b40901b1e634e96fd7b1b2f92ef8"
+    },
+    {
+      "path": "integration_test/viss/tests/test_steps/mqtt_viss_client.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed483ff17dab0e50f0038eec210af917baf4c980",
+      "size": 8658,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/ed483ff17dab0e50f0038eec210af917baf4c980"
+    },
+    {
+      "path": "integration_test/viss/tests/test_steps/types.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c96730b7b94fa4e23e28be5d7926193a9aebf1aa",
+      "size": 949,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/c96730b7b94fa4e23e28be5d7926193a9aebf1aa"
+    },
+    {
+      "path": "integration_test/viss/tests/test_steps/viss_v2_steps.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "52167c2fa3f8edcf3139f451245d109b046254f7",
+      "size": 30631,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/52167c2fa3f8edcf3139f451245d109b046254f7"
+    },
+    {
+      "path": "integration_test/viss/tests/test_steps/websockets_viss_client.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a716d80aa9aa36fd6bd7322dddd28d937983f07a",
+      "size": 6406,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/a716d80aa9aa36fd6bd7322dddd28d937983f07a"
+    },
+    {
+      "path": "integration_test/viss/tests/test_viss_v2.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f02128c2f2f1b2b4be4bbc7c3bb4d33db6ba0b20",
+      "size": 1697,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/f02128c2f2f1b2b4be4bbc7c3bb4d33db6ba0b20"
+    },
+    {
+      "path": "integration_test/viss/tests/test_viss_v3.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "343eeb68d6f820682c30de29254165b0ae33b381",
+      "size": 1231,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/343eeb68d6f820682c30de29254165b0ae33b381"
+    },
+    {
+      "path": "jwt",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fb9ecb1831c4e36ac38f7dd943b5e0db8f4801a7",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/fb9ecb1831c4e36ac38f7dd943b5e0db8f4801a7"
+    },
+    {
+      "path": "jwt/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f7e29d70d872ef9b63eca501df8ac8438a72c2b7",
+      "size": 1066,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/f7e29d70d872ef9b63eca501df8ac8438a72c2b7"
+    },
+    {
+      "path": "jwt/actuate-provide-all.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "958827d354424ba60bd42f6468d7a84b76357d08",
+      "size": 155,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/958827d354424ba60bd42f6468d7a84b76357d08"
+    },
+    {
+      "path": "jwt/actuate-provide-all.token",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb250147990b35de7580c42f6af8c290091bce32",
+      "size": 884,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/fb250147990b35de7580c42f6af8c290091bce32"
+    },
+    {
+      "path": "jwt/provide-all.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e1d2c0424af54b91be67687099735eeb3b8536ba",
+      "size": 147,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/e1d2c0424af54b91be67687099735eeb3b8536ba"
+    },
+    {
+      "path": "jwt/provide-all.token",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f7f37a987d4325fa69bbbfb5e0cc22331376b550",
+      "size": 873,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/f7f37a987d4325fa69bbbfb5e0cc22331376b550"
+    },
+    {
+      "path": "jwt/provide-vehicle-speed.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b37839a47f6d48311206ecd74989dc58039335f",
+      "size": 161,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/8b37839a47f6d48311206ecd74989dc58039335f"
+    },
+    {
+      "path": "jwt/provide-vehicle-speed.token",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6363e817b559557b0f75bba7bfe3873e29600cd0",
+      "size": 892,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/6363e817b559557b0f75bba7bfe3873e29600cd0"
+    },
+    {
+      "path": "jwt/read-all.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2022340e35d5588cc4ac1d528e2f069f033e75ac",
+      "size": 144,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/2022340e35d5588cc4ac1d528e2f069f033e75ac"
+    },
+    {
+      "path": "jwt/read-all.token",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1d838c82b5a8388c763ac388422912202a1b9a24",
+      "size": 869,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/1d838c82b5a8388c763ac388422912202a1b9a24"
+    },
+    {
+      "path": "jwt/read-vehicle-speed.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ca50f617efb693c43441edef1b613a56c76a567a",
+      "size": 158,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/ca50f617efb693c43441edef1b613a56c76a567a"
+    },
+    {
+      "path": "jwt/read-vehicle-speed.token",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d3dbf2fb12adbca43924f520f06aa10a8499f2c",
+      "size": 888,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/4d3dbf2fb12adbca43924f520f06aa10a8499f2c"
+    },
+    {
+      "path": "lib",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c1f082f45fd00af8399ce83542b9142c1b741012",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/c1f082f45fd00af8399ce83542b9142c1b741012"
+    },
+    {
+      "path": "lib/Cargo.lock",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cc095f85f37da740bfd5047615b6c5049dae889c",
+      "size": 34627,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/cc095f85f37da740bfd5047615b6c5049dae889c"
+    },
+    {
+      "path": "lib/Cargo.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f8e92b7c671f62225b07eccf0faaf64694057fa5",
+      "size": 523,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/f8e92b7c671f62225b07eccf0faaf64694057fa5"
+    },
+    {
+      "path": "lib/common",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "800995343550d02fb1d8e2258ebd91df0f1d19d1",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/800995343550d02fb1d8e2258ebd91df0f1d19d1"
+    },
+    {
+      "path": "lib/common/Cargo.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "95b2b80f80b9b034dbc03c081de29fae0a39d5c4",
+      "size": 1135,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/95b2b80f80b9b034dbc03c081de29fae0a39d5c4"
+    },
+    {
+      "path": "lib/common/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "471ea1ca341f5bd0b935c566411917d6f6f5aaad",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/471ea1ca341f5bd0b935c566411917d6f6f5aaad"
+    },
+    {
+      "path": "lib/common/src/conversion.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9865d92f18c72ebc2b70dcfc6921698f2b1a669d",
+      "size": 58529,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/9865d92f18c72ebc2b70dcfc6921698f2b1a669d"
+    },
+    {
+      "path": "lib/common/src/lib.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad4a3480dcf807ec2e7a6d640e33fe70b3e1c176",
+      "size": 16247,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/ad4a3480dcf807ec2e7a6d640e33fe70b3e1c176"
+    },
+    {
+      "path": "lib/common/src/types.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "445b0e0ce7585a5e94ecfc214e54fb4a33593ece",
+      "size": 2893,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/445b0e0ce7585a5e94ecfc214e54fb4a33593ece"
+    },
+    {
+      "path": "lib/databroker-examples",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "96b3805e3c528293422854a512520083a4d2323c",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/96b3805e3c528293422854a512520083a4d2323c"
+    },
+    {
+      "path": "lib/databroker-examples/Cargo.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e05c12e98a28cae64fc7fc6d007964fa59ac6374",
+      "size": 404,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/e05c12e98a28cae64fc7fc6d007964fa59ac6374"
+    },
+    {
+      "path": "lib/databroker-examples/examples",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "aa304446a99504603ffb9c389225f4b051b515c5",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/aa304446a99504603ffb9c389225f4b051b515c5"
+    },
+    {
+      "path": "lib/databroker-examples/examples/kuksa_val_v2.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fd93f119e505a9fbd244e38d76da1f7c1ad9272",
+      "size": 10178,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/7fd93f119e505a9fbd244e38d76da1f7c1ad9272"
+    },
+    {
+      "path": "lib/databroker-examples/examples/slow_subscriber.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d17e6c6d7871e5059e7b18f0bed15a901f39fd75",
+      "size": 1603,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/d17e6c6d7871e5059e7b18f0bed15a901f39fd75"
+    },
+    {
+      "path": "lib/databroker-examples/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7ecad4a5322ae73356d134cff0118932f856c05f",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/7ecad4a5322ae73356d134cff0118932f856c05f"
+    },
+    {
+      "path": "lib/databroker-examples/src/lib.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57e46ce14a5cc86a0ba5702ab484f417e62f877a",
+      "size": 556,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/57e46ce14a5cc86a0ba5702ab484f417e62f877a"
+    },
+    {
+      "path": "lib/kuksa",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "86a0794640f3c33aee8bafbc481a90ab78d24ce1",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/86a0794640f3c33aee8bafbc481a90ab78d24ce1"
+    },
+    {
+      "path": "lib/kuksa/Cargo.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fc646550c2525570a638a98a386418d38a6b8685",
+      "size": 1070,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/fc646550c2525570a638a98a386418d38a6b8685"
+    },
+    {
+      "path": "lib/kuksa/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "698884991148222d6b7ec95fd62ce604e19f2495",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/698884991148222d6b7ec95fd62ce604e19f2495"
+    },
+    {
+      "path": "lib/kuksa/src/lib.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "de45c4dc2eb5edea3c982e0b580962e72fcfe7ad",
+      "size": 10242,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/de45c4dc2eb5edea3c982e0b580962e72fcfe7ad"
+    },
+    {
+      "path": "lib/kuksa_val_v2",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "338ee87e99b3186b35217ee519c3bc1770bf7fc4",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/338ee87e99b3186b35217ee519c3bc1770bf7fc4"
+    },
+    {
+      "path": "lib/kuksa_val_v2/Cargo.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb1306d359d0bb866a3b60934b63e291b854d2c9",
+      "size": 654,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/bb1306d359d0bb866a3b60934b63e291b854d2c9"
+    },
+    {
+      "path": "lib/kuksa_val_v2/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "cc505be473c66dffa160c58e739f9813236b3614",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/cc505be473c66dffa160c58e739f9813236b3614"
+    },
+    {
+      "path": "lib/kuksa_val_v2/src/lib.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7900b1574863a95a499cbd8e16afd74bb6240085",
+      "size": 52034,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/7900b1574863a95a499cbd8e16afd74bb6240085"
+    },
+    {
+      "path": "proto",
+      "mode": "160000",
+      "type": "commit",
+      "sha": "28bf76ae57085dad425eedd95bc7bd442e1314a7"
+    },
+    {
+      "path": "scripts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ea624b506d8b047d293113a091327bbf1c71195d",
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/trees/ea624b506d8b047d293113a091327bbf1c71195d"
+    },
+    {
+      "path": "scripts/Dockerfile",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a75cbbbedd3a7829c37cbbbc5b64c624da130ae6",
+      "size": 2332,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/a75cbbbedd3a7829c37cbbbc5b64c624da130ae6"
+    },
+    {
+      "path": "scripts/Dockerfile-cli",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d7abc655e3f85eda1a2344b95af201f838db502",
+      "size": 2361,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/3d7abc655e3f85eda1a2344b95af201f838db502"
+    },
+    {
+      "path": "scripts/build-databroker-cli.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "e9e09c979bc87584ccc23cf9b79fb6d2a331a291",
+      "size": 5002,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/e9e09c979bc87584ccc23cf9b79fb6d2a331a291"
+    },
+    {
+      "path": "scripts/build-databroker.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "fc5950e846d71b7aacf94c035539b1f17bb08e1d",
+      "size": 5376,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/fc5950e846d71b7aacf94c035539b1f17bb08e1d"
+    },
+    {
+      "path": "scripts/licensecuration.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a5d87cc0ce4bab7f2de15d70c20864fe0376498",
+      "size": 869,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/3a5d87cc0ce4bab7f2de15d70c20864fe0376498"
+    },
+    {
+      "path": "scripts/prepare_release.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "0dcd602a4a250af6463bdf2c802b12f6b92b4f4c",
+      "size": 2014,
+      "url": "https://api.github.com/repos/eclipse-kuksa/kuksa-databroker/git/blobs/0dcd602a4a250af6463bdf2c802b12f6b92b4f4c"
+    }
+  ],
+  "truncated": false
+}

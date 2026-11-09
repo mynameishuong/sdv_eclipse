@@ -1,0 +1,5 @@
+path,type,datatype,unit,owner,description
+Vehicle.Speed,sensor,float,km/h,provider,COVESA VSS 6.1 signal
+Vehicle.Powertrain.TractionBattery.StateOfCharge.Current,sensor,float,percent,provider,COVESA VSS 6.1 physical SOC signal
+Vehicle.Lab.BatteryTemperature,sensor,float,celsius,provider,Project extension: simulated representative temperature
+Vehicle.Lab.AdvisoryMode,sensor,string,,advisor,Project extension: NORMAL WARN CRITICAL UNKNOWN

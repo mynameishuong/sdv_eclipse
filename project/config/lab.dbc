@@ -1,0 +1,21 @@
+VERSION "SDV learning lab private CAN protocol 1.0"
+
+NS_ :
+    CM_
+    BA_DEF_
+    BA_
+    VAL_
+
+BS_:
+
+BU_: SimulatedECU Gateway
+
+BO_ 801 LabThermalStatus: 8 SimulatedECU
+ SG_ VehicleSpeed : 0|16@1+ (0.01,0) [0|300] "km/h" Gateway
+ SG_ PhysicalSOC : 16|16@1+ (0.01,0) [0|100] "percent" Gateway
+ SG_ BatteryTemperature : 32|16@1- (0.1,0) [-40|120] "celsius" Gateway
+ SG_ Counter : 48|8@1+ (1,0) [0|255] "" Gateway
+ SG_ Validity : 56|8@1+ (1,0) [0|255] "" Gateway
+
+CM_ BO_ 801 "Private teaching protocol. Not an OEM or standardized message. Gateway assigns receive timestamp.";
+VAL_ 801 Validity 0 "Invalid" 1 "Valid";
